@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="keywords" content="有赞,移动电商服务平台">
+  <meta name="description" content="">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="cleartype" content="on">
+  <meta name="referrer" content="always">
+  <link rel="shortcut icon" href="https://b.yzcdn.cn/v2/image/yz_fc.ico">
+   <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+  {% block base_style %}
+    {{ loadCss('pc/base') | safe }}
+  {% endblock %}
+
+  {% block project_style %}
+  {% endblock %}
+
+  {% block page_style %}
+  {% endblock %}
+
+  <script>
+    {# window._global = {{ _global | safe }} #}
+  </script>
+</head>
+
+<body>
+  {% block base_header %}
+  {% endblock %}
+
+  {% block page_content %}
+  {% endblock %}
+
+  {% block base_footer %}
+  {% endblock %}
+
+  {% block base_script %}
+    {{ loadJs('pc/build/vendors') | safe }}
+  {% endblock %}
+
+  {% block project_script %}
+  {% endblock %}
+
+  {% block page_script %}
+  {% endblock %}
+
+  {% block tongji_script %}
+  {% endblock %}
+</body>
+
+</html>

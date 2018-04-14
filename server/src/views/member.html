@@ -1,0 +1,38 @@
+{% extends './common/base.html' %}
+{% block page_script %}
+  {{ loadJs('js/src/login') | safe }}
+{% endblock %}
+
+{% block page_content %}
+<div id="app" v-cloak>
+    <router-view></router-view>
+  </div>
+    
+    <h3>获取会员信息</h3>
+    <form id="login" action="/api/login" method="post">
+        <label for="username">用户名：</label>
+        <input type="text" name="name" id="name">
+        <label for="passwd">密码：</label>
+        <input type="password" name="password" id="password">
+        <button id="submit" value="提交">查询</button>
+    </form>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script>
+
+$("#submit").bind('click', function(e) {
+    e.preventDefault()
+        $.ajax({
+            url: '/api/getUserInfo',
+            type: 'post',
+            data: {
+                user_name: $("#name").val(),
+                password: $("#password").val(),
+            },
+            success: function(data) {
+                console.log(data);
+            }
+        })
+})
+    </script>
+   
+{% endblock %}
