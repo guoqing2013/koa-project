@@ -1,21 +1,12 @@
-import React, {Component} from 'react'
+import React from 'react';
 import ReactDOM from 'react-dom'
-import './index.scss'
+import { Provider } from 'react-redux'
+import configureStore from './store/configureStore'
+import Root from './root'
+const store = configureStore();
 
-export default class Person extends Component {
-
-  back = () => {
-    history.go(-1)
-  }
-
-  render() {
-    return (
-      <div>
-        register page
-        <div className="back" onClick={this.back}>back</div>
-      </div>
-    )
-  }
-}
-
-ReactDOM.render(<Person />, document.getElementById('app'))
+ReactDOM.render(
+    <Root store={store} />,
+    document.getElementById('app')
+);
+ReactDOM.render(<Root  />, document.getElementById('app'))
