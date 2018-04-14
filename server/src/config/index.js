@@ -19,11 +19,11 @@ let config = {
   },
   debug:false,
   env:'production',
-  mongoConfig: { // 数据库配置
+  mysql: { // 数据库配置
     url: 'mongodb://localhost:27017/kov-blog',
     opts:{
-      user:'',
-      pass:''
+      user:'root',
+      pass:'123456'
     }
   },
   'jwt': {

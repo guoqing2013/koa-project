@@ -6,7 +6,7 @@ const path = require('path')
 // const AutoEscapeExtension = require('./nunjucks/extensions/autoescape')
 // const mapKeysToSnakeCase = require('zan-utils/string/mapKeysToSnakeCase')
 
-let env = nunjucks.configure('server/views', {
+let env = nunjucks.configure('src/views', {
   autoescape: true,
     // throwOnUndefined: !(NODE_ENV === 'production' || NODE_ENV === 'prod'),
     // throwOnUndefined: !(NODE_ENV === 'production' || NODE_ENV === 'prod'),

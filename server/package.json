@@ -38,9 +38,10 @@
     "koa-views": "^6.1.4",
     "koa2-history-api-fallback": "0.0.5",
     "lodash": "^4.17.5",
-    "mysql": "^2.15.0",
+    "mysql2": "^1.5.3",
     "nunjucks": "^3.1.2",
     "palin": "^2.2.0",
+    "sequelize": "^4.37.6",
     "yenv": "^1.0.6"
   },
   "devDependencies": {
