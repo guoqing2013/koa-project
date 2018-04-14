@@ -1,6 +1,7 @@
 import config from './config/index'
 import Sequelize from 'sequelize'
 
+// console.log('config', config)
 
 const sequelize = new Sequelize(`mysql://${config.mysql.opts.user}:${config.mysql.opts.pass}@localhost/todolist`, {
   define: {

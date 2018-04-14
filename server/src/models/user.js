@@ -9,8 +9,8 @@ const User = sequelize.define('user', {
     autoIncrement: true // 是否自增
   },
   mobile: {
-    type: Sequelize.DataTypes.INTEGER(11),
-    // type: Sequelize.DataTypes.CHAR(11),
+    // type: Sequelize.DataTypes.INTEGER(11),
+    type: Sequelize.DataTypes.CHAR(11),
     allowNull: false,
     unique: true
   },
