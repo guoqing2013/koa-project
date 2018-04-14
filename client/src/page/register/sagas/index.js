@@ -3,10 +3,12 @@ import axios from 'axios'
 // import fetch from 'isomorphic-fetch'
 import {SUBMIT_REGISTER} from '../constants/index'
 import * as actions from '../actions/index'
+import { urls } from '../../../config/setting'
+console.log(urls)
 // import { selectedRedditSelector, postsByRedditSelector } from '../reducers/selectors'
 
 export function fetchRegisterApi(payload) {
-  return axios.post('http://localhost:8889/api/register', payload)
+  return axios.post(urls.REGISTER_URL, payload)
   .then((response) => {
     return {response};
   })
