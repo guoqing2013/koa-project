@@ -42,7 +42,6 @@ const user = {
 const register = async (ctx) => {
   const data = ctx.request.body
   const passwd = bcrypt.hashSync(data.password, bcrypt.genSaltSync(8), null)
-  try {
   await User
     .findOrCreate({
       where: {
@@ -66,9 +65,7 @@ const register = async (ctx) => {
         }
       }
     })
-  } catch (e) {
-    console.log(e)
-  }
+
 }
 
 const getUserInfo = async function (ctx) {
