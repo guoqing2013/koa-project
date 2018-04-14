@@ -7,7 +7,8 @@ import Main from '../components/Main'
 import './index.css';
 
 const Root = ({ store }) => 
-     (
+  {
+ return (
       <Provider store={store}>
         <div className="container">
           <Header title="免费注册" />
@@ -16,9 +17,10 @@ const Root = ({ store }) =>
         </div>
       </Provider>
     );
+  }
 
 Root.propTypes = {
-  store: PropTypes.object.isRequired,
+  store: PropTypes.object
 }
 
 export default Root;

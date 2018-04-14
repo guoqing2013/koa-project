@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './index.css'
-console.log(styles)
 const Header = ({ title }) => {
     return (
         // <div className={styles.header}>

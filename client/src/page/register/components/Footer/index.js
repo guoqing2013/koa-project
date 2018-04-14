@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './index.css'
-console.log(11, styles)
 
 const Footer = () => {
     return (
