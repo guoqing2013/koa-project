@@ -51,8 +51,7 @@ app.use(async function (ctx, next) {
   console.log('%s %s - %s', ctx.method, ctx.url, ms)
 })
 
-// app.use(serve(path.join(__dirname, '../static')))
-app.use(serve(path.join(__dirname, '../client')))
+app.use(serve(path.join(__dirname, '../../')))
 
 nunjucksMiddleWare()
 

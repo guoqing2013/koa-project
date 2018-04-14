@@ -1,4 +1,4 @@
-# Koa Boilerplate
+# Koa Project
 
 ✨ A boilerplate for writing beautiful `async-await`-based Koa API's using `babel` for **Node v8.0 and above!**. 🚀
 

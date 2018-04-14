@@ -15,7 +15,7 @@
 
 
   {% block base_style %}
-    {{ loadCss('pc/base') | safe }}
+    {{ loadCss('client/base') | safe }}
   {% endblock %}
 
   {% block project_style %}
@@ -40,7 +40,7 @@
   {% endblock %}
 
   {% block base_script %}
-    {{ loadJs('pc/build/vendors') | safe }}
+    {{ loadJs('client/build/vendors') | safe }}
   {% endblock %}
 
   {% block project_script %}
