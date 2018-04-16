@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Root from './root';
-import configureStore from './store/configureStore';
 import registerServiceWorker from './registerServiceWorker';
-import './setting/ajax'
 
-const store = configureStore();
+import './index.css';
+import 'zent/css/index.css'; // eslint-disable-line
 
-ReactDOM.render(
-    <Root store={store} />,
-    document.getElementById('app')
-);
+import './global';
+import Routes from './routes';
 
+const mountNode = document.getElementById('app-container');
+ReactDOM.render(<Routes />, mountNode);
 registerServiceWorker();
+

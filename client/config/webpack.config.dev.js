@@ -1,7 +1,5 @@
 'use strict';
 
-var utils = require('./utils')
-
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
@@ -24,12 +22,6 @@ const publicUrl = '';
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
 
-
-
-
-
-
-
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
@@ -40,8 +32,7 @@ module.exports = {
   // These are the "entry points" to our application.
   // This means they will be the "root" imports that are included in JS bundle.
   // The first two entry points enable "hot" CSS and auto-refreshes for JS.
-  entry: utils.entries(),
- /*  [
+  entry: [
     // We ship a few polyfills by default:
     require.resolve('./polyfills'),
     // Include an alternative client for WebpackDevServer. A client's job is to
@@ -60,33 +51,21 @@ module.exports = {
     // We include the app code last so that if there is a runtime error during
     // initialization, it doesn't blow up the WebpackDevServer client, and
     // changing JS code would still trigger a refresh.
-
-  ], */
+  ],
   output: {
     // Add /* filename */ comments to generated require()s in the output.
-    // pathinfo: true,
-    // // This does not produce a real file. It's just the virtual path that is
-    // // served by WebpackDevServer in development. This is the JS bundle
-    // // containing code from all our entry points, and the Webpack runtime.
-    // filename: 'static/js/bundle.js',
-    // // There are also additional JS chunk files if you use code splitting.
-    // chunkFilename: 'static/js/[name].chunk.js',
-    // // This is the URL that app is served from. We use "/" in development.
-    // publicPath: publicPath,
-    // // Point sourcemap entries to original disk location (format as URL on Windows)
-    // devtoolModuleFilenameTemplate: info =>
-    //   path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
-
-
-
-      // path: config.build.assetsRoot,
-      path: publicPath,
-      filename: '[name].js',
-      publicPath: publicPath
-      // process.env.NODE_ENV === 'production'
-      //   ? config.build.assetsPublicPath
-      //   : config.dev.assetsPublicPath
-
+    pathinfo: true,
+    // This does not produce a real file. It's just the virtual path that is
+    // served by WebpackDevServer in development. This is the JS bundle
+    // containing code from all our entry points, and the Webpack runtime.
+    filename: 'static/js/bundle.js',
+    // There are also additional JS chunk files if you use code splitting.
+    chunkFilename: 'static/js/[name].chunk.js',
+    // This is the URL that app is served from. We use "/" in development.
+    publicPath: publicPath,
+    // Point sourcemap entries to original disk location (format as URL on Windows)
+    devtoolModuleFilenameTemplate: info =>
+      path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
   },
   resolve: {
     // This allows you to set a fallback for where Webpack should look for modules.
@@ -193,7 +172,7 @@ module.exports = {
                   // Necessary for external CSS imports to work
                   // https://github.com/facebookincubator/create-react-app/issues/2677
                   ident: 'postcss',
-                    plugins: () => [
+                  plugins: () => [
                     /* reset inherited rules */
                     require('postcss-initial')({
                       reset: 'inherited' // reset only inherited rules
@@ -220,11 +199,10 @@ module.exports = {
                     require('postcss-color-function'),
                     require('postcss-nested'),
                     require('postcss-flexbugs-fixes'),
-                    /* autoprefix for different browser vendors */
                     autoprefixer({
                       browsers: [
-                        '>1%', //“> 1%”表示全球使用率大于 1%的浏览器版本。
-                        'last 4 versions', //如“last 2 versions”表示主流浏览器的最近两个版本
+                        '>1%',
+                        'last 4 versions',
                         'Firefox ESR',
                         'not ie < 9', // React doesn't support IE8 anyway
                       ],
@@ -262,13 +240,12 @@ module.exports = {
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     // In development, this will be an empty string.
-    // new InterpolateHtmlPlugin(env.raw),
+    new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
-    // new HtmlWebpackPlugin({
-    //   inject: true,
-    //   template: paths.appHtml,
-    // }),
-
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: paths.appHtml,
+    }),
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),
     // Makes some environment variables available to the JS code, for example:
@@ -291,7 +268,7 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-  ].concat(utils.htmlPlugin()),
+  ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
   node: {
