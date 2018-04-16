@@ -1,4 +1,4 @@
-@import 'reset-css/reset.css';
+@import 'normalize.css';
 
 body {
   font-family: Helvetica, STHeiti, "Microsoft YaHei", Verdana, Arial, Tahoma, sans-serif;
