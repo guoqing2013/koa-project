@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 
 import CopyUrl from '../copy-url';
 
-import './style.pcss';
+import './style.css';
 
 export default withRouter(
   class HomePage extends Component {

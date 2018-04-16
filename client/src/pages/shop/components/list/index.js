@@ -7,7 +7,7 @@ import isString from 'lodash/isString';
 
 import CopyUrl from '../copy-url';
 
-import './style.pcss';
+import './style.css';
 
 export default class List extends Component {
   render() {

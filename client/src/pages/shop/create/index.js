@@ -37,7 +37,7 @@ import 'zan-design/css/cube/index.css';
 import 'zan-design/css/nav/index.css';
 import 'zan-design/css/richtext/index.css';
 import 'zan-design/css/title/index.css';
-import './style.pcss';
+import './style.css';
 
 const LINK_MENU_CONFIG = ['GoodsAndTag', 'HomePage', 'Link'];
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Pop, Notify, Input, CopyButton } from 'zent';
 
-import './styles.pcss';
+import './styles.css';
 
 export default Pop.withPop(
   class CopyUrlContent extends Component {

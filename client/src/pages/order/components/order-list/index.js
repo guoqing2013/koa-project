@@ -4,7 +4,7 @@ import map from 'lodash/map';
 
 import OrderItem from './OrderItem';
 
-import './style.pcss';
+import './style.css';
 
 class OrderList extends Component {
   render() {

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Breadcrumb } from 'zent';
 
-import './style.pcss';
+import './style.css';
 
 const Simple = activeArr => {
   const isSuperStore = window._global.isSuperStore;

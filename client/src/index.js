@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 
 import './index.css';
-import 'zent/css/index.css'; // eslint-disable-line
+import 'zent/css/index.css'; 
 
 import './global';
 import Routes from './routes';
