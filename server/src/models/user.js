@@ -3,7 +3,7 @@ import sequelize from '../sequelize'
 
 const User = sequelize.define('user', {
   id: {
-    type: Sequelize.DataTypes.INTEGER(11), // 字段类型
+    // type: Sequelize.DataTypes.INTEGER(11), // 字段类型
     allowNull: false, // 是否允许为NULL
     primaryKey: true, // 主键
     autoIncrement: true // 是否自增

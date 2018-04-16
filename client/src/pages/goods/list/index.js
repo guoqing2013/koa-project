@@ -49,20 +49,21 @@ export default class App extends Component {
     this.setState({
       loading: true
     });
-    Actions.fetchGoodList(param)
-      .then(({ list, page_info }) => {
-        this.setState({
-          list,
-          page_info,
-          loading: false
-        });
-      })
-      .catch(msg => {
-        Notify.error(msg);
-        this.setState({
-          loading: false
-        });
-      });
+    const res = Actions.fetchGoodList(param);
+    console.log(res)
+      // .then(({ list, page_info }) => {
+      //   this.setState({
+      //     list,
+      //     page_info,
+      //     loading: false
+      //   });
+      // })
+      // .catch(msg => {
+      //   Notify.error(msg);
+      //   this.setState({
+      //     loading: false
+      //   });
+      // });
   };
 
   handlePageChange = current => {

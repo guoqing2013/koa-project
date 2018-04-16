@@ -2,7 +2,7 @@ export const prefix =
   process.env.NODE_ENV === 'production' &&
   process.env.ZENT_DEPLOY_DEMO_YOUZAN_PRIVATE
     ? 'https://www.youzanyun.com/zanui/demo/zent'
-    : '';
+    : 'http://localhost:5000';
 
 window._global = {
   env: process.env.NODE_ENV,
