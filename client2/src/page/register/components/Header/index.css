@@ -1,0 +1,27 @@
+.header {
+    margin: 50px 0 30px;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 21px;
+    height: 24px;
+    a {
+        color: #38f;
+        text-decoration: none;
+    }
+    .header-logo {
+        float: left;
+        width: 70px;
+        height: 24px;
+        position: relative;
+        background: url(../../images/logo.png) no-repeat;
+        background-size: cover;
+    }
+    .header-title {
+        position: relative;
+        top: 7px;
+        font-size: 16px;
+        color: #333;
+        padding-left: 10px;
+        margin: 0 100px 0 80px;
+        border-left: 1px solid #e8e8e8;
+    }
+}
