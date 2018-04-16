@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Notify } from 'zent';
-import * as Actions from '../../../api/order';
+import * as Actions from '../../../api/goods';
 
 import Filter from '../components/filter';
 import OrderList from '../components/order-list';
@@ -49,7 +49,7 @@ export default class App extends Component {
     this.setState({
       loading: true
     });
-    Actions.fetchOrderList(param)
+    Actions.fetchGoodList(param)
       .then(({ list, page_info }) => {
         this.setState({
           list,
