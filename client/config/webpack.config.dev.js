@@ -97,6 +97,14 @@ module.exports = {
       // Make sure your source files are compiled, as they will not be processed in any way.
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
     ],
+
+    alias: {
+      common: path.resolve(__dirname, '../src/common'),
+      components: path.resolve(__dirname, '../src/components'),
+      api: path.resolve(__dirname, '../src/api'),
+      pages: path.resolve(__dirname, '../src/pages'),
+    }
+
   },
   module: {
     strictExportPresence: true,

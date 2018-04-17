@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Design, Button, Notify, BlockHeader } from 'zent';
-import * as api from '../../../../api/goods';
+import * as api from 'api/goods';
 import { Form, Radio, Checkbox, Button, Notify } from 'zent';
 const { Field, FormInputField, FormSelectField, FormRadioGroupField, FormCheckboxField, FormCheckboxGroupField, FormColorPickerField, FormDateRangePickerField, FormNumberInputField, FormSwitchField, createForm, SubmissionError } = Form;
 
