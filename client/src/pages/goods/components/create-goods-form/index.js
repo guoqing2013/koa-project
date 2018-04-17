@@ -1,7 +1,8 @@
 import React from 'react';
 // import { Design, Button, Notify, BlockHeader } from 'zent';
+import * as api from '../../../../api/goods';
 import { Form, Radio, Checkbox, Button, Notify } from 'zent';
-const { Field, FormInputField, FormSelectField, FormRadioGroupField, FormCheckboxField, FormCheckboxGroupField, FormColorPickerField, FormDateRangePickerField, FormNumberInputField, FormSwitchField, createForm } = Form;
+const { Field, FormInputField, FormSelectField, FormRadioGroupField, FormCheckboxField, FormCheckboxGroupField, FormColorPickerField, FormDateRangePickerField, FormNumberInputField, FormSwitchField, createForm, SubmissionError } = Form;
 
 class FieldForm extends React.Component {
   state = {
@@ -13,7 +14,45 @@ class FieldForm extends React.Component {
   }
 
   submit = (values, zentForm) => {
-    Notify.success(JSON.stringify(values));
+    values = {
+      retail_source: 'WEB-RETAIL-AJAX',
+      sku_no: 'tiaoxinma',
+      name: 'name33',
+      specifications: 'guige',
+      category_id: 305936,
+      photo_url: [{"url":"https://img.yzcdn.cn/public_files/2017/08/30/63a8d28bce4ca2e5d081e1e69926288e.jpg"}],
+      unit: '件',
+      vendor: {},
+      cost_price: '0',
+      stock_num: 3000,
+      source: 'WEB_BACK_END',
+      idempotent_no: 1523933651255
+    };
+    api
+      .createSku(values)
+      .then(data => {
+        // this.setState({
+        //   value: data
+        // });
+      })
+      // .catch(err => Notify.error(getRequestError(err)));
+
+    // Notify.success(JSON.stringify(values));
+    const promise = new Promise((resolve) => setTimeout(resolve, 1000));
+
+    return promise.then(() => {
+      const random = Math.random() * 10;
+      if (random > 4) {
+        zentForm.setFieldExternalErrors({
+          user: '用户名已被占用'
+        });
+        // 可以使用throw SubmissionError 在 onSubmitFail 中处理，也可以在这里直接 alert 错误信息
+        throw new SubmissionError('用户名已被占用');
+      } else {
+        // 可以将返回值传入到 onSubmitSuccess ，也可以直接在这里处理掉
+        return '注册成功';
+      }
+    });
   };
 
   resetForm = () => {
@@ -21,7 +60,9 @@ class FieldForm extends React.Component {
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, zentForm } = this.props;
+    const isSubmitting = zentForm.isSubmitting();
+    console.log('handleSubmit', this.props)
     return (
       <Form horizontal onSubmit={handleSubmit(this.submit)} >
         <FormInputField
@@ -95,7 +136,7 @@ class FieldForm extends React.Component {
         />
         
         <div className="zent-form__form-actions">
-          <Button type="primary" htmlType="submit">获取表单值</Button>
+          <Button type="primary" htmlType="submit" loading={isSubmitting}>保存</Button>
           <Button type="primary" outline onClick={this.resetForm}>重置表单值</Button>
         </div>
       </Form>

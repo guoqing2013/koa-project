@@ -181,12 +181,28 @@ export class Create extends Component {
             </Button>
             <Button onClick={this.notImplemented}>预览效果</Button>
           </div> */}
-          <CreateGoodsForm />
+          <CreateGoodsForm scrollToError onSubmitFail={this.onSubmitFail} onSubmitSuccess={this.onSubmitSuccess} />
         </div>
       </div>
     );
   }
 
+  /**
+   * 保存成功
+   */
+  onSubmitSuccess(result) {
+    Notify.success(result);
+  }
+
+  /**
+   * 保存失败
+   */
+  onSubmitFail(error) {
+    Notify.error(error);
+  }
+  
+
+ 
   onChange = newValue => {
     this.setState({
       value: newValue

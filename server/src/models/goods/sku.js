@@ -2,28 +2,52 @@
 import Sequelize from 'sequelize'
 import sequelize from '../../sequelize'
 
+/**
+ * 参考下: https://github.com/Rishabhk07/backend-news-app
+ */
+
 const Sku = sequelize.define('sku', {
-  sku_id: {
-    type: Sequelize.DataTypes.INTEGER(11),
-    allowNull: false,
+  sku_id: { // 商品库商品id
+    type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
-  user_id: {
-    type: Sequelize.DataTypes.INTEGER(11),
-    allowNull: false
+  retail_source: {
+    type: Sequelize.STRING
   },
-  content: {
-    type: Sequelize.DataTypes.CHAR(255),
-    allowNull: false
+  sku_no: {
+    type: Sequelize.STRING
   },
-  status: {
-    type: Sequelize.DataTypes.INTEGER(1),
-    allowNull: false,
-    comment: "I'm a comment!"
+  name: {
+    type: Sequelize.STRING
+  },
+  specifications: {
+    type: Sequelize.STRING
+  },
+  category_id: {
+    type: Sequelize.INTEGER
+    // allowNull: false
+  },
+  cost_price: {
+    type: Sequelize.STRING
+  },
+  photo_url: {
+    type: Sequelize.JSON
+  },
+  source: {
+    type: Sequelize.STRING
+  },
+  stock_num: {
+    type: Sequelize.INTEGER
+  },
+  unit: {
+    type: Sequelize.STRING
   }
+  // status: {
+  //   type: Sequelize.DataTypes.INTEGER(1)
+  // }
 }, {
-  tableName: 'goods_list'
+  tableName: 'sku'
 })
 
 sequelize.sync()

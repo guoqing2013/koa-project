@@ -1,11 +1,35 @@
 import jwt from 'jsonwebtoken'
-import Goods from '../../models/goods/sku'
+import Sku from '../../models/goods/sku'
 
 /**
  * 创建商品
  */
-export const create = async () => {
-  await 222
+export const create = async (ctx) => {
+  console.log(4344444444444444444444444444)
+  const body = ctx.request.body
+  try {
+    const sku = await Sku.create({
+      retail_source: 'WEB-RETAIL-AJAX',
+      sku_no: 'tiaoxinma',
+      name: 'name33',
+      specifications: 'guige',
+      category_id: 305936,
+      photo_url: [{'url': 'https://img.yzcdn.cn/public_files/2017/08/30/63a8d28bce4ca2e5d081e1e69926288e.jpg'}],
+      unit: '件',
+      // vendor: {},
+      cost_price: 333,
+      stock_num: 3000,
+      source: 'WEB_BACK_END',
+      idempotent_no: 1523933651255
+    })
+    ctx.response.type = 'application/json'
+    ctx.body = {
+      'response': 2270000,
+      sku_id: sku.get('sku_id')
+    }
+  } catch (e) {
+
+  }
 }
 
 /**
@@ -14,7 +38,7 @@ export const create = async () => {
 export const search = async (ctx) => {
   // const id = ctx.params.id // 获取url里传过来的参数里的id
   const id = 1
-  const result = await Goods.findAll({ // 查找全部的todolist
+  const result = await Sku.findAll({ // 查找全部的todolist
     where: {
       // user_id: id
     },
