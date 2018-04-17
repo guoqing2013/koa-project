@@ -102,7 +102,7 @@ class FieldForm extends React.Component {
           }}
         />
         <FormSelectField
-          name="kucundanwei"
+          name="unit"
           label="库存单位："
           data = {[
             { value: 1, text: '件' },
@@ -120,7 +120,7 @@ class FieldForm extends React.Component {
           validationErrors={{ required: '请选择类型' }}
         />
          <FormInputField
-          name="lastCostPrice"
+          name="costPrice"
           type="text"
           label="成本价："
           helpDesc="成本价由系统自动计算，如需调整可在成本调价进行修改"
