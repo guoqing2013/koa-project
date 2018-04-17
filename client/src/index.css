@@ -4412,3 +4412,22 @@ body.show-help #app-third-sidebar {
   content: "\E900";
   color: #cacaca
 }
+
+
+
+
+
+/* GuoQing新增 */
+.page .container {
+  position: relative;
+  margin: 10px;
+  padding: 15px;
+  min-width: 750px;
+  background: #fff;
+  min-height: -webkit-calc(100vh - 120px);
+  min-height: -moz-calc(100vh - 120px);
+  min-height: calc(100vh - 120px);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

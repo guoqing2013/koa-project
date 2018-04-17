@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import Goods from '../models/goods'
+import Goods from '../../models/goods/sku'
 
 /**
  * 创建商品

@@ -12,4 +12,3 @@ import Routes from './routes';
 const mountNode = document.getElementById('app-container');
 ReactDOM.render(<Routes />, mountNode);
 registerServiceWorker();
-

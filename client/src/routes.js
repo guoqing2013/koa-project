@@ -6,6 +6,7 @@ import PageShopCreate from './pages/shop/create';
 import PageShopEdit from './pages/shop/edit';
 import PageOrderList from './pages/order/list';
 import PageGoodList from './pages/goods/list';
+import PageGoodCreate from './pages/goods/create';
 import PageNotFound from './pages/404';
 
 export const prefix =
@@ -24,6 +25,7 @@ export default class Routes extends Component {
           <Route path="/paper" component={PageShopList} />
           <Route path="/order" component={PageOrderList} />
           <Route path="/goods/list" component={PageGoodList} />
+          <Route path="/goods/create" component={PageGoodCreate} />
           <Route component={PageNotFound} />
         </Switch>
       </Router>
