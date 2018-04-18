@@ -83,6 +83,9 @@ module.exports = {
     // `web` extension prefixes have been added for better support
     // for React Native Web.
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
+
+    // alias的索引路径
+    // 要注意的是多加索引路径可能会导致性能下降，所以除非项目复杂，否则慎用这个功能。
     alias: {
       
       // Support React Native Web

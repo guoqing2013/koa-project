@@ -8,7 +8,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 //商品库
 // import PageGoodStorageList from './pages/goods/storage/list';
-import PageGoodStorageCreate from './pages/goods/storage/create';
+import GoodStorageCreate from './pages/goods/storage/create';
+import GoodStorageList from './pages/goods/storage/list';
 
 import PageNotFound from './pages/404';
 
@@ -28,7 +29,8 @@ export default class Routes extends Component {
           <Route path="/paper" component={PageShopList} />
           <Route path="/order" component={PageOrderList} />
           <Route path="/goods/storage/list" component={PageGoodStorageList} /> */}
-          <Route path="/goods/storage/create" component={PageGoodStorageCreate} />
+          <Route path="/goods/storage/create" component={GoodStorageCreate} />
+          <Route path="/goods/storage/list" component={GoodStorageList} />
           <Route component={PageNotFound} />
         </Switch>
       </Router>
