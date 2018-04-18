@@ -46,7 +46,7 @@ import './style.css';
 
 
 
-import CreateGoodsForm from '../components/create-goods-form';
+import CreateGoodsForm from '../components/create-form';
 
 
 const LINK_MENU_CONFIG = ['GoodsAndTag', 'HomePage', 'Link'];
