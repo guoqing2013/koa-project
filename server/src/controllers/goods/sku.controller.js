@@ -50,12 +50,11 @@ export const create = async (ctx) => {
  */
 export const search = async (ctx) => {
   // const id = ctx.params.id // 获取url里传过来的参数里的id
-  const id = 1
   const result = await Sku.findAll({ // 查找全部的todolist
     where: {
       // user_id: id
-    },
-    attributes: ['id', 'content', 'status'] // 只需返回这三个字段的结果即可
+    }
+    // attributes: ['id', 'content', 'status'] // 只需返回这三个字段的结果即可
   })
   ctx.body = {
     success: true,
