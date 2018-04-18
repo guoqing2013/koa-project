@@ -56,10 +56,8 @@ export const search = async (ctx) => {
     }
     // attributes: ['id', 'content', 'status'] // 只需返回这三个字段的结果即可
   })
-  ctx.body = {
-    success: true,
-    result // 将请求的结果放到response的body里返回
-  }
+  ctx.body = {'response': {'paginator': {'pageSize': 20, 'page': 1, 'totalCount': 2}, 'items': [{'kdtId': 40497547, 'sellChannel': 1, 'lastCostPrice': 0, 'avgCostPrice': 0, 'overSoldNum': 0, 'specifications': '33', 'photoUrl': '[{"url":"https://img.yzcdn.cn/public_files/2017/08/30/63a8d28bce4ca2e5d081e1e69926288e.jpg"}]', 'createdAt': 1520915504000, 'unit': '件', 'stockLowWarning': true, 'sellStockCount': 0, 'name': '444444444', 'stockNum': 0, 'skuNo': '1234', 'categoryId': 305936, 'skuId': 5907196, 'status': 0, 'updatedAt': 1520915504000, 'stockHighWarning': false}, {'kdtId': 40497547, 'sellChannel': 6, 'lastCostPrice': 0, 'avgCostPrice': 0, 'overSoldNum': 0, 'specifications': '', 'photoUrl': '[{"url":"https://img.yzcdn.cn/upload_files/2015/05/14/FoMCEwRpIbleJqCh7A---MZ-JvUc.png"}]', 'createdAt': 1520734552000, 'unit': '件', 'stockLowWarning': false, 'sellStockCount': 100000, 'name': '实物商品（购买时需填写收货地址，测试商品，不发货，不退款）', 'stockNum': 100000, 'skuNo': 'P000000000000001', 'categoryId': 305936, 'skuId': 5903147, 'status': 0, 'updatedAt': 1520764795000, 'stockHighWarning': false}]}}
+
   // console.log(goodslist)
 }
 

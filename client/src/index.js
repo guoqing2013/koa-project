@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 
-import './index.css';
 import 'zent/css/index.css'; 
+import './index.css';
 
 import './global';
 import Routes from './routes';

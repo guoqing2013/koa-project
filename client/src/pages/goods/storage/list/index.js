@@ -3,7 +3,7 @@ import { Notify } from 'zent';
 import * as Actions from 'api/goods/storage';
 
 import Filter from '../components/filter';
-import OrderList from '../components/order-list';
+import StorageList from '../components/storage-list';
 import * as Helper from '../helper';
 
 import './style.css';
@@ -94,7 +94,7 @@ export default class App extends Component {
     return (
       <div className="order-list-page">
         <Filter {...filterInfo} handleFilterChange={this.fetchList} />
-        <OrderList
+        <StorageList
           list={list}
           pageInfo={pageInfo}
           loading={loading}

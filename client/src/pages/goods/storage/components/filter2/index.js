@@ -1,8 +1,9 @@
 
 import React, { Component } from 'react';
 import { Input, Select, Button, DatePicker, DateRangeQuickPicker } from 'zent';
+// import Field from './Field';
 import Filters from 'components/Filters';
-import FilterAction from 'components/FilterAction';
+import Field from 'components/Field';
 import TabsFilter from './TabsFilter';
 import * as Helper from '../../helper';
 import {
@@ -85,48 +86,6 @@ export default class Filter extends Component {
 
     return (
       <div className="trade-order-list__filter-div">
-        <Filters className="storage-list-filter" filters={
-          [
-            {
-              label: "商品名称或条码：",
-              component:  <Input
-                  name="feedback"
-                  value={feedback}
-                  data={Helper.transformSelectData(stateMap.feedback)}
-                  onChange={this.handleChange}
-                />
-            },
-            {
-              label: "商品分类：",
-              component:  <Select
-                  name="state"
-                  value={state}
-                  data={Helper.transformSelectData(stateMap[type])}
-                  onChange={this.handleChange}
-                />
-            },
-             {
-              label: "销售渠道：",
-              component:  <Select
-                  name="feedback"
-                  value={feedback}
-                  data={Helper.transformSelectData(stateMap.feedback)}
-                  onChange={this.handleChange}
-                />
-            },
-          ]
-        } />
-
-        <FilterAction
-          clearText="清空筛选条件"
-          confirmText="筛选"
-          exportLinkText="查看导出报表"
-          exportText="导出"
-          onConfirm={this.onSearch}
-          onClear={this.onClear}
-        />
-
-
 
 
 
@@ -136,6 +95,50 @@ export default class Filter extends Component {
 
 
         <div className="trade-order-list__filter">
+          
+
+
+          <div
+            className="trade-order-list__filter-row"
+            style={{ marginLeft: '110px' }}
+          >
+           <Field
+              label="商品名称或条码："
+              className="feedback-change-line-style"
+              content={
+                <Input
+                  name="feedback"
+                  value={feedback}
+                  data={Helper.transformSelectData(stateMap.feedback)}
+                  onChange={this.handleChange}
+                />
+              }
+            />
+            <Field
+              label="商品分类"
+              content={
+                <Select
+                  name="state"
+                  value={state}
+                  data={Helper.transformSelectData(stateMap[type])}
+                  onChange={this.handleChange}
+                />
+              }
+            />
+             <Field
+              label="销售渠道："
+              className="feedback-change-line-style"
+              content={
+                <Select
+                  name="feedback"
+                  value={feedback}
+                  data={Helper.transformSelectData(stateMap.feedback)}
+                  onChange={this.handleChange}
+                />
+              }
+            />
+           
+          </div>
 
 
           <div
