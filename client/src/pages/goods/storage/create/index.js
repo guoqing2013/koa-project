@@ -46,7 +46,7 @@ import './style.css';
 
 
 
-import CreateGoodsForm from 'pages/goods/components/storage/create-goods-form';
+import CreateGoodsForm from '../components/create-goods-form';
 
 console.log(1111111,__dirname);
 console.log(22,  __filename)

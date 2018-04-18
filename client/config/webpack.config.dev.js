@@ -88,6 +88,12 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
+
+
+      'common': path.resolve(__dirname, '../src/common'),
+      'components': path.resolve(__dirname, '../src/components'),
+      'api': path.resolve(__dirname, '../src/api'),
+      // 'pages': path.resolve(__dirname, '../src/pages'),
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -98,12 +104,6 @@ module.exports = {
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
     ],
 
-    alias: {
-      common: path.resolve(__dirname, '../src/common'),
-      components: path.resolve(__dirname, '../src/components'),
-      api: path.resolve(__dirname, '../src/api'),
-      pages: path.resolve(__dirname, '../src/pages'),
-    }
 
   },
   module: {
