@@ -4,7 +4,7 @@ import { Notify } from 'zent';
 import getRequestError from '../../../common/getRequestError';
 import assign from 'lodash/assign';
 
-import * as api from '../../../api/shop';
+import * as api from 'api/shop';
 
 function handleError(err) {
   Notify.error(getRequestError(err));

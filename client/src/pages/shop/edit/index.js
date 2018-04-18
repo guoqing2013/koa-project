@@ -1,7 +1,7 @@
 import { Notify } from 'zent';
-import getRequestError from '../../../common/getRequestError';
+import getRequestError from 'common/getRequestError';
 import { withRouter } from 'react-router-dom';
-import * as api from '../../../api/shop';
+import * as api from 'api/shop';
 
 import { Create } from '../create';
 

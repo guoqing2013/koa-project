@@ -48,9 +48,6 @@ import './style.css';
 
 import CreateGoodsForm from '../components/create-goods-form';
 
-console.log(1111111,__dirname);
-console.log(22,  __filename)
-console.log(22,  process.cwd())
 
 const LINK_MENU_CONFIG = ['GoodsAndTag', 'HomePage', 'Link'];
 

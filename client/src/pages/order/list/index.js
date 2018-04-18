@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Notify } from 'zent';
-import * as Actions from '../../../api/order';
+import * as Actions from 'api/order';
 
 import Filter from '../components/filter';
 import OrderList from '../components/order-list';
