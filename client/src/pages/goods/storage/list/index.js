@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Notify } from 'zent';
-import * as Actions from 'api/goods';
+import * as Actions from 'api/goods/storage';
 
 import Filter from '../components/filter';
 import OrderList from '../components/order-list';
@@ -27,7 +27,19 @@ export default class App extends Component {
       choose_days: 0,
       period_send_time: '',
       delivery_start_time: '',
-      delivery_end_time: ''
+      delivery_end_time: '',
+
+      attributes: '',
+      category_ids: '',
+      child_category: '',
+      is_low_warning: '',
+      name_or_sku_no: '',
+      page_no: 1,
+      page_size: 20,
+      selling_channel: '',
+      sort_name: '',
+      sort_type: '',
+      source: '',
     },
     page_info: {
       page: 1,
@@ -49,7 +61,7 @@ export default class App extends Component {
     this.setState({
       loading: true
     });
-    const res = Actions.fetchGoodList(param);
+    const res = Actions.list(param);
     console.log(res)
       // .then(({ list, page_info }) => {
       //   this.setState({
