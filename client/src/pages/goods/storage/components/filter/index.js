@@ -85,7 +85,9 @@ export default class Filter extends Component {
 
     return (
       <div className="trade-order-list__filter-div">
-        <Filters className="storage-list-filter" filters={
+        <Filters
+         className="storage-list-filter"
+         filters={
           [
             {
               label: "商品名称或条码：",
@@ -115,50 +117,17 @@ export default class Filter extends Component {
                 />
             },
           ]
-        } />
+        }
+
+        onConfirm={this.onSearch}
+        onClear={this.onClear}
+      />
 
         <FilterAction
-          clearText="清空筛选条件"
-          confirmText="筛选"
-          exportLinkText="查看导出报表"
-          exportText="导出"
           onConfirm={this.onSearch}
           onClear={this.onClear}
         />
 
-
-
-
-
-
-
-
-
-
-        <div className="trade-order-list__filter">
-
-
-          <div
-            className="trade-order-list__filter-row"
-            style={{ marginLeft: '170px' }}
-          >
-            <Button
-              className="trade-refundsManage__filter-btn"
-              type="primary"
-              onClick={this.onSearch}
-            >
-              筛选
-            </Button>
-            <Button onClick={this.onExport}>批量导出</Button>
-            <Button
-              href="https://youzan.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              查看已导出报表
-            </Button>
-          </div>
-        </div>
         <TabsFilter
           activeId={state}
           tabs={Helper.transformSelectData(stateMap[type])}
