@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Input, Select, Button, DatePicker, DateRangeQuickPicker } from 'zent';
 import Filters from 'components/Filters';
 import FilterAction from 'components/FilterAction';
-import TabsFilter from './TabsFilter';
+// import TabsFilter from './TabsFilter';
 import * as Helper from '../../helper';
 import {
   orderLabelMap,
@@ -128,11 +128,11 @@ export default class Filter extends Component {
           onClear={this.onClear}
         />
 
-        <TabsFilter
+{/*         <TabsFilter
           activeId={state}
           tabs={Helper.transformSelectData(stateMap[type])}
           onChange={this.handleTabChange}
-        />
+        /> */}
       </div>
     );
   }

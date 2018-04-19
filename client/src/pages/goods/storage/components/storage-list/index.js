@@ -1,17 +1,68 @@
 import React, { Component } from 'react';
-import { Loading, Pagination, Affix } from 'zent';
+import { Loading, Pagination, Affix, Table  } from 'zent';
 import map from 'lodash/map';
 
 import OrderItem from './OrderItem';
 
 import './style.css';
 
+
+
+
+const columns = [
+  {
+  title: '商品名称',
+  bodyRender: (data) => {
+    return (
+      <div title="333">{data.name}</div>
+    );
+  },
+  width: '30'
+},
+ {
+  title: "规格",
+  bodyRender: (data) => {
+    return (
+      <div>{data.item_id}</div>
+    );
+  },
+  width: '9'
+}, 
+{
+  title: "商品分类",
+  bodyRender: (data) => {
+    return (
+      <div>{data.specifications || '-'}</div>
+    );
+  }
+}, 
+{
+  title: "销售渠道",
+  bodyRender: (data) => {
+    return (
+      <div>{data.item_id}</div>
+    );
+  },
+}, 
+{
+  title: "单位",
+  name: "unit",
+/*   width: '100px',
+  textAlign: 'center',
+  isMoney: true */
+}, {
+  title: "可售库存",
+  name: "sellStockCount"
+}
+];
+
+
 class OrderList extends Component {
   render() {
     const {
       list,
       loading,
-      pageInfo: { page, count, total },
+      pageInfo: { page, pageSize, totalCount },
       onChange
     } = this.props;
 
@@ -20,7 +71,14 @@ class OrderList extends Component {
     }
 
     return (
-      <div className="order-list-container">
+      <div>
+       <Table
+        columns={columns}
+        datasets={list}
+        loading={loading}
+        rowKey="item_id"
+      />
+{/*       <div className="order-list-container">
         <div className="order-list-container__table">
           <Affix>
             <div className="order-table__header-region">
@@ -40,11 +98,12 @@ class OrderList extends Component {
         </div>
         <Pagination
           current={page}
-          totalItem={total}
+          totalItem={totalCount}
           onChange={onChange}
-          pageSize={count}
+          pageSize={pageSize}
         />
-      </div>
+      </div>  */}
+        </div>
     );
   }
 }

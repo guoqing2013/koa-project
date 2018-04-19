@@ -62,13 +62,12 @@ export default class App extends Component {
       loading: true
     });
     Actions.list(param)
-      .then(( data ) => {
-        debugger;
-        // this.setState({
-        //   list,
-        //   page_info,
-        //   loading: false
-        // });
+      .then(({ response }) => {
+        this.setState({
+          list: response.items,
+          page_info: response.paginator,
+          loading: false
+        });
       })
       .catch(msg => {
         debugger;
