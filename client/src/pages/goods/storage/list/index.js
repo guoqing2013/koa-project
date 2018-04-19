@@ -61,21 +61,22 @@ export default class App extends Component {
     this.setState({
       loading: true
     });
-    const res = Actions.list(param);
-    console.log(res)
-      // .then(({ list, page_info }) => {
-      //   this.setState({
-      //     list,
-      //     page_info,
-      //     loading: false
-      //   });
-      // })
-      // .catch(msg => {
-      //   Notify.error(msg);
-      //   this.setState({
-      //     loading: false
-      //   });
-      // });
+    Actions.list(param)
+      .then(( data ) => {
+        debugger;
+        // this.setState({
+        //   list,
+        //   page_info,
+        //   loading: false
+        // });
+      })
+      .catch(msg => {
+        debugger;
+        // Notify.error(msg);
+        // this.setState({
+        //   loading: false
+        // });
+      });
   };
 
   handlePageChange = current => {

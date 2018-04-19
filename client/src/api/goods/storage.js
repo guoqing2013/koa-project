@@ -7,6 +7,7 @@ export function list(data) {
   return ajax({
     url: `${_global.url.demo}/api/oauthentry/youzan.retail.product.skus/3.0.0/search`,
     method: 'GET',
+    rawResponse: true,
     data
   });
 }
