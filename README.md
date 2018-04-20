@@ -47,7 +47,7 @@ npm run build
 
 
 ### 技术栈
-react + react-router + axios + webpack + ES6/7 + pcss + zent
+react + react-router + axios + webpack + ES6/7 + pcss + [zent](https://github.com/youzan/zent)
 
 ### yarn command
 
