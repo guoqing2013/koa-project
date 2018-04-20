@@ -12,52 +12,55 @@ import './style.css';
 const columns = [
   {
   title: '商品名称',
+  width: 30,
   bodyRender: (data) => {
     return (
       <div >{data.name}</div>
     );
   },
-  width: '30'
-},
- {
-  title: "规格",
-  bodyRender: (data) => {
-    return (
-      <div>{data.item_id}</div>
-    );
+  // width: '30'
   },
-  width: '9'
-}, 
-{
-  title: "商品分类",
-  bodyRender: (data) => {
-    return (
-      <div>{data.specifications || '-'}</div>
-    );
+  {
+    title: "规格",
+    width: 9,
+    bodyRender: (data) => {
+      return (
+        <div>{data.item_id}</div>
+      );
+    },
+    // width: '9'
+  }, 
+  {
+    title: "商品分类",
+    bodyRender: (data) => {
+      return (
+        <div>{data.specifications || '-'}</div>
+      );
+    }
+  }, 
+  {
+    title: "销售渠道",
+    bodyRender: (data) => {
+      return (
+        <div>{data.item_id}</div>
+      );
+    },
+  }, 
+  {
+    title: "单位",
+    name: "unit",
+  /*   width: '100px',
+    textAlign: 'center',
+    isMoney: true */
+  }, 
+  {
+    title: "可售库存",
+    name: "sellStockCount"
   }
-}, 
-{
-  title: "销售渠道",
-  bodyRender: (data) => {
-    return (
-      <div>{data.item_id}</div>
-    );
-  },
-}, 
-{
-  title: "单位",
-  name: "unit",
-/*   width: '100px',
-  textAlign: 'center',
-  isMoney: true */
-}, {
-  title: "可售库存",
-  name: "sellStockCount"
-}
 ];
 
 
-class OrderList extends Component {
+class StorageList extends Component {
   render() {
     const {
       list,
@@ -114,4 +117,4 @@ class OrderList extends Component {
   }
 }
 
-export default OrderList;
+export default StorageList;
