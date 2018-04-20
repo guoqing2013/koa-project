@@ -1,10 +1,9 @@
-# kov-project
+# koa-react-project
 
-`kov-blog` 使用了`vue`、`vuex`、`koa`和`mongo`等框架和技术。前后端分离,restful架构。项目主要包含三个文件夹和项目：
+`koa-react-project` 使用了`react`、`react-router`、`koa`和`mysql`等框架和技术。前后端分离,restful架构。项目主要包含两个个文件夹和项目：后期会再增加admin管理项目
 
 - server 后台
 - client 前端
-
 
 
 
@@ -16,7 +15,7 @@
 目前还是使用纯koa做后台，后期会用(zan-node)[https://github.com/youzan/zan-node]进行改写
 
 ### 技术栈
-koa2 + jwt + mysql + sequelize
+koa2 + jsonwebtoken + mysql + sequelize
 
 <!--
 基于restful，nodejs的话采用koa框架(koa 1)，数据库用了mongo。登录这块的话用了[jwt](https://jwt.io/introduction/).
@@ -44,7 +43,7 @@ npm run build
 
 ## client
 
-基于create-react-app搭建的项目
+基于(create-react-app)[https://github.com/facebook/create-react-app]搭建的项目
 
 
 ### 技术栈
