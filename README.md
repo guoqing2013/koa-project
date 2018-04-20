@@ -10,9 +10,9 @@
 
 ## server
 
-基于(Koa Boilerplate)[https://github.com/jeffijoe/koa-es7-boilerplate]搭建的项目。
+基于[Koa Boilerplate](https://github.com/jeffijoe/koa-es7-boilerplate)搭建的项目。
 
-目前还是使用纯koa做后台，后期会用(zan-node)[https://github.com/youzan/zan-node]进行改写
+目前还是使用纯koa做后台，后期会用[zan-node](https://github.com/youzan/zan-node)进行改写
 
 ### 技术栈
 koa2 + jsonwebtoken + mysql + sequelize
@@ -43,7 +43,7 @@ npm run build
 
 ## client
 
-基于(create-react-app)[https://github.com/facebook/create-react-app]搭建的项目
+基于r[create-react-app](https://github.com/facebook/create-react-app)搭建的项目
 
 
 ### 技术栈
