@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Notify } from 'zent';
 import * as Actions from 'api/goods/storage';
 
-import Filter from '../components/filter';
+import Filters from '../components/filter';
 import StorageList from '../components/storage-list';
 import * as Helper from '../helper';
 
@@ -92,14 +92,17 @@ export default class App extends Component {
       loading
     } = this.state;
     return (
-      <div className="order-list-page">
-        <Filter {...filterInfo} handleFilterChange={this.fetchList} />
-        <StorageList
-          list={list}
-          pageInfo={pageInfo}
-          loading={loading}
-          onChange={this.handlePageChange}
-        />
+      <div className="page">
+      
+        <div className="container">
+          <Filters {...filterInfo} handleFilterChange={this.fetchList} />
+          <StorageList
+            list={list}
+            pageInfo={pageInfo}
+            loading={loading}
+            onChange={this.handlePageChange}
+          />
+        </div>
       </div>
     );
   }

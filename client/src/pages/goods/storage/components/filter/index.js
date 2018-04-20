@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { Input, Select, Button, DatePicker, DateRangeQuickPicker } from 'zent';
-import Filters from 'components/Filters';
+import FilterList from 'components/FilterList';
 import FilterAction from 'components/FilterAction';
 // import TabsFilter from './TabsFilter';
 import * as Helper from '../../helper';
@@ -13,6 +13,7 @@ import {
   expressTypeMap
 } from '../../constants';
 
+import './index.css';
 
 export default class Filter extends Component {
   state = {
@@ -84,9 +85,8 @@ export default class Filter extends Component {
     const dateValue = [startTime, endTime];
 
     return (
-      <div className="trade-order-list__filter-div">
-        <Filters
-         className="storage-list-filter"
+      <div className="filters">
+        <FilterList
          filters={
           [
             {
@@ -118,9 +118,6 @@ export default class Filter extends Component {
             },
           ]
         }
-
-        onConfirm={this.onSearch}
-        onClear={this.onClear}
       />
 
         <FilterAction

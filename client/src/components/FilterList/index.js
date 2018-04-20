@@ -3,11 +3,10 @@ import cx from 'classnames';
 import Field from '../Field';
 
 import './index.css';
-export default class Filters extends PureComponent {
+export default class FilterList extends PureComponent {
   render() {
     const { filters, className,  } = this.props;
     return (
-      <div className="filters">
         <div className={cx('filter-list', className)}>
           {
             filters.map((item, index) => {
@@ -16,7 +15,6 @@ export default class Filters extends PureComponent {
             })
           }
         </div>
-      </div>
     );
   }
 }

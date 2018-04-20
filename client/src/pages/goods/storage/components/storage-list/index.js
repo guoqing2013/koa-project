@@ -14,7 +14,7 @@ const columns = [
   title: '商品名称',
   bodyRender: (data) => {
     return (
-      <div title="333">{data.name}</div>
+      <div >{data.name}</div>
     );
   },
   width: '30'
@@ -78,6 +78,12 @@ class OrderList extends Component {
         loading={loading}
         rowKey="item_id"
       />
+      <Pagination
+          current={page}
+          totalItem={totalCount}
+          onChange={onChange}
+          pageSize={pageSize}
+        />
 {/*       <div className="order-list-container">
         <div className="order-list-container__table">
           <Affix>

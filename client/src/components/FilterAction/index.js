@@ -27,8 +27,6 @@ class FilterAction extends PureComponent {
            exportLink && <Button type="default" target="_blank" href={exportLink}>{exportLinkText}</Button>
         }
         <Button className="filter-actions__btn--clear" disabled={disabled} onClick={onClear}>{clearText}</Button>
-        
- 
       </div>
     );
   }
