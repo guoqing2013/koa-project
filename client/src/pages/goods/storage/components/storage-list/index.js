@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { Loading, Pagination, Affix, Table  } from 'zent';
 import map from 'lodash/map';
-
-import OrderItem from './OrderItem';
-
+import utils from 'common/utils';
+import Meta from '../Meta';
 import './style.css';
-
-
 
 
 const columns = [
@@ -15,7 +12,9 @@ const columns = [
   width: 30,
   bodyRender: (data) => {
     return (
-      <div >{data.name}</div>
+      <div >
+        <Meta name={data.name}  photoUrl={utils.compatibleImg(data.photoUrl)} skuNo={data.skuNo} />
+      </div>
     );
   },
   // width: '30'
@@ -25,16 +24,16 @@ const columns = [
     width: 9,
     bodyRender: (data) => {
       return (
-        <div>{data.item_id}</div>
+        <div>{data.specifications || '-'}</div>
       );
     },
-    // width: '9'
   }, 
   {
     title: "商品分类",
     bodyRender: (data) => {
+      console.log(33333333333,this);
       return (
-        <div>{data.specifications || '-'}</div>
+        <div>{data.categoryId}</div>
       );
     }
   }, 
@@ -42,16 +41,13 @@ const columns = [
     title: "销售渠道",
     bodyRender: (data) => {
       return (
-        <div>{data.item_id}</div>
+        <div>{data.sellChannel}</div>
       );
     },
   }, 
   {
     title: "单位",
     name: "unit",
-  /*   width: '100px',
-    textAlign: 'center',
-    isMoney: true */
   }, 
   {
     title: "可售库存",
@@ -74,12 +70,18 @@ class StorageList extends Component {
     }
 
     return (
-      <div>
+      <div className="page-block content">
+        
        <Table
+        rowKey="skuId"
+        autoStick={true}
+        className="storage-table"
         columns={columns}
         datasets={list}
         loading={loading}
-        rowKey="item_id"
+        id2cat={
+          {305936: "未分类"}
+        }
       />
       <Pagination
           current={page}

@@ -1,0 +1,57 @@
+    .cover {
+        margin-right: 10px;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+    }
+
+    .retail-lazyimage-container {
+    width: 60px;
+    height: 60px;
+    }
+
+    .retail-lazyimage-container img {
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .info {
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        line-height: 17px;
+        overflow: hidden;
+    }
+
+    .info .limit {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 200px;
+        word-wrap: break-word;
+    }
+
+    .info .cat {
+        color: #999;
+        margin-top: 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .info .meta-list {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: start;
+        -webkit-align-items: flex-start;
+        -moz-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+    }

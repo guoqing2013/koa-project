@@ -130,7 +130,16 @@ function f44(module, exports, __webpack_require__) {
    */
   function CalendarTitle(callback) {
     var index = (0, __WEBPACK_IMPORTED_MODULE_19_date_fns_add_seconds__.deepJsonParse)(callback);
-    return (0, _UiIcon2.default)(index) ? index || settings.DEFAULT_IMAGE : (0, _UiRippleInk2.default)(index) ? (0, _noframeworkWaypoints2.default)(index, "[0].url", settings.DEFAULT_IMAGE) : settings.DEFAULT_IMAGE;
+    return (0, _UiIcon2.default)(index) 
+    ? 
+    index || settings.DEFAULT_IMAGE 
+    :
+
+
+     (0, _UiRippleInk2.default)(index) 
+     ? 
+     (0, _noframeworkWaypoints2.default)(index, "[0].url", settings.DEFAULT_IMAGE) 
+     : settings.DEFAULT_IMAGE;
   }
   /**
    * @param {!NodeList} data

@@ -1,4 +1,4 @@
-4517: function(e, t, n) {
+ function f4517(e, t, n) {
     "use strict";
     function r(e) {
         return e && e.__esModule ? e : {
@@ -111,4 +111,4 @@
       , h = n(983)
       , v = r(h);
     e.exports = t.default
-},
+}
