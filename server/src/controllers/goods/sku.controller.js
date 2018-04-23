@@ -52,12 +52,17 @@ export const create = async (ctx) => {
  */
 export const search = async (ctx) => {
   // const id = ctx.params.id // 获取url里传过来的参数里的id
+  const query = ctx.query
   let limit = 10
-  let offset = 0
+  if (query.page_size) {
+    limit = parseInt(query.page_size) // 使用 limit 限制返回结果数
+  }
+  let offset = (parseInt(query.page_no) - 1) * parseInt(query.page_size) // 跳过前 offset 条结果
+  console.log(limit, offset)
   // const param = ctx.request.query
   const result = await Sku.findAndCountAll({
     limit,
-    offset
+    offset: 0
   })
   // const pageSize = param.page_size || 10
   // const page = param.page_no || 1
