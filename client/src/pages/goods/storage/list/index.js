@@ -58,6 +58,7 @@ export default class App extends Component {
 
   fetchList = options => {
     const param = Helper.serializeAjaxData(options, this.state);
+    console.log('param',param);
     this.setState({
       loading: true
     });
