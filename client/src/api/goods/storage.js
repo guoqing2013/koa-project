@@ -1,7 +1,8 @@
 import ajax from 'zan-pc-ajax';
 
 /**
- * 查询商品库接口: https://www.youzanyun.com/apilist/detail/group_item/retail_goods/youzan.retail.product.skus.search
+ * 查询商品库接口:
+ *  https://www.youzanyun.com/apilist/detail/group_item/retail_goods/youzan.retail.product.skus.search
  */
 export function list(data) {
   return ajax({

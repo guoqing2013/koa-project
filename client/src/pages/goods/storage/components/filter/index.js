@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Input, Select, Button, DatePicker, DateRangeQuickPicker } from 'zent';
+import { Input, Select } from 'zent';
 import FilterList from 'components/FilterList';
 import FilterAction from 'components/FilterAction';
 // import TabsFilter from './TabsFilter';
@@ -17,17 +17,9 @@ import './index.css';
 
 export default class Filter extends Component {
   state = {
-    order_label: 'order_no',
-    order_label_value: '',
-    start_time: '',
-    end_time: '',
-    choose_days: 0,
-    type: 'all',
-    state: 'all',
-    express_type: 'all',
-    feedback: 'all',
-    buy_way: 'all',
-    period_send_time: ''
+    name_or_sku_no: '',
+    selling_channel: '',
+    category_ids: ''
   };
 
   handleChangeDate = (value, chooseDays) => {
@@ -69,20 +61,11 @@ export default class Filter extends Component {
 
   render() {
     const {
-      order_label: orderLabel,
-      order_label_value: orderLabelValue,
-      type,
-      feedback,
-      state,
-      express_type: expressType,
-      buy_way: buyWay,
-      start_time: startTime,
-      end_time: endTime,
-      choose_days: chooseDays,
-      period_send_time: periodSendTime
+      name_or_sku_no,
+      selling_channel,
+      category_ids
     } = this.state;
 
-    const dateValue = [startTime, endTime];
 
     return (
       <div className="filters">
@@ -92,9 +75,9 @@ export default class Filter extends Component {
             {
               label: "商品名称或条码：",
               component:  <Input
-                  name="feedback"
-                  value={feedback}
-                  data={Helper.transformSelectData(stateMap.feedback)}
+                  name="name_or_sku_no"
+                  value={name_or_sku_no}
+                  data={stateMap.name_or_sku_no}
                   onChange={this.handleChange}
                 />
             },
@@ -102,17 +85,17 @@ export default class Filter extends Component {
               label: "商品分类：",
               component:  <Select
                   name="state"
-                  value={state}
-                  data={Helper.transformSelectData(stateMap[type])}
+                  value={category_ids}
+                  data={category_ids}
                   onChange={this.handleChange}
                 />
             },
              {
               label: "销售渠道：",
               component:  <Select
-                  name="feedback"
-                  value={feedback}
-                  data={Helper.transformSelectData(stateMap.feedback)}
+                  name="selling_channel"
+                  value={selling_channel}
+                  data={selling_channel}
                   onChange={this.handleChange}
                 />
             },
@@ -125,11 +108,7 @@ export default class Filter extends Component {
           onClear={this.onClear}
         />
 
-{/*         <TabsFilter
-          activeId={state}
-          tabs={Helper.transformSelectData(stateMap[type])}
-          onChange={this.handleTabChange}
-        /> */}
+
       </div>
     );
   }

@@ -44,7 +44,8 @@ export function serializeAjaxData(data, state) {
   }
 
   assignData.p = pageInfo.page;
-  assignData.page_size = pageInfo.count;
+  assignData.page_size = pageInfo.page_size;
+  assignData.page_no = pageInfo.page_no;
 
   return assignData;
 }
