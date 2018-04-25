@@ -48,6 +48,24 @@ export const create = async (ctx) => {
 }
 
 /**
+ * 商品库单个商品信息查询 sku_id与sku_no二选一必传
+ * @param {*} ctx
+ */
+export const get = async (ctx) => {
+  const skuId = ctx.query.sku_id
+  console.log(skuId)
+  const result = await Sku.findOne({
+    where: {
+      sku_id: skuId
+    }
+  })
+  console.log(result)
+  ctx.body = {
+    response: result
+  }
+}
+
+/**
  * 获取商品库列表
  */
 export const search = async (ctx) => {
@@ -90,6 +108,7 @@ export const search = async (ctx) => {
 }
 
 export default {
+  get,
   search,
   create
 }
