@@ -31,7 +31,6 @@ const columns = [
   {
     title: "商品分类",
     bodyRender: (data) => {
-      console.log(33333333333,this);
       return (
         <div>{data.categoryId}</div>
       );

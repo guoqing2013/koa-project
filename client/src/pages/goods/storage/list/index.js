@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Notify } from 'zent';
 import * as Actions from 'api/goods/storage';
 
-import Filters from '../components/filter';
+import Filters from '../components/filters';
 import StorageList from '../components/storage-list';
 import * as Helper from '../helper';
 
@@ -11,15 +11,15 @@ import './style.css';
 export default class App extends Component {
   state = {
     filter_info: {
-      attributes: '',
-      category_ids: '',
-      child_category: '',
-      is_low_warning: '',
-      name_or_sku_no: '',
-      selling_channel: '',
-      sort_name: '',
-      sort_type: '',
-      source: '',
+      // attributes: '',
+      // category_ids: '',
+      // child_category: '',
+      // is_low_warning: '',
+      // name_or_sku_no: '',
+      // selling_channel: '',
+      // sort_name: '',
+      // sort_type: '',
+      // source: '',
     },
     page_info: {
       page_no: 1,
@@ -31,13 +31,13 @@ export default class App extends Component {
   };
 
   componentDidMount() {
-    // const { location } = this.props;
-
     this.fetchList();
   }
 
   fetchList = options => {
-    const param = Helper.serializeAjaxData(options, this.state);
+    // const param = Helper.serializeAjaxData(options, this.state);
+    const param = options;
+
     console.log('param',param);
     this.setState({
       loading: true
@@ -74,7 +74,6 @@ export default class App extends Component {
     } = this.state;
     return (
       <div className="page">
-      
         <div className="container">
           <Filters {...filterInfo} handleFilterChange={this.fetchList} />
           <StorageList
