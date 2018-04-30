@@ -115,8 +115,7 @@ export default class Filter extends Component {
             {
               label: "商品筛选：",
               component: 
-                <SelectWithInput
-                />,
+                <SelectWithInput />,
                   // value={state.skuNoOrName}
                   // selected="skuNo"
                   // options={options}
