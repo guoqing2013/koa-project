@@ -1,6 +1,7 @@
 
-export const handleList = (request, params, n) => {
-    const _this = this
+export function handleList  (request, params, n)  {
+    const _this = this;
+    debugger;
     //   , i = !(arguments.length > 3 && void 0 !== arguments[3]) || arguments[3];
     return request(params).then(function(data) {
         var items = data.items
@@ -30,4 +31,8 @@ export const handleList = (request, params, n) => {
             loading: false
         })
     })
+}
+
+export default {
+    handleList
 }

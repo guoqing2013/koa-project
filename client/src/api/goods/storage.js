@@ -59,8 +59,3 @@ export function batchUpdateCategory(data) {
 // }
 
 
-
-export default {
-  loadList,
-  getAllCat
-}
