@@ -2,49 +2,91 @@ import React, { Component } from 'react';
 import { Notify, Input, Select } from 'zent';
 import assign from 'lodash/assign';
 import * as Actions from 'api/goods/storage';
-
+import SelectWithInput from 'components/select-with-input';
 import Filter from 'components/Filter';
-import { Header, Content } from 'components/common';
 // import StorageList from '../components/storage-list';
 import query from 'common/query';
 
 import './style.css';
 
-const defaultFilters = {
-  skuNoOrName: {
-    selected: "skuName",
-    value: ""
-  },
-  categoryIds: null,
-  sellingChannel: "",
-  defaultVendorId: ""
-}
+
 
 export default class App extends Component {
-  constructor() {
-    super();
-    this.filters = assign({}, defaultFilters);
-  }
   state = {
-    current: 1,
-    pageSize: 20,
-    list: [],
-    sortBy: null,
-    sortType: null,
-    totalItem: 0,
-    emptyLabel: null,
-    catList: [{name: 'a'}],
-    id2cat: { },
-    loading: false,
-    selected: [],
-  };
+    // filter_info: {
+      // attributes: '',
+      // category_ids: '',
+      // child_category: '',
+      // is_low_warning: '',
+      // name_or_sku_no: '',
+      // selling_channel: '',
+      // sort_name: '',
+      // sort_type: '',
+      // source: '',
+    // },
+    // page_info: {
+    //   page_no: 1,
+    //   page_size: 20,
+    //   total: 0
+    // },
+    // list: [],
+    // loading: false,
 
+
+    skuNoOrName: {
+      selected: "skuName",
+      value: ""
+    },
+    categoryIds: null,
+    sellingChannel: "",
+    defaultVendorId: ""
+  };
 
   componentDidMount() {
     // this.fetchList();
   }
 
-
+  getFilterItems = () => {
+    var state = this.state;
+    return [
+      {
+        label: "商品筛选：",
+        component: SelectWithInput,
+        props: assign({}, state.skuNoOrName, {
+          onChange: this.handleSkuChange
+        })
+      },
+      {
+        label: null
+      },
+      {
+        label: "商品分类：",
+        component:  Select,
+        props: {
+          value: state.categoryIds,
+          onChange: this.handleCatChange,
+          // list: this.props.catList 
+          list: []
+        }
+      },
+      {
+        label: "销售渠道：",
+        component:  Select ,
+        props: {
+          value: state.sellingChannel,
+          onChange: this.handleChannelChange,
+        }
+      },
+      {
+        label: "首选供应商：",
+        component:  Select,
+        props: {
+          value: state.defaultVendorId,
+          onChange: this.handleSupplierChange,
+        }
+      },
+    ]
+  }
 
   // fetchList = options => {
   //   // const param = Helper.serializeAjaxData(options, this.state);
@@ -200,25 +242,54 @@ export default class App extends Component {
 
 
 
+  handleCatChange = (e) => {
+    this.setState({
+        categoryIds: e.id
+    })
+  };
 
+  handleChannelChange = (e) => {
+    this.setState({
+        sellingChannel: e.target.value
+    })
+  };
+
+  handleSkuChange = (data) => {
+    this.setState({
+        skuNoOrName: data
+    })
+  };
+
+  handleSupplierChange = (e) => {
+    this.setState({
+        defaultVendorId: e.target.value
+    })
+  }; 
+
+  onFilter = function() {
+    query.setQuery(assign({}, this.state, {
+        skuNoOrName: JSON.stringify(this.state.skuNoOrName)
+    }));
+    // this.props.onChange(this.state)
+    debugger;
+  };
+
+  onClearFilters = () => {
+  //     d.default.clearQuery(),
+  //     this.setState(r.props.defaultFilters, r.onFilter)
+  }
 
 
   render() {
-
-    const { catList } = this.state;
+    const filters = this.getFilterItems();
     return (
       <div>
-        <Header>
           <Filter
-           catList={catList}
-           defaultFilters={defaultFilters}
-           filters={this.filters}
+           filters={filters}
            onConfirm={this.onFilter}
            onClear={this.onClearFilters}
           />
-        </Header>
-        <Content>
-        </Content>
+            {/* handleFilterChange={this.fetchList} */}
 {/*           <StorageList
             list={list}
             pageInfo={pageInfo}

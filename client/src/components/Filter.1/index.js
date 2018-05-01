@@ -97,11 +97,23 @@ export default class Filter extends PureComponent {
 
   render() {
     const filters = this.getFilterItems();
+    const { filters, className, onClear, onConfirm } = this.props;
+    let filterActionProps = omit(this.props,["filters", "className"]); 
+    //  FilterAction的属性太多，多少一用omit操作
     return (
       <div className="filters">
         <FilterList
+          className={className}
           filters={filters}
         />
+        {
+          onClear && onConfirm &&
+          <FilterAction
+            {...filterActionProps}
+          />
+            // onConfirm={onConfirm}
+            // onClear={onClear}
+        }
       </div>
     );
   }
