@@ -46,7 +46,7 @@ const columns = [
   {
     title: "创建时间",
     name: "created_at",
-    needSort: !0,
+    needSort: true,
     bodyRender: function(data) {
         // var t = e.createdAt;
         // return (0,

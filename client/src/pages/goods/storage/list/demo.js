@@ -179,3 +179,156 @@
             }
             ,
             n.checkSelected = function() {
+                return !!n.state.selected.length || (x.default.error("请选择商品"),
+                !1)
+            }
+            ,
+            n.onCatChange = function(e) {
+                if (n.checkSelected()) {
+                    var t = n.state.selected;
+                    I.batchUpdateCategory({
+                        categoryId: e.id,
+                        skuIds: JSON.stringify(t)
+                    }).then(function() {
+                        x.default.success("修改成功"),
+                        n.clearSelected(),
+                        n.loadList()
+                    }).catch(function(e) {
+                        return x.default.error(e.msg || "修改失败")
+                    })
+                }
+            }
+            ,
+            n.removeGoodsSuccess = function() {
+                x.default.success("删除成功"),
+                n.clearSelected(),
+                n.loadList()
+            }
+            ,
+            n.onGoodsRemove = function() {
+                if (n.checkSelected()) {
+                    var e = n.state.selected;
+                    (0,
+                    W.removeGoods)({
+                        skuIds: JSON.stringify(e),
+                        success: n.removeGoodsSuccess
+                    })
+                }
+            }
+            ,
+            n.getBatchComponents = function() {
+                return [_.default.createElement(T.default, {
+                    position: "bottom",
+                    initLabelValue: "修改分类",
+                    list: n.state.catList,
+                    onChange: n.onCatChange,
+                    syncValueToLabel: !1,
+                    style: {
+                        width: "94px"
+                    }
+                }), _.default.createElement(O.Button, {
+                    name: "删除",
+                    style: {
+                        width: "66px"
+                    },
+                    onClick: n.onGoodsRemove
+                })]
+            }
+            ;
+            var r = E.default.getQuery();
+            return Object.assign(n.filters, (0,
+            d.default)(r, Object.keys(V))),
+            n.state = g({
+                id2cat: {},
+                catList: [],
+                selected: []
+            }, N.DEFAULT_TABLE_CONFIG, {
+                current: r.current || 1
+            }),
+            n
+        }
+        return s(t, e),
+        y(t, [{
+            key: "componentDidMount",
+            value: function() {
+                (0,
+                c.default)(Y.filters) || (this.filters = Y.filters),
+                this.loadList(),
+                this.loadCatList()
+            }
+        }, {
+            key: "loadCatList",
+            value: function() {
+                var e = this;
+                I.getAllCat().then(function(t) {
+                    var n = {};
+                    t.forEach(function(e) {
+                        return n[e.id] = e.name
+                    }),
+                    e.setState({
+                        catList: t,
+                        id2cat: n
+                    })
+                })
+            }
+        }, {
+            key: "clearSelected",
+            value: function() {
+                this.setState({
+                    selected: []
+                })
+            }
+        }, {
+            key: "checkIsEmpty",
+            value: function() {
+                var e = this.state
+                  , t = e.loading;
+                return 0 === e.list.length && !t && (0,
+                h.default)(this.filters, V)
+            }
+        }, {
+            key: "render",
+            value: function() {
+                var e = this.state;
+                return _.default.createElement("div", {
+                    className: q.default.list
+                }, _.default.createElement(C.Header, null, _.default.createElement(L.default, null), _.default.createElement(U.default, {
+                    defaultFilters: V,
+                    catList: e.catList,
+                    filters: this.filters,
+                    onChange: this.onFilterChange
+                })), _.default.createElement(C.Content, null, this.checkIsEmpty() ? _.default.createElement(A.default, null) : _.default.createElement(H.default, {
+                    rowKey: "skuId",
+                    datasets: e.list,
+                    onChange: this.loadList,
+                    loading: e.loading,
+                    emptyLabel: e.emptyLabel,
+                    sortBy: e.sortBy,
+                    sortType: e.sortType,
+                    id2cat: e.id2cat,
+                    pageInfo: {
+                        pageSize: e.pageSize,
+                        current: e.current,
+                        totalItem: e.totalItem
+                    },
+                    selection: {
+                        selectedRowKeys: e.selected,
+                        onSelect: this.onTableSelected
+                    },
+                    batchComponents: [_.default.createElement(P.default, {
+                        key: "batch",
+                        keys: e.list.map(function(e) {
+                            return e.skuId
+                        }),
+                        hasSelectedAll: e.selected.length === e.list.length,
+                        onSelect: this.onTableSelected,
+                        items: this.getBatchComponents()
+                    })]
+                })))
+            }
+        }]),
+        t
+    }(b.Component);
+    t.default = X,
+    e.exports = t.default
+},

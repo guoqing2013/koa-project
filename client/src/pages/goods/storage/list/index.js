@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { Notify, Input, Select } from 'zent';
 import assign from 'lodash/assign';
-import * as Actions from 'api/goods/storage';
 
 import { Header, Content } from 'components/common';
 import FilterWrap from '../components/filter-wrap';
 import StorageList from '../components/storage-list';
 import AddnewTip from '../components/addnew-tip'
 import query from 'common/query';
-
-
+import ajaxUtils from 'common/ajaxUtils';
+import { loadList } from 'api/goods/storage';
 import './style.css';
 
 const defaultFilters = {
@@ -46,13 +45,6 @@ export default class App extends Component {
     selected: [],
   };
 
-
-  componentDidMount() {
-    // this.fetchList();
-  }
-
-
-
   // fetchList = options => {
   //   // const param = Helper.serializeAjaxData(options, this.state);
   //   const param = options;
@@ -79,16 +71,6 @@ export default class App extends Component {
   // };
 
 
-
-
-
-
-
-
-
-
-
-  // 最大组件的属性
   /**
    * 筛选
    */
@@ -104,14 +86,14 @@ export default class App extends Component {
   /**
    * 
    */
-  onTableSelected = function(e) {
+  onTableSelected = function(selected) {
     this.setState({
-        selected: e
+        selected
     })
   }
 
   /**
-   * 获取列表
+   * 获取商品列表
    */
   loadList = () =>{
     // var e, 
@@ -144,6 +126,23 @@ export default class App extends Component {
     //     current: u.current,
     //     skuNoOrName: JSON.stringify(s)
     // })),
+
+
+    var c = {"current":1,"sortBy":null,"sortType":2,"categoryIds":null,"sellingChannel":"","defaultVendorId":"","pageNo":1,"attributes":[1,3],"skuName":"","sortName":null};
+    var u = {"current":1,"sortBy":null,"sortType":null}
+    ajaxUtils.handleList( loadList, c, u).then((response) => {
+      response = {"list":[{"totalCostPrice":0,"kdtId":40497547,"sellChannel":1,"lastCostPrice":0,"avgCostPrice":0,"overSoldNum":0,"specifications":"334","createdAt":1520915504000,"photoUrl":"[{\"url\":\"https://img.yzcdn.cn/public_files/2017/08/30/63a8d28bce4ca2e5d081e1e69926288e.jpg\"}]","unit":"件","stockLowWarning":true,"sellStockCount":0,"relateCode":"","stockNum":0,"skuNo":"12345","name":"444444444name","skuId":5907196,"categoryId":305936,"stockHighWarning":false,"updatedAt":1524234727000,"status":0},{"totalCostPrice":0,"kdtId":40497547,"sellChannel":6,"lastCostPrice":0,"avgCostPrice":0,"overSoldNum":0,"specifications":"","createdAt":1520734552000,"photoUrl":"[{\"url\":\"https://img.yzcdn.cn/upload_files/2015/05/14/FoMCEwRpIbleJqCh7A---MZ-JvUc.png\"}]","unit":"件","stockLowWarning":false,"sellStockCount":100,"relateCode":"","stockNum":100,"skuNo":"P000000000000001","name":"实物商品（购买时需填写收货地址，测试商品，不发货，不退款）","skuId":5903147,"categoryId":305936,"stockHighWarning":false,"updatedAt":1520764795000,"status":0}],"totalItem":2,"emptyLabel":null,"current":1,"sortBy":null,"sortType":null};
+      if (response && response.list) {
+        this.setState({
+          ...response,
+          list: response.list.filter((item) => {
+            return item.photoUrl;
+          })
+        })
+      }
+    })
+
+
     // M.handleList.call(n, I.loadList, c, u).then(function(e) {
     //     e && e.list && n.setState(g({}, e, {
     //         list: e.list.filter(function(e) {
@@ -191,7 +190,30 @@ export default class App extends Component {
 //     }
 // }
 
-  checkIsEmpty = () => {
+  componentDidMount() {
+    // this.fetchList();
+    this.loadList();
+    this.loadCatList();
+  }
+
+  /**
+   * 获取商品分类列表
+   */
+  loadCatList() {
+    // var e = this;
+    // I.getAllCat().then(function(t) {
+    //     var n = {};
+    //     t.forEach(function(e) {
+    //         return n[e.id] = e.name
+    //     }),
+    //     e.setState({
+    //         catList: t,
+    //         id2cat: n
+    //     })
+    // })
+  }
+
+  checkIsEmpty() {
     // var state = this.state
     // , loading = state.loading;
     // return 0 === state.list.length && !loading && (0,
@@ -245,12 +267,6 @@ export default class App extends Component {
           }
           
         </Content>
-{/*           <StorageList
-            list={list}
-            pageInfo={pageInfo}
-            loading={loading}
-            onChange={this.handlePageChange}
-          /> */}
       </div>
     );
   }
