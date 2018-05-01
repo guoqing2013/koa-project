@@ -1,9 +1,9 @@
 
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { Notify, Input, Select } from 'zent';
+// import PropTypes from 'prop-types';
+import { Select } from 'zent';
 import SelectWithInput from 'components/select-with-input';
-import omit from 'lodash/omit';
+// import omit from 'lodash/omit';
 import assign from 'lodash/assign';
 
 import Filter from 'components/Filter';
@@ -82,11 +82,11 @@ export default class FilterWrap extends PureComponent {
     })
   }; 
 
-  onFilter = function() {
-    query.setQuery(assign({}, this.state, {
-        skuNoOrName: JSON.stringify(this.state.skuNoOrName)
-    }));
-    // this.props.onChange(this.state)
+  onFilter = () => {
+    // query.setQuery(assign({}, this.state, {
+    //     skuNoOrName: JSON.stringify(this.state.skuNoOrName)
+    // }));
+    this.props.onChange(this.state)
     debugger;
   };
 
@@ -101,16 +101,11 @@ export default class FilterWrap extends PureComponent {
       <div className="filters">
         <Filter
           filters={filters}
+          onClear={this.onClearFilters}
+          onConfirm={this.onFilter}
         />
       </div>
     );
   }
 }
 
-FilterWrap.propTypes = {
-  filters: PropTypes.array.isRequired,
-  disabled: PropTypes.bool,
-  loading: PropTypes.bool,
-  onClear: PropTypes.func,
-  onConfirm: PropTypes.func
-}

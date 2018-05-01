@@ -20,6 +20,11 @@ const defaultFilters = {
   defaultVendorId: ""
 }
 
+let listRequestData = {
+  state: {},
+  filters: {}
+}
+
 export default class App extends Component {
   constructor() {
     super();
@@ -90,12 +95,13 @@ export default class App extends Component {
   /**
    * 筛选
    */
-  onFilterChange = (e) => {
-    // this.filters = e,
-    // Y.filters = e,
+  onFilterChange = (filtersData) => {
+    this.filters = filtersData;
+    listRequestData.filters = filtersData;
     this.loadList({
         current: 1
     });
+    debugger;
   }
 
   /**
@@ -213,8 +219,7 @@ export default class App extends Component {
            catList={catList}
            defaultFilters={defaultFilters}
            filters={this.filters}
-           onConfirm={this.onFilter}
-           onClear={this.onClearFilters}
+           onChange={this.onFilterChange}
           />
         </Header>
         <Content>
