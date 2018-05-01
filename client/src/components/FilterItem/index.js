@@ -1,14 +1,37 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 import './index.css';
 export default class FilterItem extends PureComponent {
   render() {
-    const { label, component, wordWidth } = this.props;
+    const { 
+      label, width, component, siblings, children, className, wordCount, wordWidth, required, props
+    } = this.props;
+    let filterItemStyle = {};
+    if (wordCount) {
+      filterItemStyle = {
+        width: wordWidth * wordCount
+      }
+    } else if (width) {
+      filterItemStyle = {
+        width: width
+      }
+    }
+
+    if (!label && !component && !children) {
+      return <div className="filter-item__seprator"></div>
+    }
+
+    const MapComponent = component;
+    
     return (
-      <div className="filter-item">
-        <label className="filter-item__label">{label}</label>
-        <div className="filter-item__control">{component}</div>
+      <div className="filter-item" style={filterItemStyle}>
+        <label className={cx('filter-item__label', {'filter-item__label--required': required})} >{label}</label>
+        <div className="filter-item__control">
+          {MapComponent && <MapComponent {...props} />}
+        </div>
+        {siblings && <div className="filter-item__siblings">{siblings}</div>}
       </div>
     );
   }

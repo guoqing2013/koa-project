@@ -5,8 +5,18 @@ import {
     Input,
     Select
 } from 'zent';
+import PropsTypes from 'prop-types';
 
 import './index.css';
+
+const options = [{
+    text: "商品名称",
+    value: "skuName"
+  }, {
+    text: "商品条码",
+    value: "skuNo"
+  }]
+  
 
 export default class SelectWithInput extends PureComponent {
     state = {
@@ -15,7 +25,15 @@ export default class SelectWithInput extends PureComponent {
     };
 
     componentWillReceiveProps = (nextProps) => {
-
+        var obj = {};
+        if (nextProps.selected !== this.state.selected) {
+            obj.selected = nextProps.selected;
+        }
+        if (nextProps.value !== this.state.value) {
+            obj.value = nextProps.value;
+        }
+        this.setState(obj);
+        // (0, c.default)(t) || this.setState(t)
     }
 
     handleInputChange = (e) =>{
@@ -53,9 +71,24 @@ export default class SelectWithInput extends PureComponent {
                   value={state.value || props.value}
                   placeholder={props.placeholder}
                   onChange={this.handleInputChange}
+                  onPressEnter={props.onPressEnter}
                 />
-                   {/* onPressEnter={props.onPressEnter} */}
             </div>
         )
     }
+}
+
+
+SelectWithInput.propsTypes = {
+    options: PropsTypes.array,
+    value: PropsTypes.string,
+    onChange: PropsTypes.func.isRequired,
+    onPressEnter: PropsTypes.func,
+    placeholder: PropsTypes.string,
+    className: PropsTypes.string
+}
+
+SelectWithInput.defaultProps = {
+    options: options,
+    value: ""
 }

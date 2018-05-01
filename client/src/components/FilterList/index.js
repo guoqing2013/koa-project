@@ -1,5 +1,12 @@
 import React, { PureComponent } from 'react';
 import omit from 'lodash/omit';
+// function o(e, t) {
+//   var n = {};
+//   for (var r in e)
+//       t.indexOf(r) >= 0 || Object.prototype.hasOwnProperty.call(e, r) && (n[r] = e[r]);
+//   return n
+// }
+
 import assign from 'lodash/assign';
 import cx from 'classnames';
 import FilterItem from '../FilterItem';
@@ -19,12 +26,13 @@ export default class FilterList extends PureComponent {
         // }, omitedValue)
 
         total.push(
-          <FilterItem key={currentIndex} {...omitedValue} />
+          <FilterItem key={currentIndex} {...omitedValue}  >
+            {children}
+          </FilterItem>
         );
       }
       return total
     }, []);
-    console.log('filtersElement', filtersElement)
     return (
         <div className={cx('filter-list', className)}>
           {filtersElement}
