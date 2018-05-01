@@ -72,7 +72,7 @@ export class Container extends Component {
 
     return (
       <Loading show={loading} className="container-loading">
-        <div class="container">{children}</div>
+        <div className="container">{children}</div>
       </Loading>
     )
   }

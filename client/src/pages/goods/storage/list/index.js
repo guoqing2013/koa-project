@@ -3,10 +3,12 @@ import { Notify, Input, Select } from 'zent';
 import assign from 'lodash/assign';
 import * as Actions from 'api/goods/storage';
 
-import FilterWrap from '../components/filter-wrap';
 import { Header, Content } from 'components/common';
-// import StorageList from '../components/storage-list';
+import FilterWrap from '../components/filter-wrap';
+import StorageList from '../components/storage-list';
+import AddnewTip from '../components/addnew-tip'
 import query from 'common/query';
+
 
 import './style.css';
 
@@ -33,7 +35,7 @@ export default class App extends Component {
   state = {
     current: 1,
     pageSize: 20,
-    list: [],
+    list: [{"totalCostPrice":0,"kdtId":40497547,"sellChannel":1,"lastCostPrice":0,"avgCostPrice":0,"overSoldNum":0,"specifications":"334","createdAt":1520915504000,"photoUrl":"[{\"url\":\"https://img.yzcdn.cn/public_files/2017/08/30/63a8d28bce4ca2e5d081e1e69926288e.jpg\"}]","unit":"件","stockLowWarning":true,"sellStockCount":0,"relateCode":"","stockNum":0,"name":"444444444name","skuNo":"12345","skuId":5907196,"categoryId":305936,"stockHighWarning":false,"updatedAt":1524234727000,"status":0},{"totalCostPrice":0,"kdtId":40497547,"sellChannel":6,"lastCostPrice":0,"avgCostPrice":0,"overSoldNum":0,"specifications":"","createdAt":1520734552000,"photoUrl":"[{\"url\":\"https://img.yzcdn.cn/upload_files/2015/05/14/FoMCEwRpIbleJqCh7A---MZ-JvUc.png\"}]","unit":"件","stockLowWarning":false,"sellStockCount":100000,"relateCode":"","stockNum":100000,"name":"实物商品（购买时需填写收货地址，测试商品，不发货，不退款）","skuNo":"P000000000000001","skuId":5903147,"categoryId":305936,"stockHighWarning":false,"updatedAt":1520764795000,"status":0}],
     sortBy: null,
     sortType: null,
     totalItem: 0,
@@ -76,11 +78,6 @@ export default class App extends Component {
   //     });
   // };
 
-  handlePageChange = current => {
-    if (current) {
-      this.fetchList({ page: current });
-    }
-  };
 
 
 
@@ -194,35 +191,59 @@ export default class App extends Component {
 //     }
 // }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  checkIsEmpty = () => {
+    // var state = this.state
+    // , loading = state.loading;
+    // return 0 === state.list.length && !loading && (0,
+    // h.default)(this.filters, V)
+    return false;
+  }
 
   render() {
 
-    const { catList } = this.state;
+    const state = this.state;
     return (
       <div>
         <Header>
           <FilterWrap
-           catList={catList}
+           catList={state.catList}
            defaultFilters={defaultFilters}
            filters={this.filters}
            onChange={this.onFilterChange}
           />
         </Header>
         <Content>
+          {
+            this.checkIsEmpty() 
+            ?
+            <AddnewTip />
+            :
+            <StorageList
+             rowKey="skuId"
+             datasets={state.list}
+             onChange={this.loadList}
+             loading={state.loading}
+             emptyLabel={state.emptyLabel}
+             sortBy={state.sortBy}
+             sortType={state.sortType}
+             id2cat={state.id2cat}
+             pageInfo={
+               {
+                 pageSize: state.pageSize,
+                 current: state.current,
+                 totalItem: state.totalItem
+               }
+             }
+             selection={
+               {
+                selectedRowKeys: state.selected,
+                onSelect: this.onTableSelected
+               }
+             }
+            /> 
+            //  batchComponents
+          }
+          
         </Content>
 {/*           <StorageList
             list={list}
