@@ -3,7 +3,7 @@ import { Notify, Input, Select } from 'zent';
 import assign from 'lodash/assign';
 import * as Actions from 'api/goods/storage';
 
-import Filter from 'components/Filter';
+import FilterWrap from '../components/filter-wrap';
 import { Header, Content } from 'components/common';
 // import StorageList from '../components/storage-list';
 import query from 'common/query';
@@ -209,7 +209,7 @@ export default class App extends Component {
     return (
       <div>
         <Header>
-          <Filter
+          <FilterWrap
            catList={catList}
            defaultFilters={defaultFilters}
            filters={this.filters}
