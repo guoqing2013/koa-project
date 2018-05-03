@@ -68,35 +68,45 @@ export const get = async (ctx) => {
 /**
  * 获取商品库列表
  */
-export const search = async (ctx) => {
+export const search = (ctx) => {
   // const id = ctx.params.id // 获取url里传过来的参数里的id
-  const query = ctx.query
-  let limit = 10
-  if (query.page_size) {
-    limit = parseInt(query.page_size) // 使用 limit 限制返回结果数
-  }
-  let offset = (parseInt(query.page_no) - 1) * parseInt(query.page_size) // 跳过前 offset 条结果
-  console.log(limit, offset)
+  // const query = ctx.query
+  // let limit = 2
+  // if (query.page_size) {
+  //   limit = parseInt(query.page_size) // 使用 limit 限制返回结果数
+  // }
+  let pageNo = ctx.query.page_no
+  let pageSize = parseInt(ctx.query.page_size)
+  let offset = pageSize * (pageNo - 1)
+  console.log(pageNo, pageSize, offset)
   // const param = ctx.request.query
-  const result = await Sku.findAndCountAll({
-    limit,
-    offset: 0
+  return Sku.findAndCountAll({
+    limit: pageSize,
+    offset: offset
+  }).then((result) => {
+    // let page = ctx.query.page_no
+    // let totalCount = Math.ceil(result.count / limit)
+    // offset = limit * (page - 1)
+
+    ctx.body = {
+      'response': {
+        'paginator': {
+          pageSize: pageSize,
+          page: pageNo,
+          'totalCount': result.count
+        },
+        'items': result.rows
+      }
+    }
+  }).catch((error) => {
+    console.log(error)
+    // res.status(500).send('Internal Server Error')
   })
   // const pageSize = param.page_size || 10
   // const page = param.page_no || 1
   // const totalCount = Math.ceil(result.count / limit)
   // offset = limit * (page - 1)
   // ctx.body.status = 200
-  ctx.body = {
-    'response': {
-      'paginator': {
-        pageSize: limit,
-        page: offset,
-        'totalCount': result.count
-      },
-      'items': result.rows
-    }
-  }
   // .catch(function (error) {
   //   ctx.body.status = 500
   // })

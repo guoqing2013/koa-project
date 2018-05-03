@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Loading, Pagination, Affix, Table  } from 'zent';
-import map from 'lodash/map';
+import { Table  } from 'zent';
+// import map from 'lodash/map';
 import utils from 'common/utils';
 import Meta from '../Meta';
 import './style.css';
