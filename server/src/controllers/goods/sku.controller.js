@@ -69,17 +69,10 @@ export const get = async (ctx) => {
  * 获取商品库列表
  */
 export const search = (ctx) => {
-  // const id = ctx.params.id // 获取url里传过来的参数里的id
-  // const query = ctx.query
-  // let limit = 2
-  // if (query.page_size) {
-  //   limit = parseInt(query.page_size) // 使用 limit 限制返回结果数
-  // }
-  let pageNo = ctx.query.page_no
-  let pageSize = parseInt(ctx.query.page_size)
+  let pageNo = 1 || ctx.query.page_no
+  let pageSize = 20 || parseInt(ctx.query.page_size)
   let offset = pageSize * (pageNo - 1)
   console.log(pageNo, pageSize, offset)
-  // const param = ctx.request.query
   return Sku.findAndCountAll({
     limit: pageSize,
     offset: offset
