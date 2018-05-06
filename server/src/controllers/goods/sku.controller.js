@@ -69,7 +69,7 @@ export const get = async (ctx) => {
  * 获取商品库列表
  */
 export const search = (ctx) => {
-  let pageNo = 1 || ctx.query.page_no
+  let pageNo = ctx.query.pageNo
   let pageSize = 20 || parseInt(ctx.query.page_size)
   let offset = pageSize * (pageNo - 1)
   console.log(pageNo, pageSize, offset)

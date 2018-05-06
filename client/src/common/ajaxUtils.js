@@ -6,7 +6,6 @@ export function handleList  (request, params, n)  {
         var items = data.items
           , paginator = data.paginator
           , totalCount = paginator.totalCount;
-          debugger;
         // return i && (items = (0,
         // Y.parseValByRatio)(items, {
         //     stock: -3,
