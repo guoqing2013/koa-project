@@ -38,7 +38,24 @@ const router = koaRouter()
 
 // let port = process.env.PORT
 
-app.use(cors())
+// 需要注意是，当配置了xhr.withCredentials = true时，必须在后端增加 response 头信息Access-Control-Allow-Origin，且必须指定域名，而不能指定为*。
+// 参考： https://minghe.me/2017-05-24-%E7%94%A8%E4%BB%A3%E7%A0%81%E6%9D%A5%E6%B5%85%E8%AF%B4CORS%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF.html
+// 参考：http://madole.xyz/whitelisting-multiple-domains-with-kcors-in-koa/
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+  // origin: function (ctx) {
+  //   if (ctx.url === '/test') {
+  //     return false
+  //   }
+  //   return '*'
+  // }
+  // exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+  // maxAge: 5,
+  // credentials: true,
+  // allowMethods: ['GET', 'POST', 'DELETE'],
+  // allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
+}))
 app.use(koaBodyparser())
 app.use(json())
 app.use(logger())

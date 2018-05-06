@@ -17,8 +17,13 @@ export function handleList  (request, params, n)  {
         //     totalItem: totalCount || 0,
         //     emptyLabel: totalCount > 0 ? null : "未查找到任何数据"
         // }, n)
+
+        return Promise.resolve({
+            list: items,
+            totalItem: totalCount || 0,
+            emptyLabel: totalCount > 0 ? null : "未查找到任何数据"
+        });
     }).catch(function(t) {
-        debugger;
         return _this.setState({
             list: [],
             totalItem: 0,

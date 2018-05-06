@@ -97,10 +97,16 @@ function sendSentryWarning() {
 
 function ajax(url, options) {
   var ajaxOptions = normalizeArguments(url, options);
+
   // 默认超时10秒
   if (ajaxOptions.timeout === undefined) {
     ajaxOptions.timeout = 10000;
   }
+
+  // ajaxOptions.data = assign({
+  //   retailSource: "WEB-RETAIL-AJAX"
+  // }, ajaxOptions.data)
+
   var promise = (0, _zanAjax2.default)(ajaxOptions, ajaxConfig);
   var shouldReturnRawResponse = !!ajaxOptions.rawResponse;
 
@@ -119,22 +125,19 @@ function ajax(url, options) {
       if (+resp.code === 0 || resp.code === void 0 || resp.success && +resp.code === 200) {
         return Promise.resolve({
           json: true,
-          resp: resp,
-          req: ajaxOptions  //guoqing add
+          resp: resp
         });
       }
 
       return Promise.reject({
         json: true,
-        resp: resp,
-        req: ajaxOptions  //guoqing add
+        resp: resp
       });
     }
 
     return Promise.resolve({
       json: false,
-      resp: resp,
-      req: ajaxOptions  //guoqing add
+      resp: resp
     });
   }, function (rawResp) {
     var error = rawResp.response;
@@ -143,8 +146,7 @@ function ajax(url, options) {
       if (error && error.data) {
         return Promise.reject({
           json: true,
-          resp: error.data,
-          req: ajaxOptions  //guoqing add
+          resp: error.data
         });
       }
 
@@ -156,22 +158,20 @@ function ajax(url, options) {
         resp: {
           msg: msg,
           code: code
-        },
-        req: ajaxOptions  //guoqing add
+        }
       });
     }
 
     return Promise.reject({
       json: false,
-      resp: error || rawResp.message,
-      req: ajaxOptions  //guoqing add
+      resp: error || rawResp.message
     });
   }).then(function (resp) {
     if (shouldReturnRawResponse || !resp.json) {
       return resp.resp;
     }
 
-    return resp.resp.data;
+    return resp.resp.response;
   }, function (resp) {
     if (shouldReturnRawResponse || !resp.json) {
       sendSentryWarning(resp.req, resp.resp, ajaxOptions);
@@ -184,6 +184,7 @@ function ajax(url, options) {
 
 ajax.CancelToken = _zanAjax2.default.CancelToken;
 ajax.isCancel = _zanAjax2.default.isCancel;
+
 
 // Node does not support ES module
 module.exports = ajax;

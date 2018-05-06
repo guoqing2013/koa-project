@@ -1,15 +1,15 @@
 import assign from "lodash/assign";
 import omit from "lodash/omit";
-import omitBy from "lodash/omitBy";
+import pickBy from "lodash/pickBy";
 import mapValues from "lodash/mapValues";
 import isArray from "lodash/isArray";
 import cookie from 'js-cookie';
 import ajax from 'zan-pc-ajax';
 
 // 删除对象中为null的属性值
-const omitByObject = (obj) => {
-    return omitBy(obj, (value) =>{
-        return value && value !== ""; 
+const pickByObject = (obj) => {
+    return pickBy(obj, (value) =>{
+        return (value && value !== ""); 
     });
 }
 // 将对象中属性值为数组的stringify为字符串
@@ -30,7 +30,6 @@ function stringifyAttribute(obj) {
 }
 
 export default function commonAjax(opts, method, data) {
-    
     if (opts.url &&  !opts.url.match(/^\//)) { //不是以"/"开头的请求地址自动加上"/"
         opts.url = "/" + opts.url
     }
@@ -63,20 +62,18 @@ export default function commonAjax(opts, method, data) {
     if(opts.needTrim === false) {
         data = opts.data;
     } else {
-        data = omitByObject(opts.data || {}); //删除对象中为null的属性值
+        data = pickByObject(opts.data || {}); //删除对象中为null的属性值
     }
 
     data = stringifyAttribute(data);
 
     var params = {
         noXRequestedWithHeader: true,
-        withCredentials: true,
+        withCredentials: true, // 带上cookie的ajax跨域请求（credentials）
         url: opts.url,
         method: opts.method || "GET",
         data: data
     };
-
-
 
     // return -1 !== opts.url.indexOf("/youzan.retail.product.biz.online/1.0.0/update") && "" === opts.data.subTitle && (params.data.subTitle = ""), 
     // (0, _custom2.default)(extend({}, params, (0, _AboutPage2.default)(opts, Object.keys(params))));
