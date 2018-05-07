@@ -8,7 +8,7 @@ import assign from 'lodash/assign';
 
 import Filter from 'components/Filter';
 // import FilterAction from '../FilterAction';
-import query from 'common/query';
+import URIUtil from 'common/URIUtil';
 
 import './index.css';
 
@@ -92,7 +92,7 @@ export default class FilterWrap extends PureComponent {
 
   onClearFilters = () => {
   //     d.default.clearQuery(),
-  //     this.setState(r.props.defaultFilters, r.onFilter)
+      this.setState(this.props.defaultFilters, this.onFilter)
   }
 
   render() {

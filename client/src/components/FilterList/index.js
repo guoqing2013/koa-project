@@ -7,7 +7,7 @@ import omit from 'lodash/omit';
 //   return n
 // }
 
-import assign from 'lodash/assign';
+// import assign from 'lodash/assign';
 import cx from 'classnames';
 import FilterItem from '../FilterItem';
 

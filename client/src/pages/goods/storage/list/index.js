@@ -8,7 +8,7 @@ import { Header, Content } from 'components/common';
 import FilterWrap from '../components/filter-wrap';
 import StorageList from '../components/storage-list';
 import AddnewTip from '../components/addnew-tip'
-import query from 'common/query';
+import URIUtil from 'common/URIUtil';
 import ajaxUtils from 'common/ajaxUtils';
 import * as Actions from 'api/goods/storage';
 import './style.css';
@@ -139,10 +139,10 @@ export default class App extends Component {
         loading: true,
         emptyLabel: "数据正在加载中"
     });
-    // query.setQuery(assign({}, query.getQuery(), {
-    //     current: u.current,
-    //     skuNoOrName: JSON.stringify(s)
-    // })),
+    URIUtil.setQuery(assign({}, URIUtil.getQuery(), {
+        current: otherParam.current,
+        skuNoOrName: JSON.stringify(skuNoOrName)
+    }));
 
 
    
