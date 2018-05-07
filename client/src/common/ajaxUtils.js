@@ -1,5 +1,5 @@
-
-export function handleList  (request, params, n)  {
+import assign from 'lodash/assign';
+export function handleList  (request, params, otherParam)  {
     const _this = this;
     //   , i = !(arguments.length > 3 && void 0 !== arguments[3]) || arguments[3];
     return request(params).then(function(data) {
@@ -15,13 +15,13 @@ export function handleList  (request, params, n)  {
         //     list: items,
         //     totalItem: totalCount || 0,
         //     emptyLabel: totalCount > 0 ? null : "未查找到任何数据"
-        // }, n)
+        // }, otherParam)
 
-        return Promise.resolve({
+        return assign({
             list: items,
             totalItem: totalCount || 0,
             emptyLabel: totalCount > 0 ? null : "未查找到任何数据"
-        });
+        }, otherParam);
     }).catch(function(t) {
         return _this.setState({
             list: [],

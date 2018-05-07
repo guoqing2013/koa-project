@@ -1,4 +1,4 @@
-4654: function(e, t, n) {
+function n4654(e, t, n) {
     "use strict";
     function r(e) {
         return e && e.__esModule ? e : {
@@ -331,4 +331,4 @@
     }(b.Component);
     t.default = X,
     e.exports = t.default
-},
+}

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Notify, Input, Select } from 'zent';
 import assign from 'lodash/assign';
+import set from 'lodash/set';
+import omit from 'lodash/omit';
 
 import { Header, Content } from 'components/common';
 import FilterWrap from '../components/filter-wrap';
@@ -74,9 +76,9 @@ export default class App extends Component {
   /**
    * 筛选
    */
-  onFilterChange = (filtersData) => {
-    this.filters = filtersData;
-    listRequestData.filters = filtersData;
+  onFilterChange = (filter) => {
+    this.filters = filter;
+    listRequestData.filters = filter;
     this.loadList({
         current: 1
     });
@@ -95,29 +97,44 @@ export default class App extends Component {
   /**
    * 获取商品列表
    */
-  loadList = () =>{
-    // var e, 
+  loadList = (options) =>{
+    var e;
     //  t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
+    options = options ? options : {};
     // //  r = this.state,
-    //  state = this.state,
+     const state = this.state;
     //  i = this.filters,
-    //  u = {
-    //     current: t.current || state.current,
-    //     sortBy: t.sortBy || state.sortBy,
-    //     sortType: t.sortType || state.sortType
-    // }, 
-    // s = i.skuNoOrName,
-    // l = a(i, ["skuNoOrName"]),
+     const filters = this.filters;
+     debugger;
+
+
+     const otherParam = {
+        current: options.current || state.current,
+        sortBy: options.sortBy || state.sortBy,
+        sortType: options.sortType || state.sortType
+    }; 
+
+    // s = filters.skuNoOrName,
+    const skuNoOrName = filters.skuNoOrName;
+    const newFilters = omit(filters, ["skuNoOrName"]);
+
     // c = g({}, u, l, (e = {
     //     pageNo: u.current,
     //     attributes: [1, 3]
     // },
-    // o(e, s.selected, s.value),
-    // o(e, "sortType", "asc" === u.sortType ? 1 : 2),
-    // o(e, "sortName", u.sortBy),
+    const param = assign({}, otherParam, newFilters, e = {
+      pageNo: otherParam.current,
+      attributes: [1, 3]
+    })
+
+
+    set(e, skuNoOrName.selected, skuNoOrName.value);
+    set(e, "sortType", "asc" === otherParam.sortType ? 1 : 2);
+    set(e, "sortName", otherParam.sortBy);
+    e;
+    debugger;
     // e));
-    // !(0,
-    // m.default)(l.categoryIds) && (c.categoryIds = [c.categoryIds]),
+    // !(0,  m.default)(l.categoryIds) && (c.categoryIds = [c.categoryIds]),
     this.setState({
         loading: true,
         emptyLabel: "数据正在加载中"
@@ -128,13 +145,11 @@ export default class App extends Component {
     // })),
 
 
-    var c = {"current":1,"sortBy":null,"sortType":2,"categoryIds":null,"sellingChannel":"","defaultVendorId":"","pageNo":1,"attributes":[1,3],"skuName":"","sortName":null};
-    var u = {"current":1,"sortBy":null,"sortType":null}
+   
 
 
-    ajaxUtils.handleList.call(this, Actions.loadList, c, u).then((data) => {
-      debugger;
-      // response = {"list":[{"totalCostPrice":0,"kdtId":40497547,"sellChannel":1,"lastCostPrice":0,"avgCostPrice":0,"overSoldNum":0,"specifications":"334","createdAt":1520915504000,"photoUrl":"[{\"url\":\"https://img.yzcdn.cn/public_files/2017/08/30/63a8d28bce4ca2e5d081e1e69926288e.jpg\"}]","unit":"件","stockLowWarning":true,"sellStockCount":0,"relateCode":"","stockNum":0,"skuNo":"12345","name":"444444444name","skuId":5907196,"categoryId":305936,"stockHighWarning":false,"updatedAt":1524234727000,"status":0},{"totalCostPrice":0,"kdtId":40497547,"sellChannel":6,"lastCostPrice":0,"avgCostPrice":0,"overSoldNum":0,"specifications":"","createdAt":1520734552000,"photoUrl":"[{\"url\":\"https://img.yzcdn.cn/upload_files/2015/05/14/FoMCEwRpIbleJqCh7A---MZ-JvUc.png\"}]","unit":"件","stockLowWarning":false,"sellStockCount":100,"relateCode":"","stockNum":100,"skuNo":"P000000000000001","name":"实物商品（购买时需填写收货地址，测试商品，不发货，不退款）","skuId":5903147,"categoryId":305936,"stockHighWarning":false,"updatedAt":1520764795000,"status":0}],"totalItem":2,"emptyLabel":null,"current":1,"sortBy":null,"sortType":null};
+    ajaxUtils.handleList.call(this, Actions.loadList, param, otherParam).then((data) => {
+      // response = {"list":[ {"totalCostPrice":0,"kdtId":40497547,"sellChannel":1,"lastCostPrice":0,"avgCostPrice":0,"overSoldNum":0,"specifications":"334","createdAt":1520915504000,"photoUrl":"[{\"url\":\"https://img.yzcdn.cn/public_files/2017/08/30/63a8d28bce4ca2e5d081e1e69926288e.jpg\"}]","unit":"件","stockLowWarning":true,"sellStockCount":0,"relateCode":"","stockNum":0,"skuNo":"12345","name":"444444444name","skuId":5907196,"categoryId":305936,"stockHighWarning":false,"updatedAt":1524234727000,"status":0},{"totalCostPrice":0,"kdtId":40497547,"sellChannel":6,"lastCostPrice":0,"avgCostPrice":0,"overSoldNum":0,"specifications":"","createdAt":1520734552000,"photoUrl":"[{\"url\":\"https://img.yzcdn.cn/upload_files/2015/05/14/FoMCEwRpIbleJqCh7A---MZ-JvUc.png\"}]","unit":"件","stockLowWarning":false,"sellStockCount":100,"relateCode":"","stockNum":100,"skuNo":"P000000000000001","name":"实物商品（购买时需填写收货地址，测试商品，不发货，不退款）","skuId":5903147,"categoryId":305936,"stockHighWarning":false,"updatedAt":1520764795000,"status":0}],"totalItem":2,"emptyLabel":null,"current":1,"sortBy":null,"sortType":null};
       if (data && data.list) {
         this.setState({
           ...data,
@@ -194,7 +209,6 @@ export default class App extends Component {
 // }
 
   componentDidMount() {
-    // this.fetchList();
     this.loadList();
     this.loadCatList();
   }
