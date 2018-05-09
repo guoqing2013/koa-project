@@ -105,7 +105,6 @@ export default class App extends Component {
      const state = this.state;
     //  i = this.filters,
      const filters = this.filters;
-     debugger;
 
 
      const otherParam = {
@@ -131,8 +130,6 @@ export default class App extends Component {
     set(e, skuNoOrName.selected, skuNoOrName.value);
     set(e, "sortType", "asc" === otherParam.sortType ? 1 : 2);
     set(e, "sortName", otherParam.sortBy);
-    e;
-    debugger;
     // e));
     // !(0,  m.default)(l.categoryIds) && (c.categoryIds = [c.categoryIds]),
     this.setState({

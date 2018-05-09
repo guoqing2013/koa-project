@@ -39,10 +39,10 @@ export default class App extends Component {
   };
 
   componentDidMount() {
-    // const { location } = this.props;
-
+   
     this.fetchList();
   }
+
 
   fetchList = options => {
     const param = Helper.serializeAjaxData(options, this.state);
