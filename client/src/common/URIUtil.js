@@ -1,5 +1,8 @@
 import createHashHistory from 'history/createHashHistory'
 import queryString  from 'query-string';
+import mapValues from 'lodash/mapValues';
+import jsonUtil from './jsonUtil';
+
 
 const history = createHashHistory();
 
@@ -8,10 +11,9 @@ const URIUtil = {
     const search = history.location.search;
     let query = {}
     if(search !== "") {
-      query = queryString.parse(search);
+      query = jsonUtil.deepJsonParse(queryString.parse(search), true);
     }
     return query;
-    // return query;
     // var e = f.location.search
     //   , t = {};
     // return "" !== e && (t = (0,
@@ -34,21 +36,25 @@ const URIUtil = {
   clearQuery: function(param) {
     const search = history.location.search;
     let query = {}
-    if (query !== '') {
-      query = queryString.parse(search);
+    if(search !== "") {
+      query = jsonUtil.deepJsonParse(queryString.parse(search), true);
     }
-    // let newQuery = param || 
-    // return newQuery;
-  //   var t = f.location.search
-  //     , n = {};
-  //   "" !== t && (n = (0,
-  //   c.deepJsonParse)(l.default.parse(t), !0));
-  //   var r = param || (0,
-  //   a.default)(n, function() {
-  //       return ""
-  //   });
-  //   return d.setQuery(r),
-  //   r
+    let newQuery = param || mapValues(query, () => {
+      return ""
+    })
+    this.setQuery(newQuery)
+    return newQuery;
+    
+    // var t = f.location.search
+    //   , n = {};
+    // "" !== t && (n = (0,
+    // c.deepJsonParse)(l.default.parse(t), !0));
+    // var r = e || (0,
+    // a.default)(n, function() {
+    //     return ""
+    // });
+    // return d.setQuery(r),
+    // r
   }
 }
 

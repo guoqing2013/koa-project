@@ -1,5 +1,10 @@
 import isObject from 'lodash/isObject';
+import isPlainObject from 'lodash/isPlainObject';
 import isArray from 'lodash/isArray';
+import isString from 'lodash/isString';
+import mapValues from 'lodash/mapValues';
+import isNumber from 'lodash/isNumber';
+import isSafeInteger from 'lodash/isSafeInteger';
 
 export const parseValByRatio = (obj) => {
     if (!isObject(obj)) {
@@ -8,14 +13,79 @@ export const parseValByRatio = (obj) => {
 
 }
 
-export const deepJsonParse = (json, isDeep) => {
-    if (isArray(json)) {
-        return json.map((v) => {
+
+
+
+/**
+ * 深解析对象
+ * @param {*} param 
+ * @param {*} isDeep 
+ */
+export const deepJsonParse = (param, isDeep) => {
+    if (isArray(param)) {
+        return param.map((v) => {
             return deepJsonParse(v, isDeep);
         });
     }
-    // if()
+    if (isPlainObject(param)) {
+      return mapValues(param, (value, key) => {
+        return deepJsonParse(value, isDeep);
+      })
+    }
+    // param为字符串，也可能是对象字符串"{a:1}"
+    if (isString(param)) {
+      try {
+        let parsedParam = JSON.parse(param);
+        if (isObject(parsedParam)) {
+          return deepJsonParse(parsedParam, isDeep);
+        } else {
+          if ( !isDeep || (isNumber(parsedParam)  && !isSafeInteger(parsedParam) ) ) {
+            return param;
+          } else {
+            return parsedParam;
+          }
+        }
+      } catch (error) {
+        return param;
+      }
+    }
+
+    return param;
 }
+
+// function o(param, isDeep) {
+//   if ((0, S.default)(param)) {
+//     return param.map(function(t) {
+//       return o(t, isDeep);
+//     });
+//   }
+//   if ((0, u.default)(param)) {
+//     return (0, f.default)(param, function(t) {
+//       return o(t, isDeep);
+//     });
+//   }
+//   if ((0, b.default)(param)) {
+//     try {
+//       /** @type {*} */
+//       var u = JSON.parse(param);
+//       return 
+//       (0, h.default)(u) 
+// ? 
+// o(u, isDeep) 
+// : 
+// !isDeep || (0, x.default)(u) && !(0, a.default)(u) 
+// ? 
+// param 
+// : 
+// u;
+//     } catch (e) {
+//       return param;
+//     }
+//   }
+//   return param;
+// }
+
+
 
 export default {
     parseValByRatio,
