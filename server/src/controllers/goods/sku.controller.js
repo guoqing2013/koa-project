@@ -4,8 +4,9 @@ import Sku from '../../models/goods/sku'
 /**
  * 创建商品
  */
-export const create = async (ctx) => {
+export const createSku = async (ctx) => {
   const body = ctx.request.body
+  console.log(body)
   // const body = {
   //   retail_source: 'WEB-RETAIL-AJAX',
   //   sku_no: 'tiaoxinma',
@@ -51,9 +52,8 @@ export const create = async (ctx) => {
  * 商品库单个商品信息查询 sku_id与sku_no二选一必传
  * @param {*} ctx
  */
-export const get = async (ctx) => {
+export const getSku = async (ctx) => {
   const skuId = ctx.query.sku_id
-  console.log(skuId)
   const result = await Sku.findOne({
     where: {
       sku_id: skuId
@@ -66,10 +66,33 @@ export const get = async (ctx) => {
 }
 
 /**
+ * 更新SKU
+ */
+export const updateSku = async (ctx) => {
+  const data = ctx.request.body
+  console.log('updateData', data)
+  return Sku.update({
+    name: data.name,
+    photo_url: data.photo_url,
+    category_id: data.category_id,
+    source: data.source,
+    sku_no: data.sku_no,
+    specifications: data.specifications
+  }, {where: {sku_id: data.sku_id}})
+    .then((result) => {
+      // here your result is simply an array with number of affected rows
+      console.log(result)
+      ctx.body = {
+        response: !!result[0]
+      }
+    })
+}
+
+/**
  * 获取商品库列表
  */
-export const search = (ctx) => {
-  let pageNo = ctx.query.pageNo
+export const getSkus = (ctx) => {
+  let pageNo = ctx.query.page_no
   let pageSize = 20 || parseInt(ctx.query.page_size)
   let offset = pageSize * (pageNo - 1)
   console.log(pageNo, pageSize, offset)
@@ -110,8 +133,22 @@ export const search = (ctx) => {
   // console.log(goodslist)
 }
 
+const deleteSkus = (ctx) => {
+  const data = ctx.request.body
+  console.log('delete data', data)
+  return Sku.destroy({where: {sku_id: data.sku_ids}})
+    .then((result) => {
+      console.log('deleted skus length:', result)
+      ctx.body = {
+        response: result
+      }
+    })
+}
+
 export default {
-  get,
-  search,
-  create
+  getSkus,
+  getSku,
+  createSku,
+  updateSku,
+  deleteSkus
 }

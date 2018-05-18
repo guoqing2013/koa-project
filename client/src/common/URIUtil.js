@@ -18,10 +18,10 @@ const URIUtil = {
     const search = queryString.stringify(param);
 
     // var t = queryString.stringify(param);
-    window.history.replace({
-        pathname: "/",
-        search
-    });
+    // window.history.replace({
+    //     pathname: "/",
+    //     search
+    // });
   },
   clearQuery: function(e) {
   //   var t = f.location.search
