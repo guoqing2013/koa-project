@@ -25,6 +25,7 @@
     "bcryptjs": "^2.4.3",
     "bristol": "^0.3.3",
     "fejl": "^1.0.2",
+    "joi": "^13.3.0",
     "keyblade": "^0.3.2",
     "koa": "^2.5.0",
     "koa-bodyparser": "^4.2.0",
