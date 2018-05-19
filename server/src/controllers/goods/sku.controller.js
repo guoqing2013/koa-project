@@ -5,8 +5,8 @@ import Sku from '../../models/goods/sku'
  * 创建商品
  */
 export const createSku = async (ctx) => {
-  const body = ctx.request.body
-  console.log(body)
+  const data = ctx.request.body
+  console.log(data)
   // const body = {
   //   retail_source: 'WEB-RETAIL-AJAX',
   //   sku_no: 'tiaoxinma',
@@ -24,17 +24,17 @@ export const createSku = async (ctx) => {
   try {
     const sku = await Sku.create({
       retail_source: 'WEB-RETAIL-AJAX',
-      sku_no: body.sku_no,
-      name: body.name,
-      specifications: body.specifications,
+      sku_no: data.sku_no,
+      name: data.name,
+      specifications: data.specifications,
       category_id: 305936,
       photo_url: [{
         'url': 'https://img.yzcdn.cn/public_files/2017/08/30/63a8d28bce4ca2e5d081e1e69926288e.jpg'
       }],
-      unit: body.unit,
+      unit: data.unit,
       // vendor: {},
-      cost_price: body.cost_price,
-      stock_num: body.stock_num,
+      cost_price: data.cost_price,
+      stock_num: data.stock_num,
       source: 'WEB_BACK_END',
       idempotent_no: 1523933651255
     })
@@ -59,7 +59,7 @@ export const getSku = async (ctx) => {
       sku_id: skuId
     }
   })
-  console.log(result)
+  // console.log(result)
   ctx.body = {
     response: result
   }
