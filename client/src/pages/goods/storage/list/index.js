@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Notify, Input, Select } from 'zent';
+import { Notify, Input, Select, Button } from 'zent';
 import assign from 'lodash/assign';
 import set from 'lodash/set';
 import omit from 'lodash/omit';
 
 import { Header, Content } from 'components/common';
+import Batch from 'components/Batch'
 import FilterWrap from '../components/filter-wrap';
 import StorageList from '../components/storage-list';
 import AddnewTip from '../components/addnew-tip'
@@ -82,13 +83,12 @@ export default class App extends Component {
     this.loadList({
         current: 1
     });
-    debugger;
   }
 
   /**
    * 
    */
-  onTableSelected = function(selected) {
+  onTableSelected = (selected) =>{
     this.setState({
         selected
     })
@@ -105,7 +105,6 @@ export default class App extends Component {
      const state = this.state;
     //  i = this.filters,
      const filters = this.filters;
-     debugger;
 
 
      const otherParam = {
@@ -131,14 +130,14 @@ export default class App extends Component {
     set(e, skuNoOrName.selected, skuNoOrName.value);
     set(e, "sortType", "asc" === otherParam.sortType ? 1 : 2);
     set(e, "sortName", otherParam.sortBy);
-    e;
-    debugger;
     // e));
     // !(0,  m.default)(l.categoryIds) && (c.categoryIds = [c.categoryIds]),
     this.setState({
         loading: true,
         emptyLabel: "数据正在加载中"
     });
+
+    // 在url中设置请求参数
     URIUtil.setQuery(assign({}, URIUtil.getQuery(), {
         current: otherParam.current,
         skuNoOrName: JSON.stringify(skuNoOrName)
@@ -197,16 +196,41 @@ export default class App extends Component {
 //     this.loadList()
 // }
 
-// onGoodsRemove = function() {
-//     if (n.checkSelected()) {
-//         var e = n.state.selected;
-//         (0,
-//         W.removeGoods)({
-//             skuIds: JSON.stringify(e),
-//             success: n.removeGoodsSuccess
-//         })
-//     }
-// }
+  onGoodsRemove = function() {
+      // if (this.checkSelected()) {
+      //     var e = this.state.selected;
+      //     (0,
+      //     W.removeGoods)({
+      //         skuIds: JSON.stringify(e),
+      //         success: this.removeGoodsSuccess
+      //     })
+      // }
+  }
+
+  getBatchComponents = () => {
+    // return [_.default.createElement(T.default, {
+    //     position: "bottom",
+    //     initLabelValue: "修改分类",
+    //     list: n.state.catList,
+    //     onChange: n.onCatChange,
+    //     syncValueToLabel: !1,
+    //     style: {
+    //         width: "94px"
+    //     }
+    // }), _.default.createElement(O.Button, {
+    //     name: "删除",
+    //     style: {
+    //         width: "66px"
+    //     },
+    //     onClick: n.onGoodsRemove
+    // })]
+    return (
+      [
+        <Button position="bottom" initLabelValue="修改分类" syncValueToLabel={false} list={this.state.catList} style={{width: '94px'}} onChange={this.onCatChange}>修改分类</Button>,
+        <Button type="primary" outline style={{width: '66px'}} onClick={this.onGoodsRemove}>删除</Button>
+      ]
+    )
+  }
 
   componentDidMount() {
     this.loadList();
@@ -280,8 +304,20 @@ export default class App extends Component {
                 onSelect: this.onTableSelected
                }
              }
+             batchComponents={
+               [
+                <Batch
+                  key="batch"
+                  keys={state.list.map(function(e) {
+                    return e.skuId
+                  })}
+                  hasSelectedAll={state.selected.length === state.list.length}
+                  onSelect={this.onTableSelected}
+                  items={this.getBatchComponents()}
+                />
+               ]
+             }
             /> 
-            //  batchComponents
           }
           
         </Content>

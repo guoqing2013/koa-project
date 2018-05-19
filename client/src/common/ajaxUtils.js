@@ -1,3 +1,4 @@
+import { Notify } from 'zent';
 import assign from 'lodash/assign';
 export function handleList  (request, params, otherParam)  {
     const _this = this;
@@ -16,21 +17,28 @@ export function handleList  (request, params, otherParam)  {
         //     totalItem: totalCount || 0,
         //     emptyLabel: totalCount > 0 ? null : "未查找到任何数据"
         // }, otherParam)
-
         return assign({
             list: items,
             totalItem: totalCount || 0,
             emptyLabel: totalCount > 0 ? null : "未查找到任何数据"
         }, otherParam);
-    }).catch(function(t) {
-        return _this.setState({
+    }).catch(function(error) {
+        _this.setState({
             list: [],
             totalItem: 0,
             current: 1,
             emptyLabel: "数据加载出错"
         });
+        Notify.error(error.msg || "数据加载出错");
+        return error;
+        // return r.setState({
+        //     list: [],
+        //     totalItem: 0,
+        //     current: 1,
+        //     emptyLabel: "数据加载出错"
+        // }),
         // A.default.error(t.msg || "数据加载出错"),
-        // t
+        // error
     }).finally(function() {
         _this.setState({
             loading: false

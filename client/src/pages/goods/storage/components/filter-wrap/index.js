@@ -16,7 +16,45 @@ export default class FilterWrap extends PureComponent {
 
   state = assign({}, this.props.filters);
 
-  getFilterItems = () => {
+
+
+  handleCatChange = (e) => {
+    this.setState({
+        categoryIds: e.id
+    })
+  };
+
+  handleChannelChange = (e) => {
+    this.setState({
+        sellingChannel: e.target.value
+    })
+  };
+
+  handleSkuChange = (data) => {
+    this.setState({
+        skuNoOrName: data
+    })
+  };
+
+  handleSupplierChange = (e) => {
+    this.setState({
+        defaultVendorId: e.target.value
+    })
+  }; 
+
+  onFilter = () => {
+    URIUtil.setQuery(assign({}, this.state, {
+        skuNoOrName: JSON.stringify(this.state.skuNoOrName)
+    }));
+    this.props.onChange(this.state)
+  };
+
+  onClearFilters = () => {
+      URIUtil.clearQuery();
+      this.setState(this.props.defaultFilters, this.onFilter)
+  }
+
+  getFilterItems() {
     var state = this.state;
     return [
       {
@@ -56,43 +94,6 @@ export default class FilterWrap extends PureComponent {
         }
       },
     ]
-  }
-
-  handleCatChange = (e) => {
-    this.setState({
-        categoryIds: e.id
-    })
-  };
-
-  handleChannelChange = (e) => {
-    this.setState({
-        sellingChannel: e.target.value
-    })
-  };
-
-  handleSkuChange = (data) => {
-    this.setState({
-        skuNoOrName: data
-    })
-  };
-
-  handleSupplierChange = (e) => {
-    this.setState({
-        defaultVendorId: e.target.value
-    })
-  }; 
-
-  onFilter = () => {
-    // query.setQuery(assign({}, this.state, {
-    //     skuNoOrName: JSON.stringify(this.state.skuNoOrName)
-    // }));
-    this.props.onChange(this.state)
-    debugger;
-  };
-
-  onClearFilters = () => {
-  //     d.default.clearQuery(),
-      this.setState(this.props.defaultFilters, this.onFilter)
   }
 
   render() {
