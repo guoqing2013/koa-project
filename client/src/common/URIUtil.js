@@ -28,11 +28,7 @@ const URIUtil = {
     });
 
     // var t = queryString.stringify(param);
-<<<<<<< HEAD
     // window.history.replace({
-=======
-    // history.replace({
->>>>>>> ee80772b53ec717e29785d502a793f94729156a3
     //     pathname: "/",
     //     search
     // });

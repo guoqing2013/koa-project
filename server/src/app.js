@@ -42,8 +42,9 @@ const app = new Koa()
 // 参考： https://minghe.me/2017-05-24-%E7%94%A8%E4%BB%A3%E7%A0%81%E6%9D%A5%E6%B5%85%E8%AF%B4CORS%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF.html
 // 参考：http://madole.xyz/whitelisting-multiple-domains-with-kcors-in-koa/
 app.use(cors({
-  // origin: 'http://localhost:3000',
-  // credentials: true
+  origin: 'http://localhost:3000',
+  credentials: true
+
   // origin: function (ctx) {
   //   if (ctx.url === '/test') {
   //     return false
