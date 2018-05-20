@@ -1,0 +1,36 @@
+{
+    "name": "zan-pc-ajax",
+    "version": "4.1.5",
+    "description": "PC ajax库",
+    "repository": "http://gitlab.qima-inc.com/fe/zan-pc-ajax",
+    "main": "./lib/index.js",
+    "scripts": {
+        "lint": "eslint src",
+        "build": "babel src --out-dir lib --presets=latest",
+        "prepublish": "yarn build"
+    },
+    "author": "Li Chen <lichen@youzan.com>",
+    "license": "MIT",
+    "files": [
+        "lib/",
+        "typings"
+    ],
+    "types": "./typings/index.d.ts",
+    "dependencies": {
+        "lodash": "^4.17.4",
+        "zan-ajax": "^1.1.7"
+    },
+    "jest": {
+        "verbose": true,
+        "automock": false,
+        "collectCoverage": true
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-eslint": "7.x",
+        "babel-preset-latest": "^6.24.1",
+        "eslint": "^3.19.0",
+        "eslint-plugin-import": "^2.2.0",
+        "eslint-plugin-lean-imports": "^0.3.3"
+    }
+}

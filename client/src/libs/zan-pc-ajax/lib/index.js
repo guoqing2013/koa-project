@@ -14,6 +14,9 @@ var _isPlainObject = require('lodash/isPlainObject');
 
 var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
+// 新加
+var _transfrom = require('./transform');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var global = function () {
@@ -97,15 +100,17 @@ function sendSentryWarning() {
 
 function ajax(url, options) {
   var ajaxOptions = normalizeArguments(url, options);
-
   // 默认超时10秒
   if (ajaxOptions.timeout === undefined) {
     ajaxOptions.timeout = 10000;
   }
 
-  // ajaxOptions.data = assign({
-  //   retailSource: "WEB-RETAIL-AJAX"
-  // }, ajaxOptions.data)
+  // 新加
+  var isTransform = true || ajaxOptions.transform === 1
+  if (isTransform) {
+    ajaxOptions.data = _transfrom.mapKeyAndValue(ajaxOptions.data);
+  }
+
 
   var promise = (0, _zanAjax2.default)(ajaxOptions, ajaxConfig);
   var shouldReturnRawResponse = !!ajaxOptions.rawResponse;
@@ -171,6 +176,7 @@ function ajax(url, options) {
       return resp.resp;
     }
 
+    // return resp.resp.data;
     return resp.resp.response;
   }, function (resp) {
     if (shouldReturnRawResponse || !resp.json) {
@@ -184,7 +190,6 @@ function ajax(url, options) {
 
 ajax.CancelToken = _zanAjax2.default.CancelToken;
 ajax.isCancel = _zanAjax2.default.isCancel;
-
 
 // Node does not support ES module
 module.exports = ajax;
