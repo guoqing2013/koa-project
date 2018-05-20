@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import PageGoodStorageList from './pages/goods/storage/list';
 import GoodStorageCreate from './pages/goods/storage/create';
 import GoodStorageList from './pages/goods/storage/list';
+import GoodCategory from './pages/goods/storage/category';
 
 import PageNotFound from './pages/404';
 
@@ -29,8 +30,9 @@ export default class Routes extends Component {
           <Route path="/paper" component={PageShopList} />
           <Route path="/order" component={PageOrderList} />
           <Route path="/goods/storage/list" component={PageGoodStorageList} /> */}
-          <Route path="/goods/storage/create" component={GoodStorageCreate} />
-          <Route path="/goods/storage/list" component={GoodStorageList} />
+          <Route path="/list" component={GoodStorageList} />
+          <Route path="/add" component={GoodStorageCreate} />
+          <Route path="/category" component={GoodCategory} />
           <Route component={PageNotFound} />
         </Switch>
       </Router>
