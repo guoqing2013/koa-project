@@ -1,7 +1,7 @@
 
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Notify, Input, Select } from 'zent';
+// import { Notify, Input, Select } from 'zent';
 import omit from 'lodash/omit';
 // import assign from 'lodash/assign';
 

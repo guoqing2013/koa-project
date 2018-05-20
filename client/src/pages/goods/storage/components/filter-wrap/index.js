@@ -7,7 +7,6 @@ import SelectWithInput from 'components/select-with-input';
 import assign from 'lodash/assign';
 
 import Filter from 'components/Filter';
-// import FilterAction from '../FilterAction';
 import URIUtil from 'common/URIUtil';
 
 import './index.css';
@@ -73,8 +72,8 @@ export default class FilterWrap extends PureComponent {
         props: {
           value: state.categoryIds,
           onChange: this.handleCatChange,
-          // list: this.props.catList 
-          list: []
+          list: this.props.catList 
+          // list: []
         }
       },
       {

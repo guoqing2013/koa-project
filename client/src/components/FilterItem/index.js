@@ -24,7 +24,7 @@ export default class FilterItem extends PureComponent {
     }
 
     const MapComponent = component;
-    
+    console.log('this.props', this.props)
     return (
       <div className="filter-item" style={filterItemStyle}>
         <label className={cx('filter-item__label', {'filter-item__label--required': required})} >{label}</label>

@@ -25,6 +25,8 @@ export default class FilterList extends PureComponent {
         //   key: currentIndex,
         // }, omitedValue)
 
+        console.log('omitedValue', omitedValue)
+
         total.push(
           <FilterItem key={currentIndex} {...omitedValue}  >
             {children}
