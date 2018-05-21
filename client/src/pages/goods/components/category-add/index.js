@@ -20,6 +20,8 @@ export default class CategoryAdd extends Component {
         }
     }
 
+
+
     handleChangeDate = (value, chooseDays) => {
         this.setState({});
     };
@@ -35,11 +37,14 @@ export default class CategoryAdd extends Component {
 
 
     render() {
-        const {} = this.state;
+        const { disabled } = this.state;
+        const { children, name, hide } = this.props;
 
 
-        return (
-
-        );
+            if (disabled && hide) {
+                return null
+            }  else {
+                return <Button  />
+            }
     }
 }
