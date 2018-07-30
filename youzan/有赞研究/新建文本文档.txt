@@ -1,0 +1,5 @@
+https://store.youzan.com/shop/v2/static/vendor/ueditor/dialogs/xiumi/xiumi.js
+
+
+window.UEDITOR_HOME_URL = _global.url.cdn_static + "/vendor/ueditor/dist/";
+window.UEDITOR_IFRAME_URL = _global.url.www + "/static/vendor/ueditor/dist/";

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="admin responsive-320" lang="zh-cmn-Hans" >
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="有赞,移动电商服务平台" />
+    <meta name="description" content="" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="format-detection" content="telephone=no">            <meta http-equiv="cleartype" content="on">
+    <meta name="referrer" content="always">
+                                <link rel="shortcut icon" href="https://b.yzcdn.cn/v2/image/yz_fc.ico" />    <title>最热商品</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    	<script>
+		!function(e){e.onReady=function(t,o){if(o){var r=function(){e[t]?o():setTimeout(function(){r()},500)};r()}};var t=/complete|loaded/;e.afterLoad=function(o){t.test(document.readyState)&&document.body?setTimeout(o):e.addEventListener("load",o,!1)}}(window),function(e){function t(e){var t=e.match(/(https?:)?\/\/(.*?)\/.*/);return t?t[2]:null}function o(e){var t=0===l.indexOf(e)?1:0;return l[t]}function r(e){return l.concat("static.koudaitong.com").indexOf(e)!==-1}function n(e,t){if("undefined"==typeof XMLHttpRequest)return!1;var o=new XMLHttpRequest;if(!(o&&"withCredentials"in o))return!1;o.open("POST",e,!0),o.setRequestHeader("Content-Type","application/x-www-form-urlencoded");var r=[];for(var n in t)if(t.hasOwnProperty(n)){var a=t[n];"object"==typeof a&&(a=encodeURIComponent(JSON.stringify(t[n]))),r.push(n+"="+a)}o.send(r.join("&"))}function a(t,o){o=!!o,n("https://probe.youzan.com",{app:"jserror-cdn",log_index:"request_error",level:"info",tag:"CdnRequestError: "+t+", isSecondTime: "+o,detail:{resource:t,module:e.location.href,platform:navigator.userAgent}})}var i,c={script:"src",link:"href"},l=["b.yzcdn.cn","su.yzcdn.cn"];e._cdnFallback=function(n){var l,d,f,u,s,g,m;if(l=n.nodeName.toLowerCase(),(d=c[l])&&(f=u=n[d])){if(n.getAttribute("data-fallbacked"))return i||(e.motify&&e.motify.error&&e.motify.error("啊哦，有东西加载失败了，刷新下试试~"),i=!0),void(n.getAttribute("data-fallback-loged")&&a(u,!0));var p=t(f);r(p)&&(f=f.replace(p,o(p)),s=document,g=s.head||s.getElementsByTagName("head")[0]||s.documentElement,m=s.createElement(l),"link"===l&&(m.rel="stylesheet"),m[d]=f,m.onerror=function(){e._cdnFallback(m)},m.setAttribute("data-fallbacked",1),m.setAttribute("crossorigin","anonymous"),m.async=!1,g.appendChild(m),Math.random()<=.05&&(m.setAttribute("data-fallback-loged",1),a(u,!1)))}}}(window),function(e){"use strict";var t;e.localStorage;try{var o=new Date;try{localStorage.setItem(o,o)}catch(e){if(22===e.code||1014===e.code&&"NS_ERROR_DOM_QUOTA_REACHED"===e.name)throw localStorage.clear&&localStorage.clear(),"localstorage define error"}var r=localStorage.getItem(o)==o;if(localStorage.removeItem(o),!r)throw"localstorage define error";if("FUNCTION"!=(typeof localStorage.clear).toUpperCase())throw"localstorage define error";t=localStorage}catch(e){var n=function(){return null};t={getItem:n,setItem:n,removeItem:n,clear:n}}"function"==typeof define&&define.amd&&define(function(){return t}),e.YZLocalStorage=t}(window),function(e){e.motify=e.motify||{error:function(e){setTimeout(function(){document.body.insertAdjacentHTML("afterbegin",'<div style="color:red;padding:5px;background:#fff;font-size:12px;border-bottom:1px solid #ddd;margin-bottom:5px;"><a style="border-radius:3px;line-height:18px;text-align:center;float:right;margin-left:5px;padding:4px 7px;color:#fff;background-color:#00BF05;" onclick="location.reload();">刷新</a> <p style="line-height:28px;padding-right:53px;word-break:break-all;margin:0;">'+e+"</p></div>")},500)}},e.zenjs=e.zenjs||{},e.__logs=[],e.Logger={log:function(t){e.__logs.push(t)}}}(window);	</script>
+
+
+
+    <link rel="stylesheet" href="https://b.yzcdn.cn/v2/build_css/stylesheets/wap/base_1cbfdc6a3dba5c7a9314faf417520084.css" onerror="_cdnFallback(this)" media="screen">    <link rel="stylesheet" href="https://b.yzcdn.cn/v2/build_css/stylesheets/wap/projects/showcase_admin_with_components_494c9f79d21f5289558c52d5334c535c.css" onerror="_cdnFallback(this)" media="screen">        <style>
+  /* 处理showcase下所有 block 样式， 去除顶部、底部边框样式 */
+  .content .block.block-list {
+    border-width: 0; 
+  }
+  .content .uc-order+.block.block-list {
+    border-top-width: 1px;
+  }
+  .content .tabber {
+    border-top-width: 0;
+  }
+</style><style>
+	  @charset "UTF-8";.orange-theme .main-btn::after,.orange-theme .vice-btn::after{content:'';position:absolute;top:0;left:0;width:200%;height:200%;-webkit-perspective:1000;-webkit-backface-visibility:hidden;pointer-events:none;border-top:1px solid rgba(0,0,0,.1)}.orange-theme .main-btn{background-color:#ff5e15;color:#fff}.orange-theme .main-btn::after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-transform:scale(.5);-moz-transform:scale(.5);-ms-transform:scale(.5);transform:scale(.5);-webkit-transform-origin:left top;-moz-transform-origin:left top;-ms-transform-origin:left top;transform-origin:left top}.orange-theme .main-btn:active{background:#eb4900}.orange-theme .vice-btn{background-color:#ff9300;color:#fff}.orange-theme .vice-btn::after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-transform:scale(.5);-moz-transform:scale(.5);-ms-transform:scale(.5);transform:scale(.5);-webkit-transform-origin:left top;-moz-transform-origin:left top;-ms-transform-origin:left top;transform-origin:left top}.orange-theme .vice-btn:active{background:#d67b00}.orange-theme .goods-header .activity-tag{background:#ff5e15}.orange-theme .current-price,.orange-theme .price-sub{color:#ff5e15!important}.orange-theme .activity-label{color:#fff;background-color:#ff5e15}.orange-theme .goods-detail .tabber{color:#ff5e15;border-bottom:1px solid #ff5e15}.orange-theme .goods-detail .tabber .item button.active{color:#fff}.orange-theme .goods-detail .tabber button.active{color:#ff5e15;border-bottom:1px solid #ff5e15}.orange-theme .commit-bill-btn,.orange-theme .pay-bill-btn,.orange-theme .sku-layout .sku-list-container .active{border-color:#ff5e15;background-color:#ff5e15}.orange-theme .trade-review-list .review-rate-tabber button.active{background-color:#ff5e15}.orange-theme .sku-layout .current-price .price-name,.orange-theme .sku-layout .current-price i{color:#ff5e15!important}.orange-theme .sku-layout .other-info .quota{color:#ff5e15}.orange-theme .theme-price-color{color:#ff5e15!important}.orange-theme .groupon-goods-list .goods-info span,.orange-theme .new-btn .van-icon-chat,.orange-theme .sc-goods-list .info p.goods-price>em{color:#ff5e15}.orange-theme .groupon-goods-list .goods-info span.groupon-tag{background-color:#ff5e15;color:#fff}.orange-theme .buyer-info .price,.orange-theme .common-tab-style .paid-content__content-price--free,.orange-theme .common-tab-style .van-tab--active,.orange-theme .tag-text{color:#ff5e15!important}.orange-theme .tag-hollow{color:#ff5e15!important;border-color:#ff5e15!important;background-color:#fff!important}.orange-theme .common-tab-style .van-tabs__nav-bar{background-color:#ff5e15!important}.orange-theme .van-sku-row__predict-time,.orange-theme .van-sku__price-num,.orange-theme .van-sku__price-symbol,.orange-theme .van-sku__quota{color:#ff5e15}.orange-theme .van-sku__activity-tag{background:#ff5e15}.orange-theme .van-sku-row__item.van-sku-row__item--active{background-color:#ff5e15;border-color:#ff5e15}.orange-theme .price-tag,.orange-theme .van-sku-container .price-tag{color:#ff5e15;border:1px solid #ff5e15}.orange-theme .van-sku-actions .van-button--primary{background:#ff5e15;color:#fff}.orange-theme .van-sku-actions .van-button--default{background:#ff9300;color:#fff}.orange-theme .goods-list-wrapper .cap-goods-list .cap-goods-list__buy-btn-wrapper .cap-goods-list__buy-btn-2,.orange-theme .goods-list-wrapper .cap-goods-list .cap-goods-list__corner-mark,.orange-theme .goods-list-wrapper .cap-goods-list p.price{color:#ff5e15}.orange-theme .goods-activity .goods-activity-banner{background:-webkit-gradient(linear,left top,right top,from(#ff5e15),to(#ffc97f))!important;background:-webkit-linear-gradient(left,#ff5e15,#ffc97f)!important;background:-moz-linear-gradient(left,#ff5e15,#ffc97f)!important;background:linear-gradient(left,#ff5e15,#ffc97f)!important}.orange-theme .goods-list-wrapper .cap-goods-list .cap-goods-list__buy-btn-wrapper .cap-goods-list__buy-btn-1{color:#ff5e15;border-color:#ff5e15}.orange-theme .goods-list-wrapper .cap-goods-list .cap-goods-list__buy-btn-wrapper .cap-goods-list__buy-btn-3{color:#fff;background-color:#ff5e15;border:1px solid #ff5e15}.orange-theme .cap-taglist .cap-taglist__button,.orange-theme .cap-taglist .cap-taglist__price,.orange-theme .tags-tab-style-0 .van-tab--active{color:#ff5e15}.orange-theme .goods-list-wrapper .cap-goods-list .cap-goods-list__buy-btn-wrapper .cap-goods-list__buy-btn-4{color:#ff5e15;border-color:#ff5e15}.orange-theme .tags-tab-style-0 .van-tabs__nav-bar{background-color:#ff5e15}.orange-theme .tags-tab-style-1 .van-tab--active span{background:#ff5e15}.orange-theme .tags-tab-style-2 .van-tab--active{background-color:#ff5e15}.orange-theme .tags-tab-style-2 .van-tab--active::before{border-color:transparent transparent #ff5e15 #ff5e15}.orange-theme .cap-taglist .van-badge--select,.orange-theme .tags-tab-style-2 .van-tab--active::after{border-color:#ff5e15}.orange-theme .cap-ump-groupon--big .cap-ump-groupon-goods__activity-tag,.orange-theme .cap-ump-groupon--list .cap-ump-groupon-goods__activity-tag{background-color:#ff5e15;color:#fff}.orange-theme .cap-ump-groupon--small .cap-ump-groupon-goods__activity-tag,.orange-theme .cap-ump-groupon-goods__groupon-price{color:#ff5e15}.orange-theme .cap-ump-groupon-goods__body--btn-0 .cap-ump-groupon-goods__action{color:#ff5e15;border-color:#ff5e15}.orange-theme .cap-ump-groupon-goods__body--btn-1 .cap-ump-groupon-goods__action{background:#ff5e15;border-color:#ff5e15;color:#fff}.orange-theme .cap-goods-item .cap-goods-info__price{color:#ff5e15}.orange-theme .cap-goods-item .cap-goods-info__btn--0{color:#ff5e15;border-color:#ff5e15}.orange-theme .cap-goods-item .cap-goods-info__btn--1{background-color:#ff5e15;color:#fff;border-color:#ff5e15}.orange-theme .cap-goods-item .cap-goods-info__btn--2{color:#ff5e15;border-color:#ff5e15}.orange-theme .cap-ump-seckill-goods__tag-info{background:-webkit-gradient(linear,left top,left bottom,from(left),color-stop(#ff5e15),to(#ffc97f));background:-webkit-linear-gradient(left,#ff5e15,#ffc97f);background:-moz-linear-gradient(left,#ff5e15,#ffc97f);background:linear-gradient(left,#ff5e15,#ffc97f)}.orange-theme .cap-ump-seckill-goods__tag-countdown{background:rgba(255,94,21,.8)}.orange-theme .cap-ump-seckill--big .cap-ump-seckill-goods__tag-countdown{background:0 0}.orange-theme .cap-ump-seckill-goods__info{border:1px solid rgba(255,94,21,.1)}.orange-theme .cap-ump-seckill-goods__info>span{color:#ff5e15}.orange-theme .cap-ump-seckill-goods__info>span:first-child{background-color:rgba(255,94,21,.1)}.orange-theme .cap-ump-seckill-goods__title>span{color:#ff5e15;background-color:rgba(255,94,21,.1)}.orange-theme .cap-ump-seckill-goods__price{color:#ff5e15}.orange-theme .cap-ump-seckill--btn-1 .cap-ump-seckill-goods__action,.orange-theme .cap-ump-seckill--btn-3 .cap-ump-seckill-goods__action{color:#fff;background:#ff5e15}.orange-theme .cap-ump-seckill--btn-0 .cap-ump-seckill-goods__action,.orange-theme .cap-ump-seckill--btn-2 .cap-ump-seckill-goods__action{color:#ff5e15;border-color:#ff5e15}.orange-theme .cap-ump-seckill--btn-1 .cap-ump-seckill-goods--not-start .cap-ump-seckill-goods__action,.orange-theme .cap-ump-seckill--btn-3 .cap-ump-seckill-goods--not-start .cap-ump-seckill-goods__action{color:#fff;background:#4b0}.orange-theme .cap-ump-seckill--btn-0 .cap-ump-seckill-goods--not-start .cap-ump-seckill-goods__action,.orange-theme .cap-ump-seckill--btn-2 .cap-ump-seckill-goods--not-start .cap-ump-seckill-goods__action{color:#4b0;border-color:#4b0}.orange-theme .cap-countdown--white,.orange-theme .cap-ump-limitdiscount-goods__discount,.orange-theme .cap-ump-limitdiscount-goods__price,.orange-theme .cap-ump-limitdiscount-goods__rest-num{color:#ff5e15}.orange-theme .cap-ump-limitdiscount-goods__discount:after{background-color:#ff5e15}.orange-theme .cap-ump-limitdiscount-goods__tag-countdown{background:rgba(255,94,21,.8)}.orange-theme .cap-ump-limitdiscount--big .cap-ump-limitdiscount-goods__tag-countdown{background:0 0}.orange-theme .cap-ump-limitdiscount-goods__tag-info{background:-webkit-gradient(linear,left top,right top,from(#ff5e15),to(#ffc97f));background:-webkit-linear-gradient(left,#ff5e15,#ffc97f);background:-moz-linear-gradient(left,#ff5e15,#ffc97f);background:linear-gradient(left,#ff5e15,#ffc97f)}.orange-theme .cap-ump-limitdiscount-goods__bar-inner{background:-webkit-gradient(linear,left top,left bottom,from(left),color-stop(#ffc97f),to(#ff5e15));background:-webkit-linear-gradient(left,#ffc97f,#ff5e15);background:-moz-linear-gradient(left,#ffc97f,#ff5e15);background:linear-gradient(left,#ffc97f,#ff5e15)}.orange-theme .cap-ump-limitdiscount--btn-1 .cap-ump-limitdiscount-goods__action,.orange-theme .cap-ump-limitdiscount--btn-3 .cap-ump-limitdiscount-goods__action{color:#fff;background:#ff5e15}.orange-theme .cap-ump-limitdiscount--btn-0 .cap-ump-limitdiscount-goods__action,.orange-theme .cap-ump-limitdiscount--btn-2 .cap-ump-limitdiscount-goods__action{color:#ff5e15;border-color:#ff5e15}.orange-theme .cap-ump-limitdiscount--btn-1 .cap-ump-limitdiscount-goods--not-start .cap-ump-limitdiscount-goods__action,.orange-theme .cap-ump-limitdiscount--btn-3 .cap-ump-limitdiscount-goods--not-start .cap-ump-limitdiscount-goods__action{color:#fff;background:#4b0}.orange-theme .cap-ump-limitdiscount--btn-0 .cap-ump-limitdiscount-goods--not-start .cap-ump-limitdiscount-goods__action,.orange-theme .cap-ump-limitdiscount--btn-2 .cap-ump-limitdiscount-goods--not-start .cap-ump-limitdiscount-goods__action{color:#4b0;border-color:#4b0}</style>    
+    <script>
+    var _global = {"kdt_id":40497547,"user_id":757433560,"run_mode":"online","debug":false,"project":"default","online_debug":false,"js":{"js_compress":true,"css_compress":true,"use_js_cdn":true,"use_css_cdn":true,"message_report":true,"checkbrowser":true,"hide_wx_nav":true,"qn_public":"kdt_img","qn_private":"kdt-private"},"query_path":"\/showcase\/tag","query_key":"alias=1fd3i4stb","real_query_path":"get:\/showcase\/tag\/index.html","module":"showcase","controller":"Showcase_Tag_Controller","action":"index","full_action":"getIndexHtml","method":"get","format":"html","platform":"unknown","is_mobile":false,"authorize":"unknown","platform_version":"unknown","mobile_system":"unknown","youzan_app_login":false,"is_in_pay_white_list":true,"page_size":320,"isShopDomain":false,"share":{"title":"\u53d1\u73b0\u4e00\u4e9b\u597d\u8d27\uff1a\u6700\u70ed\u5546\u54c1","cover":"https:\/\/img.yzcdn.cn\/public_files\/2016\/05\/13\/8f9c442de8666f82abaf7dd71574e997.png"},"jsBradgeSupport":true,"wuxi1_0_0":false,"source":"","track":"","nobody":"YZ423095126110445568YZ4YHf1CIj","mp_changed":false,"team_certificate":false,"is_secured_transactions":1,"hide_shopping_cart":0,"hide_top_bar":1,"mp_data":{"logo":"https:\/\/img.yzcdn.cn\/public_files\/2016\/05\/13\/8f9c442de8666f82abaf7dd71574e997.png","team_name":"\u5b9d\u4fe1\u96f6\u552e","intro":"","is_display_footbar":"1","is_display_suffix_name":"0","suffix_name":"","shopping_cart_style":"1","team_type":"chaojimendian","shop_type":"7","created_time":1520734552,"mobile":"","team_physical":0,"copyright_pic_url":"","mp_id":1311618,"kdt_id":40497547,"mp_weixin":"","mp_nickname":"\u90ed\u6e05","tmp_token":"","quick_subscribe":0,"quick_subscribe_url":null},"wxpay_big":false,"alipay_env":true,"wxpay_env":false,"wxaddress_env":false,"is_owner_team":true,"weixin_jssdk_use":1,"mp_id":1311618,"isWishOpen":0,"wishUrl":"https:\/\/trade.youzan.com\/wxpay\/wish?kdt_id=40497547","pause":{"business_time_status":0,"business_status":1,"business_status_origin":1,"auto_start_business":0,"auto_start_business_time":"0000-00-00 00:00:00","text":"","custom_time_start":"00:00:00","custom_time_end":"00:00:00"},"lifecycle":{"kdt_id":"40497547","shop_type":"7","product_lifecycle":{"retail":{"current_status":"try","begin_time":"2018-03-11 10:15:52","end_time":"2018-03-18 10:15:52"}}},"shopnav_use_node":true,"global_template_type":1,"fans_type":0,"fans_id":0,"fans_nickname":"","fans_picture":"","is_fans":2,"youzan_fans_id":0,"youzan_fans_nickname":"","youzan_fans_picture":"","citic_fans_id":0,"no_user_login":true,"cross_domain_flag":false,"yz_userinfo":{"id":null,"gender":null,"mobile":null,"avatar":null,"nick_name":null,"country_code":null,"platform_type":null,"platform_fans_id":null},"youzan_user_id":0,"bind_old_user_id":0,"buyer_id":0,"buyer":[],"directSeller":{"is_display_directseller_button":false},"offline_id":0,"wap_url":{"wap":"https:\/\/h5.youzan.com\/v2","tj":"https:\/\/tj.youzan.com\/","probe":"https:\/\/probe.youzan.com\/"},"showcase_type":"tag","spm":{"logType":"t","logId":100515658},"have_goods":true,"ajaxURL":[],"no_sidebar":0,"open_app_config":{"ua":null,"goods_detail_no_login":false,"hide_foot_nav":false,"hide_shop_nav":false,"hide_pay_success_page":false,"hide_share_order":false,"hide_stroll":false,"use_native_address":false,"hide_copyright":false,"bind_yz_account":false,"login_without_pwd":false,"hide_shop_link":false,"hide_wap_im_nav_bar":false,"hide_pay_success_web_chat":false,"hide_pay_success_order":false},"url":{"base":"\/\/www.youzan.com","bbs":"http:\/\/bbs.youzan.com","cdn":"\/\/b.yzcdn.cn","cdn_static":"https:\/\/b.yzcdn.cn\/v2","daxue":"http:\/\/xuetang.youzan.com","fenxiao":"\/\/fx.youzan.com","fuwu":"https:\/\/fuwu.youzan.com","img":"\/\/img.youzan.com","imgqn":"https:\/\/img.yzcdn.cn","login":"\/\/login.youzan.com","open":"\/\/open.youzan.com","static":"https:\/\/static.youzan.com\/v2","trade":"https:\/\/trade.koudaitong.com","v1":"https:\/\/www.youzan.com\/v1","v1_static":"\/\/b.yzcdn.cn\/v1","v2":"\/\/www.youzan.com\/v2","wap":"https:\/\/h5.youzan.com\/v2","ws":"ws:\/\/s.im.youzan.com:83","www":"\/\/www.youzan.com\/v2","youzan":"\/\/www.youzan.com","cloud":"https:\/\/dl.yzcdn.cn","pf":"https:\/\/pifa.youzan.com","uic":"https:\/\/uic.youzan.com","store":"\/\/store.youzan.com","market":"https:\/\/pfmarket.youzan.com","im":"https:\/\/b-im.youzan.com","help":"\/\/help.youzan.com","materials":"\/\/materials.youzan.com"}};</script>            
+    </head>
+<body class=" orange-theme" ontouchstart>
+        
+    
+    <div class="container ">
+        <div class="header goods-headerbar ">
+            <div class="headerbar">
+            <div class="headerbar-wrap clearfix">
+                                <div class="headerbar-preview">
+                    <span>预览：</span>
+                    <ul>
+                        <li>
+                           <a href="https://h5.youzan.com/v2/showcase/tag?alias=1fd3i4stb&amp;ps=320" class="js-no-follow active" data-size="default">手机版</a>
+                        </li>
+                        <li>
+                                                       <a href="https://h5.youzan.com/v2/showcase/tag?alias=1fd3i4stb&amp;ps=760" class="js-no-follow" data-size="800">PC版</a>
+                                                  </li>
+                   </ul>
+                </div>
+                                <div class="headerbar-btn-group">
+                                        <div class="headerbar-reedit headerbar-btn">
+                        <a href="//www.youzan.com/v2/showcase/tag#edit/100515658" class="js-no-follow">返回编辑</a>
+                    </div>
+                                                        </div>
+            </div>
+        </div>
+    </div>        <div class="content ">
+    <div class="content-body js-page-content">
+
+    <div class="custom-title-new">
+        <span class="title-new">
+            最热商品        </span>
+    </div>
+
+        <style media="screen" id="js-showcase-style">
+    </style>
+    <div id="js-body-width" style="width: 100%;"></div>
+    <script>
+        if (!_showcase_components) {
+            var _showcase_components = ["",{"buy_btn":1,"buy_btn_type":1,"cart":1,"class_id":"","content":"","first_priority":3,"is_default":3,"price":1,"second_priority":0,"show_tag_title":1,"show_title":1,"size":3,"size_type":0,"title":"\u6700\u70ed\u5546\u54c1","type":"goods_list","goods":[{"id":"410699442","url":"https:\/\/h5.youzan.com\/v2\/goods\/3f5df1mpnj7m3","image_url":"https:\/\/img.yzcdn.cn\/upload_files\/2015\/05\/14\/Fq9Xi4vSuS8D804oC_1CD04sb8uA.png","price":"0.01","title":"\u5b9e\u7269\u5546\u54c1\uff08\u8d2d\u4e70\u65f6\u9700\u586b\u5199\u6536\u8d27\u5730\u5740\uff0c\u6d4b\u8bd5\u5546\u54c1\uff0c\u4e0d\u53d1\u8d27\uff0c\u4e0d\u9000\u6b3e\uff09","buy_url":"","width":640,"height":640,"alias":"3f5df1mpnj7m3","postage":"6","buy_way":"1","is_virtual":"0","origin":"","total_stock":"100","sold_status":"1"}]}];        } else {
+            var _showcase_components_temp = ["",{"buy_btn":1,"buy_btn_type":1,"cart":1,"class_id":"","content":"","first_priority":3,"is_default":3,"price":1,"second_priority":0,"show_tag_title":1,"show_title":1,"size":3,"size_type":0,"title":"\u6700\u70ed\u5546\u54c1","type":"goods_list","goods":[{"id":"410699442","url":"https:\/\/h5.youzan.com\/v2\/goods\/3f5df1mpnj7m3","image_url":"https:\/\/img.yzcdn.cn\/upload_files\/2015\/05\/14\/Fq9Xi4vSuS8D804oC_1CD04sb8uA.png","price":"0.01","title":"\u5b9e\u7269\u5546\u54c1\uff08\u8d2d\u4e70\u65f6\u9700\u586b\u5199\u6536\u8d27\u5730\u5740\uff0c\u6d4b\u8bd5\u5546\u54c1\uff0c\u4e0d\u53d1\u8d27\uff0c\u4e0d\u9000\u6b3e\uff09","buy_url":"","width":640,"height":640,"alias":"3f5df1mpnj7m3","postage":"6","buy_way":"1","is_virtual":"0","origin":"","total_stock":"100","sold_status":"1"}]}];            _showcase_components = (_showcase_components || []).concat(_showcase_components_temp || []);
+        }
+
+        var _body_width = document.getElementById('js-body-width').getBoundingClientRect().width;
+        (function(components) {
+          var style = document.getElementById('js-showcase-style');
+          components.forEach(function (item, index) {
+            var cssHead = '.js-showcase-cube-v3[data-index="' + index + '"] .cap-cube__shadow-table { height:';
+            if (item && item.type === 'cube_v3' && item.layout_width && item.layout_height && item.tableItems.length) {
+              var first = item.tableItems[0] || {};
+              var blockWidth = _body_width / item.layout_width;
+              style.innerHTML += item.show_method < 3 ? cssHead + first.image_height / first.image_width * blockWidth + 'px; }' :
+                cssHead + blockWidth * item.layout_height  + 'px; }';
+            }
+          });
+        })(_showcase_components);
+    </script>
+
+                                                                
+                
+<div class="js-showcase-goods-list goods-list--loading" data-index="1">
+    <div class="van-loading van-loading--circular van-loading--black">
+        <span class="van-loading__spinner van-loading__spinner--circular">
+            <svg viewBox="25 25 50 50" class="van-loading__circular">
+                <circle cx="50" cy="50" r="20" fill="none"></circle>
+            </svg>
+        </span>
+    </div>
+</div>
+
+    
+    </div>        <div class="content-sidebar">
+	    <a href="https://h5.youzan.com/v2/showcase/homepage?kdt_id=40497547" class="link">
+	                <div class="sidebar-section shop-card">
+	                    <div class="table-cell">
+	                        <img src="https://img.yzcdn.cn/public_files/2016/05/13/8f9c442de8666f82abaf7dd71574e997.png?imageView2/2/w/120/h/120/q/75/format/webp" width="60" height="60" class="shop-img" alt="公众号头像">
+	                    </div>
+	                    <div class="table-cell">
+	                        <p class="shop-name">
+	                        		                        		郭清	                        		                        </p>
+	                    </div>
+	                </div>
+	            </a>	    	        	            <div class="sidebar-section qrcode-info">
+	                <div class="section-detail">
+	                    <p class="text-center shop-detail"><strong>手机扫码访问</strong></p>
+	                    <p class="text-center weixin-title">微信“扫一扫”分享到朋友圈</p>
+	                    <p class="text-center qr-code">
+	                        <img width="158" height="158" src="https://h5.youzan.com/v2/common/url/create?type=tag&showcase%2Ftag=&alias=1fd3i4stb">
+	                    </p>
+	                </div>
+	            </div>
+	        	        </div>
+    <script>
+var showQcode = function() {
+    if (typeof $ !== 'undefined') {
+        var $qrcode = $('.js-follow-qrcode');
+        var ajax = $._ajax || $.ajax;
+
+        $qrcode.removeClass('js-follow-qrcode'); //兼容图文
+
+        if (!window._global.mp_data || $qrcode.length <= 0 || (window._global.is_mobile && !(/ipad/gi).test(navigator.userAgent.toLowerCase()))) {
+            return false;
+        }
+
+        ajax({
+            url: '/v2/weixin/scan/hosting.json',
+            type: 'post',
+            data: {
+                mp_id: window._global.mp_data.mp_id
+            }
+        }).done(function(resp) {
+            var qrcodeUrl = resp.data.qrcodeUrl;
+
+            if (resp.code == 0 && qrcodeUrl) {
+                var img = new Image();
+                img.width = 158;
+                img.height = 158;
+                $(img).on('load', function(event) {
+                    $qrcode.append(img).removeClass('loading');
+                });
+                img.src = qrcodeUrl;
+            } else {
+                motify && motify.log(resp.msg);
+            }
+        }).fail(function() {
+            motify && motify.log('获取店铺二维码失败');
+        });
+
+    } else {
+        setTimeout(showQcode, 500);
+    }
+};
+showQcode();
+</script>
+    <div id="shop-nav"></div></div>    </div>
+
+    <div class="js-footer" style="min-height: 1px;">
+    
+
+<div>
+    <textarea id="js-footer-textarea" class="js-lazy" style="display:none;">
+        
+                
+                    <div class="footer">
+                <div class="copyright">
+                                                                                            <div class="ft-links">
+                                <a href="https://h5.youzan.com/v2/showcase/homepage?kdt_id=40497547" target="_blank">店铺主页</a>
+                                <a href="https://h5.youzan.com/v2/showcase/usercenter?kdt_id=40497547" target="_blank">会员中心</a>
+                                                                    <a href="javascript:;" class="js-open-follow">关注我们</a>
+                                                                                                <a href="https://h5.youzan.com/v2/showcase/cert" target="_blank">店铺信息</a>
+                                <!-- 第三方app隐藏topbar时，需要在底部显示购物记录入口 -->
+                                                            </div>
+                                            
+                    
+                        <div class="ft-copyright " >
+     <a  href="https://www.youzan.com?from_source=support_logo">有赞提供技术支持</a> </div>
+
+                                    </div>
+            </div>
+        
+    </textarea>
+</div>
+
+</div>
+    
+    <script src="https://b.yzcdn.cn/v2/build/wap/common_jquery_4468455acf.js" onerror="_cdnFallback(this)"></script>
+    <script src="https://b.yzcdn.cn/v2/build/wap/base_30324fa8ab.js" onerror="_cdnFallback(this)"></script>    
+
+        <script>window.Promise || document.write('<script src="//b.yzcdn.cn/huiyi/build/h5/js/pinkie.min.js"><\/script>');</script>
+    <script>
+    !function(e){function t(i){if(n[i])return n[i].exports;var o=n[i]={exports:{},id:i,loaded:!1};return e[i].call(o.exports,o,o.exports,t),o.loaded=!0,o.exports}var n={};t.m=e,t.c=n,t.p="http://localhost:3456/static/",t(0)}([function(e,t,n){"use strict";var i=n(4),o=function(e){return e&&e.__esModule?e:{default:e}}(i);window.document.addEventListener("click",o.default)},function(e,t){"use strict";e.exports={xmetres:20,ymetres:80,fm:"hot_click"}},function(e,t,n){"use strict";var i=n(1),o=function(e){return e&&e.__esModule?e:{default:e}}(i),r=function(e,t,n){return Math.ceil(e*n/t)},s=function(e,t,n){return parseInt((e-.5)/n*t)},c=function(e){return"fixed"===window.getComputedStyle(e).position},a={getCountPosition:function(e){var t=e.target,n=window.innerWidth,i=window.innerHeight;return a.checkInFixDom(t)?{x:r(e.clientX,n,o.default.xmetres),y:r(e.clientY,i,o.default.ymetres)}:{x:r(e.clientX,n,o.default.xmetres),y:r(e.clientY+window.scrollY,n,o.default.xmetres)}},getFlowPx:function(e,t){return e.x=s(e.loc_x,t,o.default.xmetres),e.y=s(e.loc_y,t,o.default.xmetres),e},getFixPx:function(e,t,n){return e.x=s(e.loc_x,t,o.default.xmetres),e.y=s(e.loc_y,n,o.default.ymetres),e},getPxList:function(e,t,n){var i={flow:[],fix:[]},o=0;return e.forEach(function(e){e.click_pv>o&&(o=e.click_pv)}),0===o?i:(e.forEach(function(e){e.value=parseInt(e.click_pv/o*100),1*e.is_fix==0?i.flow.push(a.getFlowPx(e,t)):i.fix.push(a.getFixPx(e,t,n))}),i.max=100,i)},checkInFixDom:function(e){var t=0;if(c(e))t=1;else for(;e.parentElement;)if(e=e.parentElement,c(e)){t=1;break}return t}};e.exports=a},function(e,t){"use strict";e.exports=function(e){var t=new XMLHttpRequest,n=window.location.protocol+"//tj.youzan.com/1.gif?";for(var i in e)n+=i+"="+e[i]+"&";t.open("GET",n),t.withCredentials=!0,t.send()}},function(e,t,n){"use strict";function i(e){return e&&e.__esModule?e:{default:e}}var o=n(8),r=(i(o),n(3)),s=i(r),c=n(2),a=i(c),u=n(1),d=n(5),l=i(d);e.exports=function(e){if("CANVAS"!==e.target.tagName){var t=(0,l.default)(),n=a.default.getCountPosition(e),i=a.default.checkInFixDom(e.target),o={fm:u.fm,spm:t,is_fix:i,loc_x:n.x,loc_y:n.y};(0,s.default)(o)}}},function(e,t,n){"use strict";var i=n(11),o=function(){return _global.spm.logType+_global.spm.logId||"fake"+_global.kdt_id};e.exports=function(){var e=(0,i.decode)(window.href).spam;if(e){var t=e.split("_");t.length>2&&(e=t[0]+"_"+t[t.length-1]),e+="_"+o()}else e=o();return e}},,,function(e,t,n){var i,o,r;!function(n){var s=/iPhone/i,c=/iPod/i,a=/iPad/i,u=/(?=.*\bAndroid\b)(?=.*\bMobile\b)/i,d=/Android/i,l=/(?=.*\bAndroid\b)(?=.*\bSD4930UR\b)/i,f=/(?=.*\bAndroid\b)(?=.*\b(?:KFOT|KFTT|KFJWI|KFJWA|KFSOWI|KFTHWI|KFTHWA|KFAPWI|KFAPWA|KFARWI|KFASWI|KFSAWI|KFSAWA)\b)/i,p=/Windows Phone/i,h=/(?=.*\bWindows\b)(?=.*\bARM\b)/i,x=/BlackBerry/i,b=/BB10/i,v=/Opera Mini/i,m=/(CriOS|Chrome)(?=.*\bMobile\b)/i,w=/(?=.*\bFirefox\b)(?=.*\bMobile\b)/i,y=new RegExp("(?:Nexus 7|BNTV250|Kindle Fire|Silk|GT-P1000)","i"),g=function(e,t){return e.test(t)},_=function(e){var t=e||navigator.userAgent,n=t.split("[FBAN");if(void 0!==n[1]&&(t=n[0]),n=t.split("Twitter"),void 0!==n[1]&&(t=n[0]),this.apple={phone:g(s,t),ipod:g(c,t),tablet:!g(s,t)&&g(a,t),device:g(s,t)||g(c,t)||g(a,t)},this.amazon={phone:g(l,t),tablet:!g(l,t)&&g(f,t),device:g(l,t)||g(f,t)},this.android={phone:g(l,t)||g(u,t),tablet:!g(l,t)&&!g(u,t)&&(g(f,t)||g(d,t)),device:g(l,t)||g(f,t)||g(u,t)||g(d,t)},this.windows={phone:g(p,t),tablet:g(h,t),device:g(p,t)||g(h,t)},this.other={blackberry:g(x,t),blackberry10:g(b,t),opera:g(v,t),firefox:g(w,t),chrome:g(m,t),device:g(x,t)||g(b,t)||g(v,t)||g(w,t)||g(m,t)},this.seven_inch=g(y,t),this.any=this.apple.device||this.android.device||this.windows.device||this.other.device||this.seven_inch,this.phone=this.apple.phone||this.android.phone||this.windows.phone,this.tablet=this.apple.tablet||this.android.tablet||this.windows.tablet,"undefined"==typeof window)return this},F=function(){var e=new _;return e.Class=_,e};void 0!==e&&e.exports&&"undefined"==typeof window?e.exports=_:void 0!==e&&e.exports&&"undefined"!=typeof window?e.exports=F():(o=[],i=n.isMobile=F(),void 0!==(r="function"==typeof i?i.apply(t,o):i)&&(e.exports=r))}(this)},function(e,t){"use strict";function n(e,t){return Object.prototype.hasOwnProperty.call(e,t)}e.exports=function(e,t,i,o){t=t||"&",i=i||"=";var r={};if("string"!=typeof e||0===e.length)return r;var s=/\+/g;e=e.split(t);var c=1e3;o&&"number"==typeof o.maxKeys&&(c=o.maxKeys);var a=e.length;c>0&&a>c&&(a=c);for(var u=0;u<a;++u){var d,l,f,p,h=e[u].replace(s,"%20"),x=h.indexOf(i);x>=0?(d=h.substr(0,x),l=h.substr(x+1)):(d=h,l=""),f=decodeURIComponent(d),p=decodeURIComponent(l),n(r,f)?Array.isArray(r[f])?r[f].push(p):r[f]=[r[f],p]:r[f]=p}return r}},function(e,t){"use strict";var n=function(e){switch(typeof e){case"string":return e;case"boolean":return e?"true":"false";case"number":return isFinite(e)?e:"";default:return""}};e.exports=function(e,t,i,o){return t=t||"&",i=i||"=",null===e&&(e=void 0),"object"==typeof e?Object.keys(e).map(function(o){var r=encodeURIComponent(n(o))+i;return Array.isArray(e[o])?e[o].map(function(e){return r+encodeURIComponent(n(e))}).join(t):r+encodeURIComponent(n(e[o]))}).join(t):o?encodeURIComponent(n(o))+i+encodeURIComponent(n(e)):""}},function(e,t,n){"use strict";t.decode=t.parse=n(9),t.encode=t.stringify=n(10)}]);</script>
+    <script src="https://b.yzcdn.cn/v2/build/wap/showcase/base_abd5255370.js" onerror="_cdnFallback(this)"></script>
+        
+    	<script>
+    	"use strict";!function(n,e){"function"==typeof define&&define.amd?define("tiny-loader",[],e(n,n.document)):n.Loader=e(n,n.document)}(this,function(n,e){function t(n){return"complete"===n.readyState||"loaded"===n.readyState}function o(n,t,o){var i=e.createElement("link");i.rel="stylesheet",a(i,o,"css"),i.async=!0,i.href=n,s.appendChild(i)}function i(n,t,o){var i=e.createElement("script");i.charset="utf-8",a(i,o,"js"),i.async=!t.sync,i.src=n,s.appendChild(i)}function c(n,e){var t;n.sheet&&(t=!0),setTimeout(function(){t?e():c(n,e)},20)}function a(e,o,i){function a(){e.onload=e.onreadystatechange=null,e=null,o()}var r="onload"in e;if("css"===i&&(l||!r))return void setTimeout(function(){c(e,o)},1);r?(e.onload=a,e.onerror=function(){e.onerror=null,n._cdnFallback(e)}):e.onreadystatechange=function(){t(e)&&a()}}function r(n,e,t,c){function a(){var t=e.indexOf(n);t>-1&&e.splice(t,1),0===e.length&&c()}d.test(n)?o(n,t,a):i(n,t,a)}function u(n,e,t){var o=function(){t&&t()};if(n=Array.prototype.slice.call(n||[]),0===n.length)return void o();for(var i=0,c=n.length;i<c;i++)r(n[i],n,e,o)}function f(e,o){if(t(e))o();else{var i=!1;n.addEventListener("load",function(){i||(o(),i=!0)}),setTimeout(function(){i||(o(),i=!0)},1500)}}var d=new RegExp("\\.css"),s=e.head||e.getElementsByTagName("head")[0],l=+navigator.userAgent.replace(/.*(?:AppleWebKit|AndroidWebKit)\/?(\d+).*/i,"$1")<536,y={async:function(n,t){f(e,function(){u(n,{},t)})},sync:function(n,t){f(e,function(){u(n,{sync:!0},t)})}};return n.Loader=y,y});	</script>
+
+    
+    
+    
+    
+    
+    <script>window.Loader.sync(["https:\/\/b.yzcdn.cn\/v2\/vendor\/u_b.js","https:\/\/b.yzcdn.cn\/v2\/build\/wap\/showcase\/sku_83b62bf141.js","https:\/\/b.yzcdn.cn\/v2\/wscwap\/build\/js\/base_0fb9a6575d8ba3cea213.js","https:\/\/b.yzcdn.cn\/v2\/wscwap\/build\/js\/global_99b22c6f1056ad404959.js","https:\/\/b.yzcdn.cn\/v2\/wscwap\/build\/js\/showcase-components\/goods_list_2ad25c8fed11ebde5063.js","https:\/\/b.yzcdn.cn\/v2\/build\/wap\/showcase\/global_icon_f9ebbc7e35.js"]);window.Loader.async(["\/\/hm.baidu.com\/hm.js?679ede9eb28bacfc763976b10973577b"]);</script></body>
+</html>
+
+
+
+
+    <script type='text/javascript'>
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function(){
+            _vds.push(['setAccountId', '95363d41437ee224']);
+            (function() {
+                var vds = document.createElement('script');
+                vds.type='text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+      </script>
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="https://b.yzcdn.cn/client-log/heatmap.render_4fa541468935d605886b.js" onerror="_cdnFallback(this)"></script>

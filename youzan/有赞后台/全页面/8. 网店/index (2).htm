@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UwQGU15WGwcGUFJVBwU="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):w?w(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!w&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="renderer" content="webkit">
+<meta name="referrer" content="always">
+
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+
+<title id="js-meta-title">
+自定义模块 - 宝信零售</title>
+
+<link rel="icon" href="https://b.yzcdn.cn/v2/image/yz_fc.ico" />
+
+<meta name="keywords" content="有赞,微信商城,粉丝营销,微信商城运营" />
+<meta name="description" content="有赞是帮助商家在微信上搭建微信商城的平台，提供店铺、商品、订单、物流、消息和客户的管理模块，同时还提供丰富的营销应用和活动插件。" />
+
+	<script>
+		!function(e){e.onReady=function(t,n){if(n){var o=function(){e[t]?n():setTimeout(function(){o(t,n)},500)};o(t,n)}};var t=/complete|loaded/;e.afterLoad=function(n){t.test(document.readyState)&&document.body?setTimeout(n):e.addEventListener("load",n,!1)}}(window),function(e){function t(e){var t=e.match(/(https?:)?\/\/(.*?)\/.*/);return t?t[2]:null}function n(e){var t=0===c.indexOf(e)?1:0;return c[t]}function o(e){return-1!==c.concat("static.koudaitong.com").indexOf(e)}function r(e,t){if("undefined"==typeof XMLHttpRequest)return!1;var n=new XMLHttpRequest;if(!(n&&"withCredentials"in n))return!1;n.open("POST",e,!0),n.setRequestHeader("Content-Type","application/x-www-form-urlencoded");var o=[];for(var r in t)if(t.hasOwnProperty(r)){var a=t[r];"object"==typeof a&&(a=encodeURIComponent(JSON.stringify(t[r]))),o.push(r+"="+a)}n.send(o.join("&"))}function a(t,n){n=!!n,r("https://probe.youzan.com",{app:"jserror-cdn",log_index:"request_error",level:"info",tag:"CdnRequestError: "+t+", isSecondTime: "+n,detail:{resource:t,module:e.location.href,platform:navigator.userAgent}})}var i,d={script:"src",link:"href"},c=["b.yzcdn.cn","su.yzcdn.cn"];e._cdnFallback=function(r){var c,u,f,l,s,m,p;if(c=r.nodeName.toLowerCase(),(u=d[c])&&(f=l=r[u])){if(r.getAttribute("data-fallbacked"))return i||(e.motify&&e.motify.error&&e.motify.error("啊哦，有东西加载失败了，刷新下试试~"),i=!0),void(r.getAttribute("data-fallback-loged")&&a(l,!0));var y=t(f);o(y)&&(f=f.replace(y,n(y)),s=document,m=s.head||s.getElementsByTagName("head")[0]||s.documentElement,p=s.createElement(c),"link"===c&&(p.rel="stylesheet"),p[u]=f,p.onerror=function(){e._cdnFallback(p)},p.setAttribute("data-fallbacked",1),p.setAttribute("crossorigin","anonymous"),p.async=!1,m.appendChild(p),Math.random()<=.05&&(p.setAttribute("data-fallback-loged",1),a(l,!1)))}}}(window);		!function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={exports:{},id:r,loaded:!1};return e[r].call(o.exports,o,o.exports,t),o.loaded=!0,o.exports}var n={};return t.m=e,t.c=n,t.p="/dist",t(0)}([function(e,t,n){var r=n(1)(),o=n(3);window.onclick=function(e){var t=e.target,n=t.className,a=/js-(\S+)/,i="function"==typeof n.match&&n.match(a);if(i&&i.length>0&&o({kdt_id:_global.kdt_id||0,fm:"click",ck:i[1],title:t.innerText}),"A"!==t.tagName){for(;t.parentElement&&(t=t.parentElement,"A"!==t.tagName););if("HTML"===t.tagName)return}var c=Object.keys(r);if(0!==c.length&&t.href){e.stopPropagation(),e.preventDefault();var f=t.search?t.search+"&":"?";for(var l in r)f+=l+"="+r[l]+"&";var p=t.protocol+"//"+t.host+t.pathname+f+t.hash;t.target&&t.target.indexOf("blank")>-1?window.open(p):window.location.href=p}}},function(e,t,n){var r=n(2),o=function(e,t){e=e.replace(/[[]/,"\\[").replace(/[]]/,"\\]"),t=t?"?"+t.split("#")[0].split("?")[1]:window.location.search;var n=RegExp("[?&]"+e+"=([^&#]*)").exec(t);return n?decodeURIComponent(n[1].replace(/\+/g," ")):""},a=function(){for(var e=window.location.href,t={},n=0,a=r.length;n<a;n++){var i=r[n],c=o(i,e);c&&(t[i]=c)}return t};e.exports=function(){return a()}},function(e,t){e.exports=["from_source","clues_source"]},function(e,t){e.exports=function(e){var t=new XMLHttpRequest,n="//tj.koudaitong.com/v1/wfm?";for(var r in e)n+=r+"="+e[r]+"&";t.open("GET",n),t.withCredentials=!0,t.send()}}]);	</script>
+
+
+<!-- ▼ Common CSS -->
+
+
+<link rel="stylesheet" href="https://b.yzcdn.cn/v2/wsc/build/css/base_134978e705b3fd232c2e032a6e3b8a0c.css" onerror="_cdnFallback(this)" crossorigin="anonymous" /><!-- ▲ Common CSS -->
+
+    <link rel="stylesheet" href="https://b.yzcdn.cn/v2/build_css/stylesheets/www/projects/super_store_override_aabc64b7b1.css" onerror="_cdnFallback(this)" media="screen">
+<!-- ▼ App CSS -->
+<link rel="stylesheet" href="https://b.yzcdn.cn/v2/wsc/build/css/showcase/custom-component_6898774feab3bf7b6d7782393c579d6c.css" onerror="_cdnFallback(this)" crossorigin="anonymous" /><!-- ▲ App CSS -->
+
+<!-- ▼ Common config -->
+<script>
+// global variables
+var _global = {"kdt_id":40497547,"user_id":"757433560","run_mode":"online","debug":false,"project":"default","online_debug":false,"js":{"js_compress":true,"css_compress":true,"use_js_cdn":true,"use_css_cdn":true,"message_report":true,"checkbrowser":true,"hide_wx_nav":true,"qn_public":"kdt_img","qn_private":"kdt-private"},"query_path":"\/showcase\/component","query_key":null,"real_query_path":"get:\/showcase\/component\/index.html","module":"showcase","controller":"Showcase_Component_Controller","action":"index","full_action":"getIndexHtml","method":"get","format":"html","account":"+86-17365367130","sign":"","kdtnote_fans_id":0,"nick_name":"17365367130","gender":0,"avatar":"https:\/\/img.yzcdn.cn\/upload_files\/no_pic.png?imageView2\/2\/w\/280\/h\/280\/q\/75\/format\/webp","shop_id":"50939164","shop_type":2,"company_id":0,"team_status":{"weixin_pay":1,"weixin_pay_address":0,"alipay":1,"alipay_sign":0,"weixin_bind":1,"weibo_bind":0,"alipay_status":0,"weixin_server":0,"weixin_menu":0,"weixin_subscribe":1,"weixin_no":0,"weixin_oldsub":0,"team_certificate":0,"team_init":1,"qr_code":1,"no_fans_buy":0,"is_delete":0,"hide_shopping_cart":0,"other_shop":0,"pp_shop":0,"union_pay":1,"peer_pay":0,"feature_title":1,"team_change":0,"weixin_unbind":1,"pp_authenticated":0,"pp_guarantee_compensation":0,"cod_pay":0,"weixin_pay_origin":0,"weixin_pay_big_unbind":1,"weixin_pay_big_sign":0,"is_gift":0,"taobao_order_import":0,"weixin_service":0,"weixin_certificate":0,"team_contact_finish":0,"team_physical":0,"direct_seller":0,"bd_pay":1,"team_mobile_certificate":1,"skip_team_certificate":0,"wxpay_test":0,"is_wish":0,"is_drawal_lock":0,"is_trade_lock":0,"weixin_certsub":0,"is_message_lock":0,"message_menu":0,"user_management":0,"account_management":0,"oauth_permission":0,"small_store":0,"mutil_customer":0,"business_message":0,"card_coupon":0,"material_management":0,"vip_customer":0,"tiegan_customer":0,"ic_customer":0,"is_secured_transactions":1,"is_realtime_account":0,"buy_record":1,"secured_transactions_pop":1,"show_web_im":0,"customer_reviews":1,"fx_77":0,"oversea_edition":0,"goods_recommend":1,"business_customer":0,"team_return_address_finish":0,"margin":0,"show_wsc_web_im":1,"display_service_QRCode":1,"customer_reviews_all":0,"team_certificate_gf":0,"fee_customer":0,"team_close":0,"team_protect":1,"not_show_in_mjb":0,"show_sold_out_goods":0,"wxpay_auth_dir_is_https":0,"hide_top_bar":1,"pf_no_commission":0,"use_self_logo":0,"superstore_customer":0,"team_certificate_md":0,"showcase_forbid_creation":0,"superstore_protect":1,"superstore_close":0,"is_weixin_mass_lock":0,"is_weixin_material_lock":0,"wsc_customer":0,"wsc_protect":0,"wsc_close":0,"is_goods_create_lock":0,"is_identity_card_required":0,"sign_overseas_protocol":0,"is_recycled":0,"is_shop_type_modifying":0},"mp_data":{"team_name":"\u5b9d\u4fe1\u96f6\u552e","business":"[{\"value\":\"19\",\"text\":\"\\u65e5\\u7528\\u767e\\u8d27\"}]","business_id":"19","store_url":"","contact_name":"17365367130","mobile":"17365367130","country_code":"+86","qq":"","company_id":0,"logo":"https:\/\/img.yzcdn.cn\/public_files\/2016\/05\/13\/8f9c442de8666f82abaf7dd71574e997.png","team_type":"7"},"lifecycle":{"product_lifecycle":{"retail":{"current_status":"try","begin_time":"2018-03-11 10:15:52","end_time":"2018-03-18 10:15:52"}}},"csrf_token":"80912649926135507730381889605431703068485574271297378416216318338667227953958","team_admin":{"level":1},"isNewUI":true,"isSuperStore":true,"isNewRetail":true,"sourceType":7,"custom_domain":"","usePermitMenu":true,"lock_create_showcase":false,"paidcontent_auth":false,"has_order_weapp":{"is_valid":false,"expired_time":0,"use_common":true},"is_in_weapp_beta":false,"pointsstore_status":0,"is_weapp_fx_whitelist":false,"levelMenus":{"firstLevelMenuList":{"100":{"menuItemId":100,"name":"\u6982\u51b5","biz":"retail","perms":null,"icon":"icon-dashboard","url":"\/\/store.youzan.com\/dashboard\/index\/index","category":"","subtitle":"","description":"\u6982\u51b5","version":3,"menuItemType":0,"mapBizPerms":null,"isActive":false,"isAccessible":true},"101":{"menuItemId":101,"name":"\u5546\u54c1","biz":"retail","perms":null,"icon":"icon-goods","url":"\/\/store.youzan.com\/goods\/goods\/storage","category":"","subtitle":"\u5546\u54c1\u4e2d\u5fc3","description":"\u5546\u54c1","version":3,"menuItemType":0,"mapBizPerms":{"retail":[36028796482093056,0,0,0,0,1024,140737488355328]},"isActive":false,"isAccessible":true},"102":{"menuItemId":102,"name":"\u8ba2\u5355","biz":"retail","perms":null,"icon":"icon-order","url":"\/\/store.youzan.com\/order\/order\/query","category":"","subtitle":"\u8ba2\u5355\u4e2d\u5fc3","description":"\u8ba2\u5355\u67e5\u8be2\u3001\u7f51\u5e97\u53d1\u8d27\u3001\u5230\u5e97\u81ea\u63d0\u3001\u5feb\u901f\u6253\u5355\u3001\u9000\u6b3e\u7ef4\u6743\u3001\u552e\u540e\u8bc4\u4ef7\u3001\u8ba2\u5355\u8bbe\u7f6e","version":3,"menuItemType":0,"mapBizPerms":{"retail":[-36028797018963968,2199023255555]},"isActive":false,"isAccessible":true},"103":{"menuItemId":103,"name":"\u5ba2\u6237","biz":"retail","perms":null,"icon":"icon-fans","url":"\/\/store.youzan.com\/member\/manage\/index","category":"","subtitle":"\u5ba2\u6237\u4e2d\u5fc3","description":"\u5ba2\u6237","version":2,"menuItemType":0,"mapBizPerms":{"retail":[0,0,0,0,0,576460752303423488,4473494184976]},"isActive":false,"isAccessible":true},"104":{"menuItemId":104,"name":"\u6570\u636e","biz":"retail","perms":null,"icon":"icon-stat","url":"\/\/store.youzan.com\/data\/dashboard\/index","category":"","subtitle":"\u6570\u636e\u4e2d\u5fc3","description":"\u6570\u636e","version":3,"menuItemType":0,"mapBizPerms":{"retail":[0,130560,0,0,0,0,281474976710656]},"isActive":false,"isAccessible":true},"105":{"menuItemId":105,"name":"\u8d44\u4ea7","biz":"retail","perms":null,"icon":"icon-assets","url":"\/\/store.youzan.com\/assets\/store\/index","category":"","subtitle":"\u8d44\u4ea7\u4e2d\u5fc3","description":"\u8d44\u4ea7","version":3,"menuItemType":0,"mapBizPerms":{"retail":[0,281475010134016,0,274877906944,0,0,562949953421312]},"isActive":false,"isAccessible":true},"106":{"menuItemId":106,"name":"\u8425\u9500","biz":"retail","perms":null,"icon":"icon-marketing","url":"\/\/store.youzan.com\/shop\/v2\/ump\/dashboard\/index","category":"","subtitle":"\u5e94\u7528\u548c\u8425\u9500","description":"\u8425\u9500","version":3,"menuItemType":0,"mapBizPerms":{"retail":[0,503316480]},"isActive":false,"isAccessible":true},"107":{"menuItemId":107,"name":"\u7f51\u5e97","biz":"retail","perms":null,"icon":"icon-shop","url":"\/\/store.youzan.com\/shop\/v2\/showcase\/dashboard\/index","category":"","subtitle":"\u5e97\u94fa\u7ba1\u7406","description":"\u7f51\u5e97","version":3,"menuItemType":0,"mapBizPerms":{"retail":[0,136902082560]},"isActive":true,"isAccessible":true},"108":{"menuItemId":108,"name":"\u8bbe\u7f6e","biz":"retail","perms":null,"icon":"icon-setting","url":"\/\/store.youzan.com\/setting\/store\/cashier","category":"","subtitle":"\u8bbe\u7f6e\u4e2d\u5fc3","description":"\u8bbe\u7f6e","version":3,"menuItemType":0,"mapBizPerms":{"retail":[0,140600049401856,0,0,0,768]},"isActive":false,"isAccessible":true}},"secondLevelMenuList":[{"groupName":"","parMenuItemId":"107","subItemList":[{"menuItemId":107101,"name":"\u5e97\u94fa\u6982\u51b5","biz":"retail","perms":null,"icon":"","url":"\/\/store.youzan.com\/shop\/v2\/showcase\/dashboard\/index","category":"","subtitle":"","description":"\u5e97\u94fa\u6982\u51b5","version":3,"menuItemType":0,"mapBizPerms":{"retail":[0,536870912]},"isActive":false,"isAccessible":true},{"menuItemId":107109,"name":"\u7f51\u5e97\u88c5\u4fee","biz":"retail","perms":null,"icon":"","url":"\/\/store.youzan.com\/shop\/v2\/showcase\/shop\/dashboard\/index","category":"","subtitle":"","description":"\u7f51\u5e97\u88c5\u4fee","version":3,"menuItemType":3,"mapBizPerms":{"retail":[0,0,0,0,0,0,1125899906842624]},"isActive":false,"isAccessible":true},{"menuItemId":107110,"name":"\u5c0f\u7a0b\u5e8f\u88c5\u4fee","biz":"retail","perms":null,"icon":"","url":"\/\/store.youzan.com\/shop\/v2\/showcase\/weapp\/dashboard\/index","category":"","subtitle":"","description":"\u5c0f\u7a0b\u5e8f\u88c5\u4fee","version":3,"menuItemType":3,"mapBizPerms":{"retail":[0,0,0,0,0,0,2251799813685248]},"isActive":false,"isAccessible":true},{"menuItemId":107102,"name":"\u5fae\u9875\u9762","biz":"retail","perms":null,"icon":"","url":"\/\/store.youzan.com\/shop\/v2\/showcase\/feature\/index#list","category":"","subtitle":"","description":"\u5fae\u9875\u9762","version":3,"menuItemType":0,"mapBizPerms":{"retail":[0,1073741824]},"isActive":false,"isAccessible":true},{"menuItemId":107105,"name":"\u5168\u5e97\u98ce\u683c","biz":"retail","perms":null,"icon":"","url":"\/\/store.youzan.com\/shop\/v2\/showcase\/GlobalTemplate\/index","category":"","subtitle":"","description":"\u5168\u5e97\u98ce\u683c","version":3,"menuItemType":0,"mapBizPerms":{"retail":[0,8589934592]},"isActive":false,"isAccessible":true},{"menuItemId":107106,"name":"\u516c\u5171\u5e7f\u544a","biz":"retail","perms":null,"icon":"","url":"\/\/store.youzan.com\/shop\/v2\/showcase\/ad\/index","category":"","subtitle":"","description":"\u516c\u5171\u5e7f\u544a","version":3,"menuItemType":0,"mapBizPerms":{"retail":[0,17179869184]},"isActive":false,"isAccessible":true},{"menuItemId":107107,"name":"\u81ea\u5b9a\u4e49\u6a21\u677f","biz":"retail","perms":null,"icon":"","url":"\/\/store.youzan.com\/shop\/v2\/showcase\/component\/index#list","category":"","subtitle":"","description":"\u81ea\u5b9a\u4e49\u6a21\u677f","version":3,"menuItemType":0,"mapBizPerms":{"retail":[0,34359738368]},"isActive":true,"isAccessible":true},{"menuItemId":107108,"name":"\u6211\u7684\u6587\u4ef6","biz":"retail","perms":null,"icon":"","url":"\/\/store.youzan.com\/shop\/v2\/showcase\/attachment\/index#image","category":"","subtitle":"","description":"\u6211\u7684\u6587\u4ef6","version":3,"menuItemType":0,"mapBizPerms":{"retail":[0,68719476736]},"isActive":false,"isAccessible":true}],"isActive":true}],"thirdLevelMenuList":{"107107101":{"menuItemId":107107101,"name":"\u81ea\u5b9a\u4e49\u6a21\u677f","biz":"retail","perms":null,"icon":"","url":"\/\/store.youzan.com\/shop\/v2\/showcase\/component\/index#list","category":"","subtitle":"","description":"\u81ea\u5b9a\u4e49\u6a21\u677f","version":3,"menuItemType":0,"mapBizPerms":{"retail":[0,34359738368]},"isActive":true}},"forthLevelMenuList":[],"isLegalUrl":true,"widgetList":{"107107101":[{"menuItemId":107107101101,"name":"\u65b0\u5efa\u81ea\u5b9a\u4e49\u6a21\u5757","biz":"retail","perms":null,"icon":"","url":"","category":"","subtitle":"","description":"\u65b0\u5efa\u81ea\u5b9a\u4e49\u6a21\u5757","version":3,"menuItemType":1,"mapBizPerms":{"retail":[0,0,0,0,0,17592186044416]},"isActive":false,"isAccessible":true},{"menuItemId":107107101102,"name":"\u7f16\u8f91","biz":"retail","perms":null,"icon":"","url":"","category":"","subtitle":"","description":"\u7f16\u8f91","version":3,"menuItemType":1,"mapBizPerms":{"retail":[0,0,0,0,0,17592186044416]},"isActive":false,"isAccessible":true},{"menuItemId":107107101103,"name":"\u5220\u9664","biz":"retail","perms":null,"icon":"","url":"","category":"","subtitle":"","description":"\u5220\u9664","version":3,"menuItemType":1,"mapBizPerms":{"retail":[0,0,0,0,0,17592186044416]},"isActive":false,"isAccessible":true},{"menuItemId":107107101104,"name":"\u6539\u540d","biz":"retail","perms":null,"icon":"","url":"","category":"","subtitle":"","description":"\u6539\u540d","version":3,"menuItemType":1,"mapBizPerms":{"retail":[0,0,0,0,0,17592186044416]},"isActive":false,"isAccessible":true}]}},"url":{"base":"\/\/www.youzan.com","bbs":"http:\/\/bbs.youzan.com","cdn":"\/\/b.yzcdn.cn","cdn_static":"https:\/\/b.yzcdn.cn\/v2","daxue":"http:\/\/xuetang.youzan.com","fenxiao":"\/\/fx.youzan.com","fuwu":"https:\/\/fuwu.youzan.com","img":"\/\/img.youzan.com","imgqn":"https:\/\/img.yzcdn.cn","login":"\/\/login.youzan.com","open":"\/\/open.youzan.com","static":"https:\/\/static.youzan.com\/v2","trade":"https:\/\/trade.koudaitong.com","v1":"https:\/\/www.youzan.com\/v1","v1_static":"\/\/b.yzcdn.cn\/v1","v2":"\/\/store.youzan.com\/shop\/v2","wap":"https:\/\/h5.youzan.com\/v2","ws":"ws:\/\/s.im.youzan.com:83","www":"\/\/store.youzan.com\/shop\/v2","youzan":"\/\/www.youzan.com","cloud":"https:\/\/dl.yzcdn.cn","pf":"https:\/\/pifa.youzan.com","uic":"https:\/\/uic.youzan.com","store":"\/\/store.youzan.com","market":"https:\/\/pfmarket.youzan.com","im":"https:\/\/b-im.youzan.com","help":"\/\/help.youzan.com","materials":"\/\/materials.youzan.com"}}
+window.UEDITOR_HOME_URL = _global.url.cdn_static + "/vendor/ueditor/dist/";
+window.UEDITOR_IFRAME_URL = _global.url.www + "/static/vendor/ueditor/dist/";
+</script><!-- ▲ Common config -->
+
+    <script>
+!function(){"use strict";function i(){t||d||a||f&&s||r||(location.href=e+"/index/browser")}function o(){(r||a)&&(location.href=e+"/dashboard/index")}var n=navigator.userAgent,e=window._global.url.www,r=-1!==n.indexOf("Chrome"),a=-1!==n.indexOf("Firefox"),t=/(iPhone|iPad|iPod)/i.test(n),d=/Android/i.test(n),f=navigator.platform.toUpperCase().indexOf("MAC")>=0,s=-1!=n.indexOf("Safari");window._isDownloadChromePage?o():i()}();
+</script>
+</head>
+
+<body class="theme theme--blue theme-new-ui   ui-store">
+
+<!-- ▼ Main sidebar -->
+<aside id="app-sidebar">
+    <div id="app-first-sidebar">
+        <div>
+            <a class="team-logo-wrap" href="//store.youzan.com/shop/v2/setting/store#index">
+                <div class="team-logo" style="background-image: url(https://img.yzcdn.cn/public_files/2016/05/13/8f9c442de8666f82abaf7dd71574e997.png?imageView2/2/w/60/h/60/q/75/format/webp)">
+                </div>
+            </a>
+                          <nav>
+                <ul class="clearfix">
+                                            <li class=""
+                                                    >
+                            <a href="//store.youzan.com/dashboard/index/index"
+                                class="">
+                                <img
+                                    class="sidebar-icon-svg"
+                                    src="//b.yzcdn.cn/retail/svg/sidebar/superstore-icon-dashboard.svg"
+                                />
+                                概况                            </a>
+                        </li>
+                                            <li class=""
+                                                    >
+                            <a href="//store.youzan.com/goods/goods/storage"
+                                class="">
+                                <img
+                                    class="sidebar-icon-svg"
+                                    src="//b.yzcdn.cn/retail/svg/sidebar/superstore-icon-goods.svg"
+                                />
+                                商品                            </a>
+                        </li>
+                                            <li class=""
+                                                    >
+                            <a href="//store.youzan.com/order/order/query"
+                                class="">
+                                <img
+                                    class="sidebar-icon-svg"
+                                    src="//b.yzcdn.cn/retail/svg/sidebar/superstore-icon-order.svg"
+                                />
+                                订单                            </a>
+                        </li>
+                                            <li class=""
+                                                    >
+                            <a href="//store.youzan.com/member/manage/index"
+                                class="">
+                                <img
+                                    class="sidebar-icon-svg"
+                                    src="//b.yzcdn.cn/retail/svg/sidebar/superstore-icon-fans.svg"
+                                />
+                                客户                            </a>
+                        </li>
+                                            <li class=""
+                                                    >
+                            <a href="//store.youzan.com/data/dashboard/index"
+                                class="">
+                                <img
+                                    class="sidebar-icon-svg"
+                                    src="//b.yzcdn.cn/retail/svg/sidebar/superstore-icon-stat.svg"
+                                />
+                                数据                            </a>
+                        </li>
+                                            <li class=""
+                                                    >
+                            <a href="//store.youzan.com/assets/store/index"
+                                class="">
+                                <img
+                                    class="sidebar-icon-svg"
+                                    src="//b.yzcdn.cn/retail/svg/sidebar/superstore-icon-assets.svg"
+                                />
+                                资产                            </a>
+                        </li>
+                                            <li class=""
+                            style="margin-top: 44px"                        >
+                            <a href="//store.youzan.com/shop/v2/ump/dashboard/index"
+                                class="">
+                                <img
+                                    class="sidebar-icon-svg"
+                                    src="//b.yzcdn.cn/retail/svg/sidebar/superstore-icon-marketing.svg"
+                                />
+                                营销                            </a>
+                        </li>
+                                            <li class="active"
+                                                    >
+                            <a href="//store.youzan.com/shop/v2/showcase/dashboard/index"
+                                class="">
+                                <img
+                                    class="sidebar-icon-svg"
+                                    src="//b.yzcdn.cn/retail/svg/sidebar/superstore-icon-shop-active.svg"
+                                />
+                                网店                            </a>
+                        </li>
+                                            <li class=""
+                                                    >
+                            <a href="//store.youzan.com/setting/store/cashier"
+                                class="">
+                                <img
+                                    class="sidebar-icon-svg"
+                                    src="//b.yzcdn.cn/retail/svg/sidebar/superstore-icon-setting.svg"
+                                />
+                                设置                            </a>
+                        </li>
+                                        <li style="margin-top: 44px;">
+                        <a href="//www.youzan.com" target="_blank">
+                            <img
+                                class="sidebar-icon-svg"
+                                src="//b.yzcdn.cn/retail/svg/sidebar/superstore-icon-youzan.svg"
+                            />
+                            有赞
+                        </a>
+                    </li>
+                </ul>
+              </nav>
+                    </div>
+    </div>
+
+    <div id="app-user-info">
+        <span class="user-name">17365367130</span>
+        <span class="user-arrow"></span>
+        <div class="user-dropdown">
+            <div class="user-dropdown-meta">
+                <div>17365367130</div>
+                <div>+86-17365367130</div>
+            </div>
+            <div class="user-dropdown-select">
+                <a class="new-select" target="_blank" href="//store.youzan.com/shop/v2/account/promotion/index">邀请奖励</a>
+                <a href="//store.youzan.com/shop/v2/account/personal">帐号设置</a>
+                                    <a href="//www.youzan.com/v2/shop/list">切换店铺</a>
+                    <a href="//www.youzan.com/v2/account/user/logout">退出</a>
+                            </div>
+        </div>
+    </div>
+
+            <div id="app-second-sidebar">
+                            <div>
+                    <div class="second-sidebar-title">店铺管理</div>
+                                                                    <nav>
+                            <ul>
+                                                                    <li class=""
+                                                                                                                                                                                                                                                                                                                                                                    >
+                                                                                    <a class=""
+                                                href="//store.youzan.com/shop/v2/showcase/dashboard/index">
+                                                店铺概况                                            </a>
+                                                                            </li>
+                                                                    <li class=""
+                                                                                                                                                                                                                                                                                                                                                                    >
+                                                                                    <a class=""
+                                                href="//store.youzan.com/shop/v2/showcase/shop/dashboard/index">
+                                                网店装修                                            </a>
+                                                                            </li>
+                                                                    <li class=""
+                                                                                                                                                                                                                                                                                                                                                                    >
+                                                                                    <a class=""
+                                                href="//store.youzan.com/shop/v2/showcase/weapp/dashboard/index">
+                                                小程序装修                                            </a>
+                                                                            </li>
+                                                                    <li class=""
+                                                                                                                                                                                                                                                                                                                                                                    >
+                                                                                    <a class=""
+                                                href="//store.youzan.com/shop/v2/showcase/feature/index#list">
+                                                微页面                                            </a>
+                                                                            </li>
+                                                                    <li class=""
+                                                                                                                                                                                                                                                                                                                                                                    >
+                                                                                    <a class=""
+                                                href="//store.youzan.com/shop/v2/showcase/GlobalTemplate/index">
+                                                全店风格                                            </a>
+                                                                            </li>
+                                                                    <li class=""
+                                                                                                                                                                                                                                                                                                                                                                    >
+                                                                                    <a class=""
+                                                href="//store.youzan.com/shop/v2/showcase/ad/index">
+                                                公共广告                                            </a>
+                                                                            </li>
+                                                                    <li class="active"
+                                                                                                                                                                                                                                                                                                                                                                    >
+                                                                                    <a class=""
+                                                href="//store.youzan.com/shop/v2/showcase/component/index#list">
+                                                自定义模板                                            </a>
+                                                                            </li>
+                                                                    <li class=""
+                                                                                                                                                                                                                                                                                                                                                                    >
+                                                                                    <a class=""
+                                                href="//store.youzan.com/shop/v2/showcase/attachment/index#image">
+                                                我的文件                                            </a>
+                                                                            </li>
+                                                            </ul>
+                        </nav>
+                                    </div>
+                    </div>
+    </aside><!-- ▲ Main sidebar -->
+
+<!-- ▼ Main container -->
+<div id="app-container" class="container">
+
+        <div id="app-third-sidebar" class="js-app-third-sidebar">
+        <div class="zent-breadcrumb js-page-breadcrumb">
+    <span>自定义模块</span>
+</div>
+<div class="zent-breadcrumb js-page-breadcrumb-edit hide">
+    <a href="#list">自定义模块</a >
+    <span>编辑</span>
+</div>        <div id="app-help-button" class="js-app-help-button">
+            <i class="app-help-icon app-help-icon-help"></i>帮助和服务
+        </div>
+    </div>
+    
+    <div id="app-container-top"></div>
+
+    <div class="app">
+                    <div class="app-inner retail clearfix">
+                <div class="app-init-container">
+                        <div class="app__content js-app-main">
+	<div class="ui-page-loading"></div>
+</div>                    </div>
+        <div class="notify-bar js-notify animated hinge hide">
+        </div>
+        </div>
+    </div>
+</div><!-- ▲ Main container -->
+<div id="app-help-container-react">
+        <div id="app-help-container"><div class="help-container-head"></div></div>
+    </div>
+<div id="app-footer">
+    <a href="//www.youzan.com/" class="logo" target="_blank"></a>
+</div>
+
+<!-- ▼ Sentry wsc-pc -->
+<script src="//b.yzcdn.cn/libs/ravenjs/raven-3.17.0.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    try {
+        var _global = window._global || {};
+        var mpData = _global.mp_data || {};
+        var module = _global.module || '';
+        var ravenOptions = {
+            ignoreErrors: [
+                'canvas.contentDocument'
+            ],
+            tags: {
+                module: module
+            },
+            ignoreUrls: [
+                // Chrome extensions
+                /extensions\//i,
+                /^chrome:\/\//i,
+                // ignore js
+                /vendor\/ueditor\//i,
+                /libs\/ravenjs\//i,
+                /qbox\.me\/vds\.js/i,
+                /client\-log\-sdk\/client/i,
+                'www.youzan.com/v2/account/team/QRCodePushInfo.json'
+            ]
+        };
+        Raven.config('https://c2ba297253204cf7923d1131a2db01b8@crash.youzan.com/23', ravenOptions).install();
+        Raven.setUserContext({
+            kdt_id: _global.kdt_id,
+            shop_name: mpData.team_name,
+            user_id: _global.user_id,
+            nick_name: _global.nick_name
+        });
+    } catch (e) {
+        console.log(e);
+    }
+</script>
+<!-- ▼ log v3 version wsc-pc -->
+<script type="text/javascript" src="//b.yzcdn.cn/client-log-sdk/client-log-sdk-0.3.4.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    try {
+        var _global = window._global || {};
+		var Logger = new YzLog({
+			plat: {
+				yai: 'wsc_b',
+			},
+			autoHashDisplay: true,
+			user: {
+				li: _global.user_id || '',
+				m: _global.mobile || ''
+			},
+			event: {
+				si: _global.kdt_id || ''
+			}
+		});
+        window.Logger = Logger;
+    } catch (e) {
+        console.log(e);
+    }
+</script>
+<!-- ▼ App JS -->
+	<script>
+    	"use strict";!function(n,e){"function"==typeof define&&define.amd?define("tiny-loader",[],e(n,n.document)):n.Loader=e(n,n.document)}(this,function(n,e){function t(n){return"complete"===n.readyState||"loaded"===n.readyState}function o(n,t,o){var i=e.createElement("link");i.rel="stylesheet",a(i,o,"css"),i.async=!0,i.href=n,s.appendChild(i)}function i(n,t,o){var i=e.createElement("script");i.charset="utf-8",a(i,o,"js"),i.async=!t.sync,i.src=n,s.appendChild(i)}function c(n,e){var t;n.sheet&&(t=!0),setTimeout(function(){t?e():c(n,e)},20)}function a(e,o,i){function a(){e.onload=e.onreadystatechange=null,e=null,o()}var r="onload"in e;if("css"===i&&(l||!r))return void setTimeout(function(){c(e,o)},1);r?(e.onload=a,e.onerror=function(){e.onerror=null,n._cdnFallback(e)}):e.onreadystatechange=function(){t(e)&&a()}}function r(n,e,t,c){function a(){var t=e.indexOf(n);t>-1&&e.splice(t,1),0===e.length&&c()}d.test(n)?o(n,t,a):i(n,t,a)}function u(n,e,t){var o=function(){t&&t()};if(n=Array.prototype.slice.call(n||[]),0===n.length)return void o();for(var i=0,c=n.length;i<c;i++)r(n[i],n,e,o)}function f(e,o){if(t(e))o();else{var i=!1;n.addEventListener("load",function(){i||(o(),i=!0)}),setTimeout(function(){i||(o(),i=!0)},1500)}}var d=new RegExp("\\.css"),s=e.head||e.getElementsByTagName("head")[0],l=+navigator.userAgent.replace(/.*(?:AppleWebKit|AndroidWebKit)\/?(\d+).*/i,"$1")<536,y={async:function(n,t){f(e,function(){u(n,{},t)})},sync:function(n,t){f(e,function(){u(n,{sync:!0},t)})}};return n.Loader=y,y});	</script>
+
+<script src="https://b.yzcdn.cn/v2/wsc/build/js/base_ffdc060e42bfdd5c44f1.js" onerror="_cdnFallback(this)" crossorigin="anonymous"></script>
+
+    
+<script src="https://b.yzcdn.cn/v2/wsc/build/js/global_038c8193bfbc860c267b.js" onerror="_cdnFallback(this)" crossorigin="anonymous"></script>
+<script src="https://b.yzcdn.cn/v2/vendor/ueditor/release/ueditor.config.201709241753.js"></script>
+ <script src="https://b.yzcdn.cn/v2/vendor/ueditor/release/ueditor.all.min.201801291438.js" onerror="_cdnFallback(this)"></script>
+ <script src="//store.youzan.com/shop/v2/static/vendor/ueditor/dialogs/xiumi/xiumi.js"></script>
+ <link rel="stylesheet" href="//store.youzan.com/shop/v2/static/vendor/ueditor/dialogs/xiumi/xiumi.css">
+    
+<script src="https://b.yzcdn.cn/v2/wsc/build/js/showcase/custom-component_a0404e319e906a319df7.js" onerror="_cdnFallback(this)" crossorigin="anonymous"></script><!-- ▲ App JS -->
+
+    <div style="display:none;">
+        <script type="text/javascript">
+            // 在其他资源全部加载完成后，加载统计的脚本
+            (function() {
+
+                var protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+
+                // Baidu统计
+                var _hmt = _hmt || [];
+                (function() {
+                  var hm = document.createElement("script");
+                  hm.src = "//hm.baidu.com/hm.js?7fff7ceede91c07fb0a2f9c1850d7987";
+                  var s = document.getElementsByTagName("script")[0];
+                  s.parentNode.insertBefore(hm, s);
+                })();
+
+            })();
+        </script>
+        <script>
+var _vds = _vds || [];
+(function() {
+    _vds.push(['setAccountId', '767813e963734402a8256e1096b88331']);
+    _vds.push(['setOrigin', ('https:' == document.location.protocol ? 'https://' : 'http://') + 'youzan.growing.io']);
+    _vds.push(['enableHT', true]);
+
+    var kdtId = decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent('kdt_id').replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
+    var userId = decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent('user_id').replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
+    var teamName;
+    var category;
+    var serviceManager;
+    var salesManager;
+    var teamStatus;
+    var surveyId;
+    
+    try {
+        teamName = window._global.mp_data.team_name;
+        category = JSON.parse(window._global.mp_data.business)[0].text;
+
+        var growingioCS = JSON.parse(localStorage.getItem('growingioCS'));
+        if (growingioCS) {
+            var expired = growingioCS.expired;
+            serviceManager = growingioCS.service_manager;
+            salesManager = growingioCS.sales_manager;
+            teamStatus = growingioCS.team_status;
+
+            if ((new Date()).getTime() > expired) {
+                updateCS();
+            }
+        } else {
+            updateCS();
+        }
+
+        var surveyIdNode = document.querySelector('#survey_id');
+        if (surveyIdNode) {
+            surveyId = surveyIdNode.innerText;
+        }
+
+        function updateCS() {
+            if (window.fetch) {
+                fetch(window._global.url.www + '/showcase/shop/summary.json', {credentials: 'same-origin'})
+                    .then(function(response) {
+                        return response.json();
+                    })
+                    .then(function(json) {
+                        if (json.code === 0) {
+                            var data = json.data;
+                            data.expired = (new Date()).getTime() + (7 * 24 * 60 * 60 * 1000);
+                            localStorage.setItem('growingioCS', JSON.stringify(data));
+                        }
+                    });
+            }
+        }
+    } catch (e) {
+    }
+
+    userId && _vds.push(['setCS1', 'user_id', userId]);
+    kdtId && _vds.push(['setCS2', 'kdt_id', kdtId]);
+    teamName && _vds.push(['setCS3', 'team_name', teamName]);
+    category && _vds.push(['setCS4', 'category', category]);
+    serviceManager && _vds.push(['setCS5', 'service_manager', serviceManager]);
+    salesManager && _vds.push(['setCS6', 'sales_manager', salesManager]);
+    teamStatus && _vds.push(['setCS7', 'team_status', teamStatus]);
+    surveyId && _vds.push(['setCS8', 'survey_id', surveyId]);
+
+    (function() {
+        var vds = document.createElement('script');
+        vds.type = 'text/javascript';
+        vds.async = true;
+        vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(vds, s);
+    })();
+})();
+</script>
+    </div>
+
+<script type="text/javascript" src="//b.yzcdn.cn/static/apm/sdk.js"></script>
+<script type="text/javascript">
+(function() {
+var apm = new APM({appid: "985747d3-0584-4fa1-ad07-a53a0175b421"})
+})();
+</script>
+<script type="text/javascript" src="//b.yzcdn.cn/client-log/fingerprint_989f752f6d2cf6aae5fe.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"8ff6e5d792","applicationID":"4643704","transactionName":"YVNRMRADVhFWV0UIV1gZZhcLTU5QGENGFhdfWFcAGkxICkc=","queueTime":0,"applicationTime":91,"atts":"TRRSR1gZRR8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
+
+
+
+
+
+
+<div>
+        <div class="second-sidebar-title">
+            店铺管理
+        </div>
+        <nav>
+            <ul>
+                <li >
+                    <a href="//store.youzan.com/shop/v2/showcase/dashboard">店铺概况</a>
+                </li>
+                <li id="js-nav-showcase-feature"
+                                    >
+                    <a href="//store.youzan.com/shop/v2/showcase/feature#list">微页面</a>
+                </li>
+                <li >
+                    <a href="//store.youzan.com/shop/v2/showcase/weapp">小程序装修</a>
+                </li>
+                <li >
+                    <a href="//store.youzan.com/shop/v2/showcase/usercenter">会员主页</a>
+                </li>
+                <li >
+                    <a href="//store.youzan.com/shop/v2/showcase/shopnav">店铺导航</a>
+                </li>
+                <li >
+                    <a href="//store.youzan.com/shop/v2/showcase/GlobalTemplate">全店风格</a>
+                </li>
+                <li >
+                    <a href="//store.youzan.com/shop/v2/showcase/ad">公共广告</a>
+                </li>
+                <li class="active">
+                    <a href="//store.youzan.com/shop/v2/showcase/component#list">自定义模块</a>
+                </li>
+                <li >
+                    <a href="//store.youzan.com/shop/v2/showcase/attachment#image">我的文件</a>
+                </li>
+            </ul>
+        </nav>
+    </div>

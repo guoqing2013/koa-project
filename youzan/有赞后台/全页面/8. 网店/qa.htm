@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN" >
+<head>
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="有赞帮助中心">
+    <meta name="description" content="有赞帮助中心" />
+
+    <link rel="shortcut icon" href="https://static.youzan.com/v2/image/yz_fc.ico" />
+
+    <title>问题汇总 - 帮助中心 - 有赞</title>
+
+    <script>
+    var _global = {"protocol_version":"2.0.0","session":[],"config":{"qn_public":"kdt_img","qn_private":"kdt-private"},"query":[],"env":{"cat_sys":"K","is_wap":false},"business":[],"share":[],"url":{"static":"https:\/\/static.youzan.com\/v2","cdn_static":"https:\/\/b.yzcdn.cn\/v2","help_static":"https:\/\/static.youzan.com\/help","cdn_help_static":"https:\/\/b.yzcdn.cn\/help-front","imgqn":"https:\/\/img.yzcdn.cn","www":"\/\/www.youzan.com\/v2","wap":"\/\/wap.youzan.com\/v2","help":"https:\/\/help.youzan.com","youzan":"\/\/youzan.com","fenxiao":"\/\/fx.youzan.com","fuwu":"\/\/fuwu.youzan.com","vip":"\/\/vip.youzan.com","open":"\/\/open.youzan.com","bbs":"\/\/bbs.youzan.com","job":"\/\/job.youzan.com","store":"\/\/store.youzan.com","panama_static":"https:\/\/static.youzan.com\/panama","cdn_panama_static":"https:\/\/su.yzcdn.cn\/panama_mobile"},"csrf_token":""};    (function(window){var _cdnFb;var MAP={script:"src",link:"href"};var nowUseCdn="b.yzcdn.cn";var fallBackCdn="su.yzcdn.cn";window._cdnFallback=function(e){var nodeName,srcName,src,originSrc,isSecondTime,doc,head,elem;nodeName=e.nodeName.toLowerCase();srcName=MAP[nodeName];if(!srcName){return}src=originSrc=e[srcName];src=src.replace(nowUseCdn,fallBackCdn);isSecondTime=src==originSrc;if(!isSecondTime){doc=document;head=doc.head||doc.getElementsByTagName("head")[0]||doc.documentElement;elem=doc.createElement(nodeName);if(nodeName=="link"){elem.rel="stylesheet"}elem[srcName]=src;elem.onerror=function(){_cdnFallback(elem)};head.appendChild(elem)}new Image().src="//tj.youzan.com/1.gif?net_error=1&fileurl="+originSrc;var isOurStatic=src.indexOf(fallBackCdn)>-1||src.indexOf(nowUseCdn)>-1;var isNotShowedTips=!_cdnFb&&isSecondTime;if(isNotShowedTips&&isOurStatic){window.motify&&window.motify.error&&window.motify.error("啊哦，有东西加载失败了，刷新下试试~");_cdnFb=true}}})(window);
+    (function(window){window.onReady=function(target,callback){if(!callback){return}var _onReady=function(){if(window[target]){callback()}else{setTimeout(function(){_onReady(target,callback)},500)}};_onReady(target,callback)};var readyRE=/complete|loaded/;window.afterLoad=function(cb){if(readyRE.test(document.readyState)&&document.body){setTimeout(cb)}else{window.addEventListener("load",cb,false)}}})(window);
+</script>
+
+    <link rel="stylesheet" href="https://b.yzcdn.cn/help-front/build/css/qa_bf0732a6e196e7f4baae4b486f12b01d.css">    <script>
+    //兼容富文本编辑的链接链到了pc页面，而在wap中查看能跳转到wap页面
+    try {
+        var checkDetailPage = /detail\/(\d+)/.exec(location.href);
+        if (_global.env.is_wap && checkDetailPage && checkDetailPage[1]) {
+            location.href = _global.url.help + "/qa/index/detail?qa_id=" + checkDetailPage[1];
+        }
+    } catch (e) {}
+</script>    <!--[if lte IE 8]>    
+    <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,es5-shim/4.1.14/es5-shim.min.js,es5-shim/4.1.14/es5-sham.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="">
+    <div class="container">
+        <div class="common-header">
+    <div class="common-header-inner clearfix">
+        <div class="common-header-logo">    
+            <h5>
+                                    <a class="header-logo" href="//youzan.com/" target="_blank">
+                        <img src="https://img.yzcdn.cn/public_files/2016/12/23/17b333da8d6bc3295541f0c4a75bd07f.png" width="130" height="35" class="header-logo-img">
+                    </a>
+                                <div class="header-title">帮助中心</div>
+            </h5>
+        </div>
+
+        <div id="js-search-bar">
+            <div class="search-bar">
+                                    <input type="text" class="search-input" value="" placeholder='最近大家都在搜索“”'>
+                                <button class="search-btn" id="js-search"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="top-category">
+    <ul class="top-category-list clearfix">
+            <li class="top-category-item"><a class="" href="/">帮助首页</a></li>
+        <li class="top-category-item"><a class="active" href="/qa">问题汇总</a></li>
+        <li class="top-category-item"><a class="" href="/selfhelp">自助服务</a></li>
+        </ul>
+</div>        <div class="page">
+
+        <div class="app-content" id="js-app-main">
+            
+        </div>
+    </div>    </div>
+
+    <style type="text/css">.pull-left{float:left}.pull-right{float:right}.hide{display:none}.clearfix{zoom:1}.clearfix:after{content:"";display:table;clear:both}.common-footer_{background:#fafafa;height:367px;min-width:1100px}@media (max-width: 1100px){.common-footer_{min-width:1000px}}.common-footer_-main{width:1100px;margin:0 auto}@media (max-width: 1100px){.common-footer_-main{width:1000px;min-width:1000px}}.common-footer_ .footer_about_ li{width:180px}@media (max-width: 1100px){.common-footer_ .footer_about_ li{width:170px}}.common-footer_ .footer_produce_ li{width:100px}.common-footer_ h3{font-size:20px;padding:60px 0 30px;color:#333333;line-height:20px;margin:0}.common-footer_ .shangjia{padding-left:55px}@media (max-width: 1100px){.common-footer_ .shangjia{padding-left:30px}}.common-footer_ .shangjia .tel{padding-bottom:29px;font-size:20px;color:#666666;line-height:20px}.common-footer_ .shangjia .time{font-size:12px;color:#666666;line-height:12px;padding-top:4px}.common-footer_ .qr-code{text-align:center}.common-footer_ .qr-code .yz-code{width:120px;height:120px;background:#e5e5e5;margin-top:60px;background-image:url("//b.yzcdn.cn/intro/youzanshuo.png")}@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (min-device-pixel-ratio: 1.5){.common-footer_ .qr-code .yz-code{background-image:url("//b.yzcdn.cn/intro/youzanshuo@2x.png");background-size:120px 120px}}.common-footer_ .qr-code p{font-size:14px;padding-top:15px;color:#666666}.common-footer_ li{width:300px;margin-bottom:20px;display:block;line-height:1}.common-footer_ li a{font-size:14px;color:#666666;text-decoration:none}.common-footer_ li a:hover{color:#e00}.common-footer_ li .dow-zlb{width:14px;height:14px;vertical-align:middle;display:inline-block;background-image:url("https://img.yzcdn.cn/public_files/2016/11/08/619f42ed1d7533bc1248c1b9c6aa8e44.png");background-size:14px 14px}.common-footer_ .common_copy_{font-size:12px;margin:15px auto 0;text-align:center;width:1100px;min-width:1100px;border-top:1px solid #e5e5e5;padding-top:32px;color:#b6b6b6}@media (max-width: 1100px){.common-footer_ .common_copy_{width:1000px;min-width:1000px}}.common-footer_ .common_copy_ a{text-decoration:none;color:#b6b6b6}</style><div class="common-footer_"><div class="common-footer_-main clearfix"><div class="footer_about_ pull-left"><h3>关于有赞</h3><ul class="clearfix"><li><a href="//www.youzan.com/intro/about">关于有赞</a></li><li><a target="_blank" href="//bbs.youzan.com/forum.php?mod=viewthread&tid=443834&page=1&extra=#pid3069621">合作联系</a></li><li><a target="_blank" href="//job.youzan.com">加入我们</a></li><li><a target="_blank" href="//www.youzan.com/intro/download">品牌资料包 <span class="dow-zlb"></span></a></li></ul></div><div class="footer_produce_ pull-left"><h3>产品服务</h3><ul class="clearfix"><li class="pull-left"><ul><li><a href="//www.youzan.com/intro/wsc">微商城</a></li><li><a href="//www.youzan.com/intro/pay">有赞收银</a></li><li><a target="_blank" href="//fx.youzan.com">供货商</a></li><li><a target="_blank" href="//fuwu.youzan.com/">服务支持</a></li></ul></li><li class="pull-left"><ul><li><a target="_blank" href="//www.youzan.com/intro/ls">有赞零售</a></li><li><a target="_blank" href="//pf.youzan.com">有赞批发</a></li><li><a target="_blank" href="//fx.youzan.com/intro/enterprise">全员开店</a></li><li><a href="//www.youzan.com/intro/protection">消费保障</a></li></ul></li><li class="pull-left"><ul><li><a href="//www.youzan.com/intro/cy">有赞餐饮</a></li><li><a href="//www.youzan.com/intro/solution">行业方案</a></li><li><a target="_blank" href="//bbs.youzan.com/forum.php?mod=viewthread&tid=485980&extra=page=1&page=1">公益开店</a></li><li><a href="//www.youzan.com/intro/maijia">买家版</a></li></ul></li><li class="pull-left"><ul><li><a href="//www.youzan.com/intro/beauty">有赞美业</a></li><li><a href="//www.youzanyun.com">有赞云</a></li><li><a href="//fuwu.youzan.com/">服务市场</a></li><li><a href="https://trust.youzanyun.com">系统状态</a></li></ul></li></ul></div><div class="shangjia pull-left"><h3>电话咨询</h3><p class="tel">开店咨询：0571 - 8522 5188</p><p class="tel">商家服务：0571 - 8998 8848</p><p class="time">周一到周日 9:00 ~ 18:00</p></div><div class="qr-code pull-right"><div class="yz-code"></div><p>有赞说</p></div></div><div class="common_copy_">© 2012-2017 Youzan.com - <span style="padding: 0 8px"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602004354"><img src="https://img.yzcdn.cn/public_files/2016/07/19/276d5f72dc85cc584d83c08fefa36c2b.png" style="vertical-align: middle;display:inline-block"> <span>浙公网安备 33010602004354号 </span></a></span>增值电信业务经营许可证：浙B2-20140331 - <a href="http://www.miibeian.gov.cn/" target="_blank">浙ICP备13037466号</a></div></div><script>try {
+        if (window.console && window.console.log) {
+            console.log("%c请不要复制任何代码到这里，否则有泄漏信息的危险", "color:red;");
+            console.log("%c", "padding:20px 200px; line-height:80px;background:url('https://b.yzcdn.cn/v2/image/intro/logo.png') no-repeat center center");
+            console.log("如何让我遇见你，在你最美的时候\n加入有赞，商家服务领域里最被信任的引领者，你，可以让世界更美好一些\n");
+            console.log("请将简历发送至 joinus@youzan.com（邮件标题请以“姓名-应聘XX职位-来自console”命名）");
+            console.log("职位介绍：http://job.youzan.com\n%cKEY: C480AC577D30F76F\n", "color:white;");
+            window.C480AC577D30F76F = function() {};
+            window.C480AC577D30F76F.toString = function() { console.info("少年，我看你天赋异禀、骨骼惊奇，想来是百年难得一见的奇才，一起干一番事业如何？"); return ''; }
+        }
+    } catch (e) {}</script>
+    <script src="https://b.yzcdn.cn/v2/vendor/react/react-0.14.7.js"></script>
+    <script src="https://b.yzcdn.cn/v2/vendor/react/react-dom.js"></script>
+        <script src="https://b.yzcdn.cn/help-front/build/js/qa_309d07f472ddf597ea24.js"></script>
+    <script>
+    var _vds = _vds || [];
+    (function() {
+        _vds.push(['setAccountId', '767813e963734402a8256e1096b88331']);
+        _vds.push(['setOrigin', ('https:' == document.location.protocol ? 'https://' : 'http://') + 'youzan.growing.io']);
+        (function() {
+            var vds = document.createElement('script');
+            vds.type = 'text/javascript';
+            vds.async = true;
+            vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(vds, s);
+        })();
+    })();
+
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?1cf09eb9c4d69bd2f22850eb59f84a37";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script></body>
+</html>
