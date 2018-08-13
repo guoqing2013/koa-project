@@ -6,13 +6,13 @@ import Sku from '../../models/goods/sku'
  */
 export const createItem = async (ctx) => {
   const data = ctx.request.body
-  console.log(data)
+  console.log('data为', data)
   try {
     const item = await Item.create({
       // retail_source: 'WEB-RETAIL-AJAX',
       // sku_no: data.sku_no,
-      title: data.title,
-      price: data.price
+      title: 'title3333',
+      price: 20
       // category_id: 305936,
       // photo_url: [{
       //   'url': 'https://img.yzcdn.cn/public_files/2017/08/30/63a8d28bce4ca2e5d081e1e69926288e.jpg'
