@@ -1,47 +1,33 @@
-import jwt from 'jsonwebtoken'
+import Item from '../../models/goods/item'
 import Sku from '../../models/goods/sku'
 
 /**
  * 创建商品
  */
-export const createSku = async (ctx) => {
+export const createItem = async (ctx) => {
   const data = ctx.request.body
   console.log(data)
-  // const body = {
-  //   retail_source: 'WEB-RETAIL-AJAX',
-  //   sku_no: 'tiaoxinma',
-  //   name: 'name33',
-  //   specifications: 'guige',
-  //   category_id: 305936,
-  //   photo_url: [{'url': 'https://img.yzcdn.cn/public_files/2017/08/30/63a8d28bce4ca2e5d081e1e69926288e.jpg'}],
-  //   unit: '件',
-  //   // vendor: {},
-  //   cost_price: 333,
-  //   stock_num: 3000,
-  //   source: 'WEB_BACK_END',
-  //   idempotent_no: 1523933651255
-  // }
   try {
-    const sku = await Sku.create({
-      retail_source: 'WEB-RETAIL-AJAX',
-      sku_no: data.sku_no,
-      name: data.name,
-      specifications: data.specifications,
-      category_id: 305936,
-      photo_url: [{
-        'url': 'https://img.yzcdn.cn/public_files/2017/08/30/63a8d28bce4ca2e5d081e1e69926288e.jpg'
-      }],
-      unit: data.unit,
-      // vendor: {},
-      cost_price: data.cost_price,
-      stock_num: data.stock_num,
-      source: 'WEB_BACK_END',
-      idempotent_no: 1523933651255
+    const item = await Item.create({
+      // retail_source: 'WEB-RETAIL-AJAX',
+      // sku_no: data.sku_no,
+      title: data.title,
+      price: data.price
+      // category_id: 305936,
+      // photo_url: [{
+      //   'url': 'https://img.yzcdn.cn/public_files/2017/08/30/63a8d28bce4ca2e5d081e1e69926288e.jpg'
+      // }],
+      // unit: data.unit,
+      // // vendor: {},
+      // cost_price: data.cost_price,
+      // stock_num: data.stock_num,
+      // source: 'WEB_BACK_END',
+      // idempotent_no: 1523933651255
     })
     // ctx.response.type = 'application/json'
     ctx.body = {
       response: 2270000,
-      sku_id: sku.get('sku_id')
+      item_id: item.get('item_id')
     }
   } catch (e) {
 
@@ -146,9 +132,10 @@ const deleteSkus = (ctx) => {
 }
 
 export default {
+  createItem,
+
   getSkus,
   getSku,
-  createSku,
   updateSku,
   deleteSkus
 }

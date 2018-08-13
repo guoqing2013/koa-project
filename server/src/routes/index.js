@@ -2,6 +2,7 @@ import Router from 'koa-router'
 import sku from './goods/sku'
 import unit from './goods/unit'
 import category from './goods/category'
+import item from './goods/item'
 const router = Router()
 
 // router.get('/register', async (ctx, next) => {
@@ -20,5 +21,6 @@ const router = Router()
 router.use(sku.routes(), sku.allowedMethods())
 router.use(unit.routes(), unit.allowedMethods())
 router.use(category.routes(), category.allowedMethods())
+router.use(item.routes(), item.allowedMethods())
 
 export default router

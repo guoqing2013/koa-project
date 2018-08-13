@@ -1,5 +1,5 @@
 // import jwt from 'jsonwebtoken'
-import joi from 'joi'
+import joi from 'C:/Users/GuoQing/AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/joi'
 import Unit from '../../models/goods/unit'
 
 const unitSchemaCreate = joi.object({

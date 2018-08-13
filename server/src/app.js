@@ -14,14 +14,14 @@
 //   }
 // )
 
-import config from './config/index'
+import config from './config'
 import Koa from 'koa'
 import cors from '@koa/cors'
 import json from 'koa-json'
 import logger from 'koa-logger'
 // import auth from './routes/auth.js'
 // import api from './routes/api.js'
-import sku from './routes/goods/sku.js'
+import sku from './routes/goods/sku'
 import routes from './routes'
 import jwt from 'koa-jwt'
 import path from 'path'
