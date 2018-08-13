@@ -2,15 +2,15 @@
  * 参考： https://github.com/Ma63d/kov-blog/blob/master/server/index.js
      * https://github.com/lybenson/bilibili-vue/blob/master/config/index.js
  */
-'use strict';
+'use strict'
 const path = require('path'),
   serverRoot = path.dirname(__dirname),
   root = path.resolve(serverRoot, '../'),
   staticDir = path.join(root, 'static'),
   dev = require('./dev.js'),
   fs = require('fs'),
-  _ = require('C:/Users/GuoQing/AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/lodash')
-//默认生产环境
+  _ = require('lodash')
+// 默认生产环境
 let config = {
   app: {
     name: 'kov-blog',
@@ -38,7 +38,7 @@ let config = {
     upload: path.join(serverRoot, 'resource', 'upload')
   }
 }
-//本地调试环境
+// 本地调试环境
 if (process.env.NODE_ENV === 'development') {
   config = _.merge(config, dev)
 }
