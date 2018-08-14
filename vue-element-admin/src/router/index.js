@@ -200,6 +200,22 @@ export const asyncRouterMap = [
   },
 
   {
+    path: '/goods',
+    component: Layout,
+    redirect: '/goods/list',
+    name: 'goods',
+    meta: {
+      title: 'goods',
+      icon: 'example'
+    },
+    children: [
+      { path: 'create', component: () => import('@/views/goods/create'), name: 'createGoods', meta: { title: 'createGoods', icon: 'edit' }},
+      { path: 'edit/:id(\\d+)', component: () => import('@/views/goods/edit'), name: 'editGoods', meta: { title: 'editGoods', noCache: true }, hidden: true },
+      { path: 'list', component: () => import('@/views/goods/list'), name: 'goodsList', meta: { title: 'goodsList', icon: 'list' }}
+    ]
+  },
+
+  {
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1/menu1-1',

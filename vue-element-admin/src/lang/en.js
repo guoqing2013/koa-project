@@ -60,7 +60,11 @@ export default {
     exportZip: 'Export Zip',
     theme: 'Theme',
     clipboardDemo: 'Clipboard',
-    i18n: 'I18n'
+    i18n: 'I18n',
+    goods: '商品',
+    createGoods: '发布商品',
+    editGoods: '编辑商品',
+    goodsList: '商品列表'
   },
   navbar: {
     logOut: 'Log Out',
