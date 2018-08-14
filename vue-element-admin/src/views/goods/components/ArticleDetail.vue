@@ -14,7 +14,7 @@
       <div class="createPost-main-container">
 
         <el-form-item prop="title" label="商品名：">
-          <md-input name="title" v-model="postForm.title" required></md-input>
+          <md-input name="title" v-model="postForm.title" required :maxlength="100"></md-input>
         </el-form-item>
 
         <el-form-item prop="price" label="价格：">
@@ -196,7 +196,7 @@ export default {
             debugger;
             this.$notify({
               title: '成功',
-              message: '发布文章成功',
+              message: '商品发布成功',
               type: 'success',
               duration: 2000
             })
