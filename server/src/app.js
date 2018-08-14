@@ -65,7 +65,7 @@ app.use(async function (ctx, next) {
   let start = new Date()
   await next()
   let ms = new Date() - start
-  console.log('%s %s - %s', ctx.method, ctx.url, ms)
+  console.log('%s : %s %s - %s', start.toLocaleString(), ctx.method, ctx.url, ms)
 })
 
 app.use(serve(path.join(__dirname, '../../')))
