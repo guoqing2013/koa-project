@@ -260,7 +260,7 @@
         // arr.forEach(v => {
         //   window.tinymce.get(_this.tinymceId).insertContent(`<img class="wscnph" src="${v.url}" >`)
         // })
-      }
+      },
       /**
        * 发布商品
        */
