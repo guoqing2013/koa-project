@@ -32,7 +32,7 @@
                   <el-button>添加图片</el-button>
               </el-form-item>
               <div class="help-block">建议尺寸：800*800像素，你可以拖拽图片调整顺序，最多上传15张</div>
-              <UploadMultiImage />
+              <UploadMultiImage color="#1890ff" @successCBK="imageSuccessCBK" ></UploadMultiImage>
             </el-col>
           </el-row>
 
@@ -254,6 +254,13 @@
           console.log(err)
         })
       },
+      imageSuccessCBK(arr) {
+        console.log(arr);
+        // const _this = this
+        // arr.forEach(v => {
+        //   window.tinymce.get(_this.tinymceId).insertContent(`<img class="wscnph" src="${v.url}" >`)
+        // })
+      }
       /**
        * 发布商品
        */
