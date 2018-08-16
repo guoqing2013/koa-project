@@ -16,15 +16,18 @@
 
 
         action="https://jsonplaceholder.typicode.com/posts/"
-       action="https://httpbin.org/post"
+        action="https://httpbin.org/post"
       -->
 
       <el-upload
   class="upload-demo"
   ref="upload"
-       action="https://jsonplaceholder.typicode.com/posts/"
+  action="http://localhsot:5000/upload"
+  :multiple="true"
   :on-preview="handlePreview"
   :on-remove="handleRemove"
+  :on-success="handleSuccess"
+  :before-upload="beforeUpload"
   :file-list="fileList"
   :show-file-list="true"
    list-type="picture-card"
@@ -66,6 +69,9 @@ export default {
      submitUpload() {
         this.$refs.upload.submit();
       },
+       handlePreview(file) {
+        console.log(file);
+      },
     handleSubmit() {
       const arr = Object.keys(this.listObj).map(v => this.listObj[v])
       if (!this.checkAllSuccess()) {
@@ -79,6 +85,7 @@ export default {
       this.dialogVisible = false
     },
     handleSuccess(response, file) {
+      console.log('handleSuccess', response, file)
       const uid = file.uid
       const objKeyArr = Object.keys(this.listObj)
       for (let i = 0, len = objKeyArr.length; i < len; i++) {

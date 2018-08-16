@@ -21,7 +21,7 @@ import json from 'koa-json'
 import logger from 'koa-logger'
 // import auth from './routes/auth.js'
 // import api from './routes/api.js'
-import sku from './routes/goods/sku'
+// import sku from './routes/goods/sku'
 import routes from './routes'
 import jwt from 'koa-jwt'
 import path from 'path'
@@ -32,6 +32,8 @@ import koaBodyparser from 'koa-bodyparser'
 import views from 'koa-views'
 import nunjucksMiddleWare from './middlewares/nunjucks'
 // import { env } from './lib/env'
+import formidable from 'formidable';
+import bodyParser from 'koa-body';
 
 const app = new Koa()
 // const router = koaRouter()
@@ -78,6 +80,12 @@ app.use(views(path.join(__dirname, '/views'), {
   }
 }))
 
+app.use(bodyParser({
+  formidable:{uploadDir: './uploads'},    //This is where the files would come
+  multipart: true,
+  urlencoded: true
+}));
+
 app.use(async function (ctx, next) { //  如果JWT验证失败，返回验证失败信息
   try {
     await next()
@@ -106,6 +114,8 @@ app.on('error', function (err, ctx) {
 
 // app.use(router.routes()) // 将路由规则挂载到Koa上。
 app.use(routes.routes(), routes.allowedMethods())
+
+
 
 app.use(historyApiFallback())
 

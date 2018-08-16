@@ -29,10 +29,10 @@
           <el-row>
             <el-col :span="10">
               <el-form-item prop="price" label-width="80px" label="商品图：">
-                  <el-button>添加图片</el-button>
+
+                <UploadMultiImage color="#1890ff" @successCBK="imageSuccessCBK" ></UploadMultiImage>
               </el-form-item>
               <div class="help-block">建议尺寸：800*800像素，你可以拖拽图片调整顺序，最多上传15张</div>
-              <UploadMultiImage color="#1890ff" @successCBK="imageSuccessCBK" ></UploadMultiImage>
             </el-col>
           </el-row>
 
@@ -152,6 +152,7 @@
     status: 'draft',
     title: '',
     price: '', //价格
+    image_ids: '',
     sell_point: '', //商品卖点
     content: '', // 文章内容
     content_short: '', // 文章摘要

@@ -3,6 +3,7 @@ import sku from './goods/sku'
 import unit from './goods/unit'
 import category from './goods/category'
 import item from './goods/item'
+import upload from './upload';
 const router = Router()
 
 // router.get('/register', async (ctx, next) => {
@@ -22,5 +23,8 @@ router.use(sku.routes(), sku.allowedMethods())
 router.use(unit.routes(), unit.allowedMethods())
 router.use(category.routes(), category.allowedMethods())
 router.use(item.routes(), item.allowedMethods())
+
+//图片上传
+router.use(upload.routes(), upload.allowedMethods())
 
 export default router
