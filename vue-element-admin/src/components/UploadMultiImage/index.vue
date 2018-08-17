@@ -22,7 +22,7 @@
       <el-upload
   class="upload-demo"
   ref="upload"
-  action="http://localhsot:5000/upload"
+  action="http://localhost:5000/upload"
   :multiple="true"
   :on-preview="handlePreview"
   :on-remove="handleRemove"

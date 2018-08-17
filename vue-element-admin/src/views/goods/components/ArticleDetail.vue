@@ -28,8 +28,7 @@
 
           <el-row>
             <el-col :span="10">
-              <el-form-item prop="price" label-width="80px" label="商品图：">
-
+              <el-form-item label-width="80px" label="商品图：">
                 <UploadMultiImage color="#1890ff" @successCBK="imageSuccessCBK" ></UploadMultiImage>
               </el-form-item>
               <div class="help-block">建议尺寸：800*800像素，你可以拖拽图片调整顺序，最多上传15张</div>
@@ -54,6 +53,24 @@
               <el-form-item prop="price" label-width="80px" label="价格：">
                 <el-input v-model="postForm.price">
                   <template slot="prepend">¥</template>
+                </el-input>
+              </el-form-item>
+            </el-col>
+          </el-row>
+
+          <el-row>
+            <el-col :span="10">
+              <el-form-item prop="origin_price" label-width="80px" label="划线价：">
+                <el-input v-model="postForm.origin_price">
+                </el-input>
+              </el-form-item>
+            </el-col>
+          </el-row>
+
+           <el-row>
+            <el-col :span="10">
+              <el-form-item prop="quantity" label-width="80px" label="库存：">
+                <el-input v-model="postForm.quantity">
                 </el-input>
               </el-form-item>
             </el-col>
@@ -152,8 +169,12 @@
     status: 'draft',
     title: '',
     price: '', //价格
+    origin_price: '',
     image_ids: '',
     sell_point: '', //商品卖点
+    quantity: '', // 库存
+    hide_stock: 0, // 是否隐藏商品库存。在商品展示时不显示商品的库存，默认0 显示库存，设置为1 不显示库存
+
     content: '', // 文章内容
     content_short: '', // 文章摘要
     source_uri: '', // 文章外链
@@ -225,6 +246,10 @@
           price: [{
             required: true,
             message: '请输入价格'
+          }],
+          quantity: [{
+            required: true,
+            message: '请输入库存'
           }],
           // content: [{ validator: validateRequire }],
           // source_uri: [{ validator: validateSourceUri, trigger: 'blur' }]
