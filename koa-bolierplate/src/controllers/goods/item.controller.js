@@ -10,8 +10,12 @@ export const createItem = async (ctx) => {
     const item = await Item.create({
       // retail_source: 'WEB-RETAIL-AJAX',
       // sku_no: data.sku_no,
-      title: 'title3333',
-      price: 20
+      title: data.title,
+      sell_point: data.sell_point,
+      price: data.price,
+      quantity: data.quantity,
+      origin_price: data.origin_price
+
       // category_id: 305936,
       // photo_url: [{
       //   'url': 'https://img.yzcdn.cn/public_files/2017/08/30/63a8d28bce4ca2e5d081e1e69926288e.jpg'
@@ -25,7 +29,6 @@ export const createItem = async (ctx) => {
     })
     // ctx.response.type = 'application/json'
     ctx.body = {
-      response: 2270000,
       item_id: item.get('item_id')
     }
   } catch (e) {
