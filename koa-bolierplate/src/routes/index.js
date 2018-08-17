@@ -25,6 +25,10 @@ router.use(category.routes(), category.allowedMethods())
 router.use(item.routes(), item.allowedMethods())
 
 //图片上传
-router.use(upload.routes(), upload.allowedMethods())
+// router.use(upload.routes(), upload.allowedMethods())
+router.post('/upload', async (ctx) => {
+    console.log('上传的图片', ctx.request.files);
+    ctx.body = JSON.stringify(ctx.request.files);
+})
 
 export default router

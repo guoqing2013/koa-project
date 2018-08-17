@@ -33,7 +33,7 @@ import views from 'koa-views'
 import nunjucksMiddleWare from './middlewares/nunjucks'
 // import { env } from './lib/env'
 import formidable from 'formidable';
-import bodyParser from 'koa-body';
+import koaBody from 'koa-body';
 
 const app = new Koa()
 // const router = koaRouter()
@@ -59,7 +59,30 @@ app.use(cors({
   // allowMethods: ['GET', 'POST', 'DELETE'],
   // allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
 }))
-app.use(koaBodyparser())
+
+
+/**
+ * koa2 使用 koa-body 代替 koa-bodyparser 和 koa-multer
+ * http://www.ptbird.cn/koa-body.html
+ */
+
+// app.use(koaBodyparser())
+app.use(koaBody({
+  multipart:true, // 支持文件上传
+  // encoding:'gzip',
+  formidable:{
+    uploadDir:path.join(__dirname,'public/upload/'), // 设置文件上传目录
+    keepExtensions: true,    // 保持文件的后缀
+    maxFieldsSize:5 * 1024 * 1024, // 文件上传大小
+    onFileBegin:(name,file) => { // 文件上传前的设置
+      console.log(`name: ${name}`);
+      console.log('file', file);
+    },
+  },
+  urlencoded: true
+}));
+
+
 app.use(json())
 app.use(logger())
 
@@ -80,11 +103,7 @@ app.use(views(path.join(__dirname, '/views'), {
   }
 }))
 
-app.use(bodyParser({
-  formidable:{uploadDir: './uploads'},    //This is where the files would come
-  multipart: true,
-  urlencoded: true
-}));
+
 
 app.use(async function (ctx, next) { //  如果JWT验证失败，返回验证失败信息
   try {

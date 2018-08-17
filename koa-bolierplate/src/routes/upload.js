@@ -1,10 +1,16 @@
 import koaRouter from 'koa-router'
+import formidable from 'formidable'
 const router = koaRouter()
 
 router.post('/upload', (ctx) => {
-    console.log("Files: ", ctx.request.body.files);
-    console.log("Fields: ", ctx.request.body.fields);
-    ctx.body = "Received your data!"; //This is where the parsed request is stored
+    var form = new formidable.IncomingForm();
+    form.parse(ctx.req, function(err, fields, files) {
+        console.log(fields)
+        console.log(files)
+        // res.writeHead(200, {'content-type': 'text/plain'});
+        // res.write('received upload:\n\n');
+        // res.end(util.inspect({fields: fields, files: files}));
+      });
 })
 
 export default router
