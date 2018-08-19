@@ -1,13 +1,44 @@
 <template>
   <div class="app-container">
 
-    <el-table :data="list" v-loading.body="listLoading" border fit highlight-current-row style="width: 100%">
+    <el-table 
+      :data="list"
+      v-loading.body="listLoading"
+      border 
+      fit
+      highlight-current-row
+      style="width: 100%"
+      :default-sort = "{prop: 'date', order: 'descending'}"
+      @sort-change="handleSortChange"
+    >
+      <el-table-column
+        type="selection"
+        width="55">
+      </el-table-column>
+
       <el-table-column align="center" label="ID" width="80">
         <template slot-scope="scope">
           <span>{{scope.row.item_id}}</span>
         </template>
       </el-table-column>
 
+      <el-table-column prop="createdAt" sortable="quantity" align="center" label="库存" width="110">
+        <template slot-scope="scope">
+         <span>{{scope.row.quantity}}</span>
+        </template>
+      </el-table-column>
+
+      <el-table-column prop="quantity" sortable="custom" align="center" label="总销量" width="110">
+        <template slot-scope="scope">
+         <span>{{scope.row.quantity}}</span>
+        </template>
+      </el-table-column>
+
+      <el-table-column prop="createdAt" sortable="custom" align="center" label="创建时间" width="110">
+        <template slot-scope="scope">
+         <span>{{scope.row.createdAt}}</span>
+        </template>
+      </el-table-column>
 <!--
       <el-table-column width="180px" align="center" label="Date">
         <template slot-scope="scope">
@@ -114,6 +145,9 @@ export default {
     handleCurrentChange(val) {
       this.listQuery.page_no = val
       this.getList()
+    },
+    handleSortChange({column, prop, order}) {
+      console.log({column, prop, order})
     }
   }
 }

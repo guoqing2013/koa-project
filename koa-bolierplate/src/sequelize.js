@@ -4,9 +4,9 @@ import Sequelize from 'sequelize'
 // console.log('config', config)
 
 const sequelize = new Sequelize(`mysql://${config.mysql.opts.user}:${config.mysql.opts.pass}@localhost/todolist`, {
-  define: {
-    timestamps: false // 取消Sequelzie自动给数据表加入时间戳（createdAt以及updatedAt）
-  }
+  // define: {
+    // timestamps: false // 取消Sequelzie自动给数据表加入时间戳（createdAt以及updatedAt）
+  // }
 })
 
 // 验证连接

@@ -82,8 +82,10 @@ export const updateSku = async (ctx) => {
 export const getItems = (ctx) => {
   const data = ctx.query;
   let pageNo = data.page_no
-  let pageSize = 20 || parseInt(data.page_size)
+  let pageSize =  parseInt(data.page_size)
   let offset = pageSize * (pageNo - 1)
+  // order_by
+  // column
   return Item.findAndCountAll({
     limit: pageSize,
     offset: offset
@@ -98,6 +100,13 @@ export const getItems = (ctx) => {
         items: result.rows
       }
     }
+
+    // ctx.body = {
+    //   response: {
+    //       "items":[{"sync_status":0,"item_id":"411425915","title":"\u5b9e\u7269\u5546\u54c1\uff08\u8d2d\u4e70\u65f6\u9700\u586b\u5199\u6536\u8d27\u5730\u5740\uff0c\u6d4b\u8bd5\u5546\u54c1\uff0c\u4e0d\u53d1\u8d27\uff0c\u4e0d\u9000\u6b3e\uff09","alias":"278zxdnn7llvr","price":"1.00","created_time":"2018-03-17 11:32:54","num":"0","image_url":"https:\/\/img.yzcdn.cn\/upload_files\/2015\/05\/14\/Fq9Xi4vSuS8D804oC_1CD04sb8uA.png","buy_url":"","stock_num":"999999","sold_num":0,"buy_way":"1","visit_count_uv":0,"visit_count_pv":0,"tags":[],"is_display":["koudaitong"],"is_display_num":1,"is_virtual":0,"goods_type":0,"is_lock":0,"is_used":0,"freezing_endtime":"0000-00-00 00:00:00","is_edit_lock":0,"fx_auth":1,"url":"https:\/\/h5.youzan.com\/v2\/goods\/278zxdnn7llvr","changed_info":[],"changed_description":"","offline_count":0,"item_lock_types":[],"card_alias":null,"video_model":null,"goods_platform":0,"sku_size":0,"pre_sale_mark":-1},{"sync_status":0,"item_id":"411425833","title":"\u7535\u5b50\u5361\u5238\uff08\u8d2d\u4e70\u65f6\u65e0\u9700\u586b\u5199\u6536\u8d27\u5730\u5740\uff0c\u6d4b\u8bd5\u5546\u54c1\uff0c\u4e0d\u53d1\u8d27\uff0c\u4e0d\u9000\u6b3e\uff09","alias":"3ewq4y32h2m5z","price":"1.00","created_time":"2018-03-17 11:32:54","num":"0","image_url":"https:\/\/img.yzcdn.cn\/public_files\/2016\/08\/23\/554c17f049181649f35168d8fb367663.jpg","buy_url":"","stock_num":"999999","sold_num":0,"buy_way":"1","visit_count_uv":0,"visit_count_pv":0,"tags":[],"is_display":["koudaitong"],"is_display_num":1,"is_virtual":3,"goods_type":0,"is_lock":0,"is_used":0,"freezing_endtime":"0000-00-00 00:00:00","is_edit_lock":0,"fx_auth":1,"url":"https:\/\/h5.youzan.com\/v2\/goods\/3ewq4y32h2m5z","changed_info":[],"changed_description":"","offline_count":0,"item_lock_types":[],"card_alias":null,"video_model":null,"goods_platform":0,"sku_size":0,"pre_sale_mark":-1}],
+    //       "total":2,
+    //   }
+    // }
   }).catch((error) => {
     console.log(error)
     // res.status(500).send('Internal Server Error')
