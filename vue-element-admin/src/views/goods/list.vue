@@ -4,10 +4,11 @@
     <el-table :data="list" v-loading.body="listLoading" border fit highlight-current-row style="width: 100%">
       <el-table-column align="center" label="ID" width="80">
         <template slot-scope="scope">
-          <span>{{scope.row.id}}</span>
+          <span>{{scope.row.item_id}}</span>
         </template>
       </el-table-column>
 
+<!--
       <el-table-column width="180px" align="center" label="Date">
         <template slot-scope="scope">
           <span>{{scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}')}}</span>
@@ -48,19 +49,23 @@
           </router-link>
         </template>
       </el-table-column>
+      -->
+
     </el-table>
 
     <div class="pagination-container">
-      <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="listQuery.page"
-        :page-sizes="[10,20,30, 50]" :page-size="listQuery.limit" layout="total, sizes, prev, pager, next, jumper" :total="total">
+      <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="listQuery.page_no"
+        :page-sizes="[10,20,30, 50]" :page-size="listQuery.page_size" layout="total, sizes, prev, pager, next, jumper" :total="total">
       </el-pagination>
     </div>
+
 
   </div>
 </template>
 
 <script>
-import { fetchList } from '@/api/article'
+import { fetchList } from '@/api/goods/item'
+// import { fetchList } from '@/api/article'
 
 export default {
   name: 'articleList',
@@ -70,8 +75,8 @@ export default {
       total: 0,
       listLoading: true,
       listQuery: {
-        page: 1,
-        limit: 10
+        page_no: 1,
+        page_size: 10
       }
     }
   },
@@ -92,17 +97,22 @@ export default {
     getList() {
       this.listLoading = true
       fetchList(this.listQuery).then(response => {
-        this.list = response.data.items
-        this.total = response.data.total
+        const data = response.data;
+        if(data.response) {
+          this.list = data.response.items
+          this.total = data.response.count
+        }
         this.listLoading = false
+      }).then(() => {
+        console.log('fetch goods item list failed !')
       })
     },
     handleSizeChange(val) {
-      this.listQuery.limit = val
+      this.listQuery.page_size = val
       this.getList()
     },
     handleCurrentChange(val) {
-      this.listQuery.page = val
+      this.listQuery.page_no = val
       this.getList()
     }
   }

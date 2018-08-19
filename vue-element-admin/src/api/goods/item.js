@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function fetchList(query) {
   return request({
-    url: '/article/list',
+    url: '/api/oauthentry/youzan.items.onsale/3.0.0/get',
     method: 'get',
     params: query
   })

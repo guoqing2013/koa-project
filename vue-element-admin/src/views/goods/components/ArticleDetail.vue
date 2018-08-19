@@ -17,7 +17,7 @@
           <h3 class="guide">基本信息</h3>
 
           <el-row>
-            <el-col :span="10">
+            <el-col :span="12">
               <el-form-item prop="title" label-width="80px" label="商品名：">
                 <el-input name="title" v-model="postForm.title" required :maxlength="100"></el-input>
               </el-form-item>
@@ -27,7 +27,7 @@
 
 
           <el-row>
-            <el-col :span="10">
+            <el-col :span="12">
               <el-form-item label-width="80px" label="商品图：">
                 <UploadMultiImage color="#1890ff" @successCBK="imageSuccessCBK" ></UploadMultiImage>
               </el-form-item>
@@ -36,7 +36,7 @@
           </el-row>
 
           <el-row>
-            <el-col :span="10">
+            <el-col :span="12">
               <el-form-item prop="sell_point" label-width="80px" label="商品卖点：">
                 <el-input name="sell_point" v-model="postForm.sell_point"></el-input>
               </el-form-item>
@@ -47,9 +47,9 @@
 
         <!-- 价格库存 -->
         <div>
-          <h3 class="createPost-guide">价格库存</h3>
+          <h3 class="guide">价格库存</h3>
           <el-row>
-            <el-col :span="10">
+            <el-col :span="12">
               <el-form-item prop="price" label-width="80px" label="价格：">
                 <el-input v-model="postForm.price">
                   <template slot="prepend">¥</template>
@@ -59,7 +59,7 @@
           </el-row>
 
           <el-row>
-            <el-col :span="10">
+            <el-col :span="12">
               <el-form-item prop="origin_price" label-width="80px" label="划线价：">
                 <el-input v-model="postForm.origin_price">
                 </el-input>
@@ -68,7 +68,7 @@
           </el-row>
 
            <el-row>
-            <el-col :span="10">
+            <el-col :span="12">
               <el-form-item prop="quantity" label-width="80px" label="库存：">
                 <el-input v-model="postForm.quantity">
                 </el-input>
@@ -154,7 +154,7 @@
   } from '@/api/article'
   import {
     createGoods
-  } from '@/api/goods'
+  } from '@/api/goods/item'
   import {
     userSearch
   } from '@/api/remoteSearch'
