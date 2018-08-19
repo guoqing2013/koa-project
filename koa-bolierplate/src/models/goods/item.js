@@ -36,7 +36,8 @@ const Item = sequelize.define('item', {
 
   // auto_listing_time Number 否 开始出售时间。默认0，设置为0 立即出售
   auto_listing_time: {
-    type: Sequelize.DECIMAL
+    type: Sequelize.DECIMAL,
+    defaultValue: 0
   },
 
   // buy_quota Number 否 每人限购多少件。0代表无限购，默认为0
@@ -96,7 +97,8 @@ const Item = sequelize.define('item', {
 
   // is_display Number 否 是否上架商品。默认1 上架商品，设置为0 不上架商品，放入仓库
   is_display: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    defaultValue: 1
   },
 
   // item_no String 否 商品货号（商家为商品设置的外部编号）
@@ -116,7 +118,8 @@ const Item = sequelize.define('item', {
 
   // join_level_discount Number 否 是否参加会员折扣。默认1，设置为1 参加会员折扣
   join_level_discount: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    defaultValue: 1
   },
 
   // messages String 否 商品留言
@@ -209,6 +212,11 @@ const Item = sequelize.define('item', {
   // virtual_extra String 否 虚拟信息扩展信息，一定要按如下JSON格式，否则校验不通过 { "item_validity_start":2322222,//虚拟商品有效期开始时间, 1970-01-01 开始的秒数,留空表示长期有效 "item_validity_end":2322222,//虚拟商品有效期结束时间,1970-01-01 开始的秒数,留空表示长期有效 "effective_type":1,//电子凭证生效类型，0 立即生效， 1 自定义推迟时间， 2 隔天生效 "effective_delay_hours":1,//电子凭证自定义推迟时间 "holidays_available":true//节假日是否可用 }
   virtual_extra: {
     type: Sequelize.INTEGER
+  },
+
+  create_time: {
+    type: Sequelize.DATE,
+    defaultValue: Sequelize.NOW 
   }
 
 }, {
