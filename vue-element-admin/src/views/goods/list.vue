@@ -1,45 +1,44 @@
 <template>
   <div class="app-container">
 
-    <el-table 
-      :data="list"
+    <el-table
       v-loading.body="listLoading"
-      border 
+      :data="list"
+      :default-sort = "{prop: 'date', order: 'descending'}"
+      border
       fit
       highlight-current-row
       style="width: 100%"
-      :default-sort = "{prop: 'date', order: 'descending'}"
       @sort-change="handleSortChange"
     >
       <el-table-column
         type="selection"
-        width="55">
-      </el-table-column>
+        width="55"/>
 
       <el-table-column align="center" label="ID" width="80">
         <template slot-scope="scope">
-          <span>{{scope.row.item_id}}</span>
+          <span>{{ scope.row.item_id }}</span>
         </template>
       </el-table-column>
 
       <el-table-column prop="createdAt" sortable="quantity" align="center" label="库存" width="110">
         <template slot-scope="scope">
-         <span>{{scope.row.quantity}}</span>
+          <span>{{ scope.row.quantity }}</span>
         </template>
       </el-table-column>
 
       <el-table-column prop="quantity" sortable="custom" align="center" label="总销量" width="110">
         <template slot-scope="scope">
-         <span>{{scope.row.quantity}}</span>
+          <span>{{ scope.row.quantity }}</span>
         </template>
       </el-table-column>
 
       <el-table-column prop="createdAt" sortable="custom" align="center" label="创建时间" width="110">
         <template slot-scope="scope">
-         <span>{{scope.row.createdAt}}</span>
+          <span>{{ scope.row.createdAt }}</span>
         </template>
       </el-table-column>
-<!--
+      <!--
       <el-table-column width="180px" align="center" label="Date">
         <template slot-scope="scope">
           <span>{{scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}')}}</span>
@@ -85,11 +84,16 @@
     </el-table>
 
     <div class="pagination-container">
-      <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="listQuery.page_no"
-        :page-sizes="[10,20,30, 50]" :page-size="listQuery.page_size" layout="total, sizes, prev, pager, next, jumper" :total="total">
-      </el-pagination>
+      <el-pagination
+        :current-page="listQuery.page_no"
+        :page-sizes="[10,20,30, 50]"
+        :page-size="listQuery.page_size"
+        :total="total"
+        background
+        layout="total, sizes, prev, pager, next, jumper"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"/>
     </div>
-
 
   </div>
 </template>
@@ -99,18 +103,7 @@ import { fetchList } from '@/api/goods/item'
 // import { fetchList } from '@/api/article'
 
 export default {
-  name: 'articleList',
-  data() {
-    return {
-      list: null,
-      total: 0,
-      listLoading: true,
-      listQuery: {
-        page_no: 1,
-        page_size: 10
-      }
-    }
-  },
+  name: 'ArticleList',
   filters: {
     statusFilter(status) {
       const statusMap = {
@@ -121,6 +114,18 @@ export default {
       return statusMap[status]
     }
   },
+  data() {
+    return {
+      list: null,
+      total: 0,
+      listLoading: true,
+      listQuery: {
+        page_no: 1,
+        page_size: 10,
+        q: 'abc'
+      }
+    }
+  },
   created() {
     this.getList()
   },
@@ -128,8 +133,8 @@ export default {
     getList() {
       this.listLoading = true
       fetchList(this.listQuery).then(response => {
-        const data = response.data;
-        if(data.response) {
+        const data = response.data
+        if (data.response) {
           this.list = data.response.items
           this.total = data.response.count
         }
@@ -146,8 +151,8 @@ export default {
       this.listQuery.page_no = val
       this.getList()
     },
-    handleSortChange({column, prop, order}) {
-      console.log({column, prop, order})
+    handleSortChange({ column, prop, order }) {
+      console.log({ column, prop, order })
     }
   }
 }

@@ -1,3 +1,4 @@
+import Sequelize from 'sequelize'
 import Item from '../../models/goods/item'
 import Sku from '../../models/goods/sku'
 
@@ -81,12 +82,21 @@ export const updateSku = async (ctx) => {
  */
 export const getItems = (ctx) => {
   const data = ctx.query;
+  console.log(data)
   let pageNo = data.page_no
   let pageSize =  parseInt(data.page_size)
   let offset = pageSize * (pageNo - 1)
   // order_by
   // column
+  const Op = Sequelize.Op;
   return Item.findAndCountAll({
+    where: {
+      title: {
+        // [Op.like]: data.q,         // 包含 '%hat'
+        [Op.regexp]: data.q    // 匹配正则表达式 (仅限 MySQL/PG)
+        // [Op.iLike]: '%hat',         // 包含 '%hat' (不区分大小写)  (仅限 PG)
+      }
+    },
     limit: pageSize,
     offset: offset
   }).then((result) => {
