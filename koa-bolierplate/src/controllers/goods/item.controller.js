@@ -97,6 +97,10 @@ export const getItems = (ctx) => {
         // [Op.iLike]: '%hat',         // 包含 '%hat' (不区分大小写)  (仅限 PG)
       }
     },
+    order: [
+      ['createdAt', 'DESC'],
+    ],
+    // attributes: ['id', 'logo_version', 'logo_content_type', 'name', 'updated_at'],
     limit: pageSize,
     offset: offset
   }).then((result) => {
