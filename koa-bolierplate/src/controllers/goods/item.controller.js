@@ -93,7 +93,7 @@ export const getItems = (ctx) => {
     where: {
       title: {
         // [Op.like]: data.q,         // 包含 '%hat'
-        [Op.regexp]: data.q    // 匹配正则表达式 (仅限 MySQL/PG)
+        [Op.regexp]: data.q || null   // 匹配正则表达式 (仅限 MySQL/PG)
         // [Op.iLike]: '%hat',         // 包含 '%hat' (不区分大小写)  (仅限 PG)
       }
     },

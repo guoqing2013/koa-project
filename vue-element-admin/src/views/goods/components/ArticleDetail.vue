@@ -343,10 +343,6 @@
 </script>
 
 <style>
-  .el-form-item__label {
-    font-size: 12px !important;
-    font-weight: normal !important;
-  }
 
 </style>
 
