@@ -1,10 +1,15 @@
 import Router from 'koa-router'
+const router = Router()
+
+import admin from './admin';
+
 import sku from './goods/sku'
 import unit from './goods/unit'
 import category from './goods/category'
 import item from './goods/item'
 import upload from './upload';
-const router = Router()
+
+
 
 // router.get('/register', async (ctx, next) => {
 //   await ctx.render('register.html')
@@ -19,6 +24,8 @@ const router = Router()
 // })
 
 // routes表示的是路由的嵌套处理
+router.use('/admin', admin.routes(), admin.allowedMethods());
+
 router.use(sku.routes(), sku.allowedMethods())
 router.use(unit.routes(), unit.allowedMethods())
 router.use(category.routes(), category.allowedMethods())

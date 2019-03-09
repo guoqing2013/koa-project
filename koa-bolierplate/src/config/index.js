@@ -14,7 +14,7 @@ const path = require('path'),
 let config = {
   app: {
     name: 'kov-blog',
-    port: 5000,
+    port: 8080,
     adminPath: '/api' // 后台路径
   },
   debug: false,
@@ -26,6 +26,7 @@ let config = {
       pass: '123456'
     }
   },
+  jwtSecret: 'jwt-secret',
   'jwt': {
     'cert': 'kov-blog'
   },

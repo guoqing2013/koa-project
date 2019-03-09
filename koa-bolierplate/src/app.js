@@ -22,7 +22,7 @@ import logger from 'koa-logger'
 // import auth from './routes/auth.js'
 // import api from './routes/api.js'
 // import sku from './routes/goods/sku'
-import routes from './routes'
+import router from './routers'
 import jwt from 'koa-jwt'
 import path from 'path'
 import serve from 'koa-static'
@@ -40,12 +40,13 @@ const app = new Koa()
 
 // let port = process.env.PORT
 
+
 // 需要注意是，当配置了xhr.withCredentials = true时，必须在后端增加 response 头信息Access-Control-Allow-Origin，且必须指定域名，而不能指定为*。
 // 参考： https://minghe.me/2017-05-24-%E7%94%A8%E4%BB%A3%E7%A0%81%E6%9D%A5%E6%B5%85%E8%AF%B4CORS%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF.html
 // 参考：http://madole.xyz/whitelisting-multiple-domains-with-kcors-in-koa/
 app.use(cors({
-  origin: 'http://localhost:9527',
-  credentials: true
+  // origin: 'http://localhost:9527',
+  // credentials: true
 
   // origin: function (ctx) {
   //   if (ctx.url === '/test') {
@@ -132,7 +133,10 @@ app.on('error', function (err, ctx) {
 // router.use('/api', /*  jwt({secret: 'vue-koa-demo'}), */ sku.routes()) // 所有走/api/打头的请求都需要经过jwt验证。
 
 // app.use(router.routes()) // 将路由规则挂载到Koa上。
-app.use(routes.routes(), routes.allowedMethods())
+// app.use(router.routes(), routes.allowedMethods());
+app
+  .use(router.routes())
+  .use(router.allowedMethods());
 
 
 
