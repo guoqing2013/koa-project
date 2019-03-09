@@ -56,7 +56,8 @@ const login = async (ctx) => {
       response = {
         code: 200,
         data: {
-          token
+          token,
+          tokenHead: "Bearer "
         },
         message: "操作成功"
       }
@@ -72,7 +73,6 @@ const login = async (ctx) => {
       message: "用户不存在！"
     }
   }
-  console.log(response);
   ctx.body = response;
 } 
 
